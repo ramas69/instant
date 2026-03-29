@@ -95,17 +95,6 @@ export default function MerciPage() {
         </div>
       </section>
 
-      {/* ══ BOOKMARK ══ */}
-      <section className={styles.section}>
-        <div className={`${styles.bkCard} rv`}>
-          <div className={styles.bkIcon}>&#128278;</div>
-          <div className={styles.bkText}>
-            <h3>Sauvegarde cette page</h3>
-            <p>Ajoute cette page &agrave; tes favoris (<kbd>Ctrl+D</kbd> ou <kbd>&#8984;+D</kbd>) pour retrouver tes t&eacute;l&eacute;chargements &agrave; tout moment.</p>
-          </div>
-        </div>
-      </section>
-
       {/* ══ NEXT STEPS ══ */}
       <section className={styles.section}>
         <div className={`${styles.nsTitle} rv`}>Et maintenant ?</div>
