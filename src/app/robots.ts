@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/merci',
+      disallow: ['/merci', '/merci-kit'],
     },
     sitemap: 'https://instant-ia.com/sitemap.xml',
   }
