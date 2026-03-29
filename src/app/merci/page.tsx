@@ -100,10 +100,10 @@ export default function MerciPage() {
         <div className={`${styles.nsTitle} rv`}>Et maintenant ?</div>
         <div className={styles.nsGrid}>
           <div className={`${styles.nsCard} rv`}>
-            <div className={styles.nsIcon}>&#128172;</div>
-            <h3>Suis-moi sur LinkedIn</h3>
-            <p>Tips IA, retours d&apos;exp&eacute;rience et actus &mdash; je partage tout l&agrave;-bas.</p>
-            <a href="https://www.linkedin.com/in/rama-soumar%C3%A9-aa5131a0/" target="_blank" rel="noopener noreferrer" className={styles.nsLink}>Me suivre &rarr;</a>
+            <div className={styles.nsIcon}>&#128248;</div>
+            <h3>Suis-moi sur Instagram</h3>
+            <p>Tips IA, coulisses et actus &mdash; je partage tout l&agrave;-bas.</p>
+            <a href="https://www.instagram.com/rama__soumare/?hl=fr" target="_blank" rel="noopener noreferrer" className={styles.nsLink}>Me suivre &rarr;</a>
           </div>
           <div className={`${styles.nsCard} rv d1`}>
             <div className={styles.nsIcon}>&#128218;</div>
