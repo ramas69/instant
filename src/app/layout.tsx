@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
-import localFont from 'next/font/local'
 import './globals.css'
 
 const inter = Inter({
@@ -52,11 +51,7 @@ export default function RootLayout({
         <style>{`
           :root {
             --font-serif: 'Instrument Serif', serif;
-            --font-space: ${spaceGrotesk.style.fontFamily};
           }
-          body { font-family: ${inter.style.fontFamily}, sans-serif; }
-          .nav-logo, .footer-logo { font-family: ${spaceGrotesk.style.fontFamily}, sans-serif; }
-          .shop-card h3 { font-family: ${spaceGrotesk.style.fontFamily}, sans-serif; }
         `}</style>
       </head>
       <body>{children}</body>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 import ScrollReveal from '@/components/ScrollReveal'
+import SioForm from '@/components/SioForm'
 import styles from './page.module.css'
 
 export const metadata: Metadata = {
@@ -22,28 +23,6 @@ const footerLinks = [
   { href: '/#rama', label: 'A propos' },
   { href: 'mailto:hello@instant-ia.com', label: 'Contact' },
 ]
-
-function SioForm({ id }: { id: string }) {
-  return (
-    <form
-      action="https://systeme.io/embedded/39421724/subscription"
-      method="post"
-      className={styles.sioForm}
-      id={id}
-    >
-      <div className={styles.sioField}>
-        <input type="text" name="first_name" placeholder="Ton prenom" required className={styles.sioInput} />
-      </div>
-      <div className={styles.sioField}>
-        <input type="email" name="email" placeholder="Ton email" required className={styles.sioInput} />
-      </div>
-      <input type="hidden" name="surname" value="" />
-      <button type="submit" className={styles.sioSubmit}>
-        Recevoir les 3 agents gratuits &rarr;
-      </button>
-    </form>
-  )
-}
 
 export default function LeadMagnetPage() {
   return (
@@ -86,7 +65,7 @@ export default function LeadMagnetPage() {
                 Recois les 3 agents par email en 30 secondes.
               </p>
             </div>
-            <SioForm id="sio-hero" />
+            <SioForm id="sio-hero" styles={styles} />
           </div>
         </div>
       </section>
@@ -241,7 +220,7 @@ export default function LeadMagnetPage() {
         </p>
 
         <div className={styles.formCard} style={{ maxWidth: 480, margin: '0 auto' }}>
-          <SioForm id="sio-final" />
+          <SioForm id="sio-final" styles={styles} />
         </div>
 
         <div className={styles.heroTrust} style={{ justifyContent: 'center', marginTop: '2rem' }}>

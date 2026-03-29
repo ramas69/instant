@@ -6,7 +6,8 @@ html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smo
     --gold:#C5A044;--gold2:#D4AF37;--gold-bright:#E8C547;--gold-pale:rgba(197,160,68,0.08);
     --txt:#1B2B25;--txt2:#3D564B;--txt3:#6B877B;
 }
-body{color:var(--txt);background:var(--cream);overflow-x:hidden;font-size:16px;line-height:1.7}
+body{color:var(--txt);background:var(--cream);overflow-x:hidden;font-size:16px;line-height:1.7;font-family:var(--font-inter),sans-serif}
+.nav-logo,.footer-logo{font-family:var(--font-space),sans-serif}
 a{color:inherit;text-decoration:none}
 
 /* ════════ NAV (light — default for subpages) ════════ */
@@ -23,7 +24,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(250,248,244,
 .nav-cta:hover{background:var(--green2)}
 
 /* NAV — Homepage variant (dark hero, blend mode) */
-nav.nav-homepage{mix-blend-mode:difference;background:none;border:none;backdrop-filter:none}
+nav.nav-homepage{background:transparent;border:none;backdrop-filter:none}
 nav.nav-homepage .nav-logo{color:#fff}
 nav.nav-homepage .nav-logo-circle{border-color:rgba(255,255,255,0.3)}
 nav.nav-homepage .nav-links a{color:rgba(255,255,255,0.7)}
@@ -60,13 +61,17 @@ nav.nav-homepage.light .menu-btn span{background:var(--green)}
 
 /* ════════ BUTTONS ════════ */
 .btn-hero{padding:1rem 2.2rem;border-radius:60px;font-size:0.95rem;font-weight:600;transition:all 0.4s cubic-bezier(0.23,1,0.32,1);display:inline-flex;align-items:center;gap:0.5rem}
-.btn-primary{background:var(--gold2);color:var(--green);box-shadow:0 0 0 0 rgba(212,175,55,0)}
+.btn-primary{background:var(--gold2);color:var(--green);box-shadow:0 0 0 0 rgba(212,175,55,0);position:relative;overflow:hidden}
+.btn-primary::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,0.2);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.5s,height 0.5s}
+.btn-primary:hover::before{width:300px;height:300px}
 .btn-primary:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(212,175,55,0.25)}
 .btn-ghost{border:1px solid rgba(255,255,255,0.2);color:#fff}
 .btn-ghost:hover{background:rgba(255,255,255,0.08);transform:translateY(-3px)}
 .btn-card{padding:0.8rem 1.8rem;border-radius:50px;font-size:0.88rem;font-weight:600;background:var(--green);color:#fff;display:inline-flex;align-items:center;gap:0.4rem;transition:all 0.3s}
 .btn-card:hover{background:var(--green2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(6,78,59,0.2)}
-.btn-buy{padding:1rem 2.5rem;border-radius:60px;font-size:1rem;font-weight:700;background:var(--gold2);color:var(--green);transition:all 0.4s cubic-bezier(0.23,1,0.32,1);display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer}
+.btn-buy{padding:1rem 2.5rem;border-radius:60px;font-size:1rem;font-weight:700;background:var(--gold2);color:var(--green);transition:all 0.4s cubic-bezier(0.23,1,0.32,1);display:inline-flex;align-items:center;gap:0.5rem;border:none;cursor:pointer;position:relative;overflow:hidden}
+.btn-buy::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;background:rgba(255,255,255,0.2);border-radius:50%;transform:translate(-50%,-50%);transition:width 0.5s,height 0.5s}
+.btn-buy:hover::before{width:300px;height:300px}
 .btn-buy:hover{transform:translateY(-3px);box-shadow:0 12px 40px rgba(212,175,55,0.3)}
 .btn-shop{padding:0.7rem 1.6rem;border-radius:50px;font-size:0.85rem;font-weight:600;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.4rem}
 .btn-shop.buy{background:var(--green);color:#fff}
@@ -76,7 +81,7 @@ nav.nav-homepage.light .menu-btn span{background:var(--green)}
 
 /* ════════ SHOP CARDS (shared) ════════ */
 .shop-card{background:#fff;border-radius:20px;overflow:hidden;border:1px solid rgba(6,78,59,0.06);transition:all 0.5s cubic-bezier(0.23,1,0.32,1);display:flex;flex-direction:column}
-.shop-card:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(6,78,59,0.1)}
+.shop-card:hover{transform:translateY(-8px);box-shadow:0 25px 60px rgba(6,78,59,0.1);border-color:rgba(212,175,55,0.15)}
 .shop-card-top{padding:2.5rem 2rem 1.5rem;position:relative}
 .shop-badge{position:absolute;top:1.2rem;right:1.2rem;padding:0.3rem 0.8rem;border-radius:50px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:1px}
 .badge-best{background:var(--gold2);color:var(--green)}
@@ -88,7 +93,7 @@ nav.nav-homepage.light .menu-btn span{background:var(--green)}
 .shop-card-icon.sci-3{background:linear-gradient(135deg,#B8953F,#D4AF37)}
 .shop-card-icon.sci-4{background:linear-gradient(135deg,#2563EB,#3B82F6)}
 .shop-card-icon svg{width:28px;height:28px}
-.shop-card h3{font-size:1.2rem;font-weight:700;color:var(--green);margin-bottom:0.4rem;letter-spacing:-0.3px}
+.shop-card h3{font-family:var(--font-space),sans-serif;font-size:1.2rem;font-weight:700;color:var(--green);margin-bottom:0.4rem;letter-spacing:-0.3px}
 .shop-card .shop-desc{font-size:0.9rem;color:var(--txt2);line-height:1.7}
 .shop-card-features{padding:0 2rem;margin-bottom:1.5rem;display:flex;flex-direction:column;gap:0.5rem;flex-grow:1}
 .shop-feat{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.85rem;color:var(--txt2)}

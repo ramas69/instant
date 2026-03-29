@@ -6,8 +6,9 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   padding: 3rem;
+  padding-top: 7rem;
 }
 
 .heroContent {
@@ -16,7 +17,6 @@
   max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  padding-top: 8rem;
 }
 
 .heroNumber {
@@ -29,16 +29,143 @@
   right: 5%;
   pointer-events: none;
   font-style: italic;
+  animation: heroNumberIn 1.5s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes heroNumberIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) rotate(-5deg);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.heroLeft {
+  min-width: 0;
+}
+
+.heroRight {
+  display: flex;
+  justify-content: flex-end;
+  animation: heroCardIn 1s cubic-bezier(0.23, 1, 0.32, 1) 0.4s both;
+}
+
+@keyframes heroCardIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+.heroCard {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 3rem;
+  backdrop-filter: blur(16px);
+  width: 100%;
+  max-width: 480px;
+  animation: heroFloat 6s ease-in-out infinite;
+  transition: border-color 0.4s, box-shadow 0.4s;
+}
+
+.heroCard:hover {
+  border-color: rgba(232, 197, 71, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+@keyframes heroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.heroCardTitle {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 400;
+  margin-bottom: 2rem;
+  padding-bottom: 1.2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.heroServices {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.heroService {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  transition: transform 0.3s;
+}
+
+.heroService:hover {
+  transform: translateX(6px);
+}
+
+.heroServiceIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: rgba(232, 197, 71, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.heroService:hover .heroServiceIcon {
+  background: rgba(232, 197, 71, 0.22);
+  transform: scale(1.08);
+}
+
+.heroServiceIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.heroService strong {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
+
+.heroService p {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
+  margin: 0;
 }
 
 .heroHeadline {
   font-family: var(--font-serif);
-  font-size: clamp(3.5rem, 8vw, 7rem);
-  line-height: 0.95;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 1;
   color: #fff;
-  max-width: 900px;
-  margin-bottom: 2rem;
+  max-width: 700px;
+  margin-bottom: 1.5rem;
   font-weight: 400;
+  animation: heroFadeUp 0.9s cubic-bezier(0.23, 1, 0.32, 1) both;
 }
 
 .heroHeadline em {
@@ -57,21 +184,40 @@
   height: 2px;
   background: var(--gold2);
   opacity: 0.4;
+  animation: lineGrow 0.8s cubic-bezier(0.23, 1, 0.32, 1) 0.6s both;
+}
+
+@keyframes lineGrow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .heroSub {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.6);
   max-width: 480px;
-  line-height: 1.8;
-  margin-bottom: 3rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  animation: heroFadeUp 0.9s cubic-bezier(0.23, 1, 0.32, 1) 0.15s both;
 }
 
 .heroActions {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 4rem;
+  margin-bottom: 2.5rem;
+  animation: heroFadeUp 0.9s cubic-bezier(0.23, 1, 0.32, 1) 0.3s both;
 }
 
 .heroBottom {
@@ -1030,11 +1176,20 @@
 /* ════════ RESPONSIVE ════════ */
 @media (max-width: 900px) {
   .hero {
-    padding: 2rem;
+    padding: 6rem 2rem 2rem;
   }
 
-  .heroContent {
-    padding-top: 6rem;
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .heroRight {
+    justify-content: center;
+  }
+
+  .heroCard {
+    max-width: 100%;
   }
 
   .heroBottom {

@@ -26,7 +26,7 @@ export default function MerciPage() {
   const [copied, setCopied] = useState(false)
 
   function copyNotionLink() {
-    const link = 'https://notion.so/instant-ia/bonus-templates'
+    const link = 'https://serial-rama.notion.site/Bonus-Agents-IA-Templates-Prompts-332f83faf500800abbd2cec87481c069'
     navigator.clipboard.writeText(link)
     setCopied(true)
     setTimeout(() => setCopied(false), 2500)
@@ -67,7 +67,7 @@ export default function MerciPage() {
             <h3>Ebook PDF</h3>
             <p>Guide Pratique des Agents IA &mdash; Version complete</p>
             <a
-              href="/downloads/guide-agents-ia.pdf"
+              href="/dl-guide-r4j6w3p1.pdf"
               download
               className={`${styles.dlBtn} ${styles.dlBtnPrimary}`}
             >
@@ -103,7 +103,7 @@ export default function MerciPage() {
             <h3>Kit IA Solopreneur</h3>
             <p>Va encore plus loin : 12 agents avances, automatisations et support prioritaire.</p>
             <a
-              href="https://buy.stripe.com/kit-ia-solopreneur"
+              href="https://buy.stripe.com/test_3cI5kF6T1b7jgGIfs57g401"
               target="_blank"
               rel="noopener noreferrer"
               className={`${styles.dlBtn} ${styles.dlBtnGold}`}

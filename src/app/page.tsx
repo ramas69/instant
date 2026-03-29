@@ -43,17 +43,64 @@ export default function HomePage() {
         <div className={`blob blob-2 ${styles.blob2}`} />
         <div className={styles.heroNumber}>IA</div>
         <div className={styles.heroContent}>
-          <h1 className={`${styles.heroHeadline} rv`}>
-            Ceux qui n&apos;utilisent pas<br />
-            l&apos;IA aujourd&apos;hui seront<br />
-            <em>d&eacute;pass&eacute;s demain.</em>
-          </h1>
-          <p className={`${styles.heroSub} rv d1`}>
-            Je t&apos;aide &agrave; transformer ton business avec l&apos;IA. Formations, ateliers live, ebooks et accompagnement — que du concret, z&eacute;ro blabla.
-          </p>
-          <div className={`${styles.heroActions} rv d2`}>
-            <a href="#lead" className="btn-hero btn-primary">Commence ici — c&apos;est gratuit &rarr;</a>
-            <a href="mailto:hello@instant-ia.com" className="btn-hero btn-ghost">Me contacter</a>
+          <div className={styles.heroGrid}>
+            <div className={styles.heroLeft}>
+              <h1 className={`${styles.heroHeadline} rv`}>
+                Ceux qui n&apos;utilisent pas<br />
+                l&apos;IA aujourd&apos;hui seront<br />
+                <em>d&eacute;pass&eacute;s demain.</em>
+              </h1>
+              <p className={`${styles.heroSub} rv d1`}>
+                Je t&apos;aide &agrave; transformer ton business avec l&apos;IA. Formations, ateliers live, ebooks et accompagnement — que du concret, z&eacute;ro blabla.
+              </p>
+              <div className={`${styles.heroActions} rv d2`}>
+                <a href="#lead" className="btn-hero btn-primary">Commence ici — c&apos;est gratuit &rarr;</a>
+                <a href="mailto:hello@instant-ia.com" className="btn-hero btn-ghost">Me contacter</a>
+              </div>
+            </div>
+            <div className={`${styles.heroRight} rv-r d2`}>
+              <div className={styles.heroCard}>
+                <h3 className={styles.heroCardTitle}>Ce que je propose</h3>
+                <div className={styles.heroServices}>
+                  <div className={styles.heroService}>
+                    <span className={styles.heroServiceIcon}>
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4.5 13.5H11.5L10.5 22L19.5 10.5H12.5L13 2Z" fill="#E8C547" /></svg>
+                    </span>
+                    <div>
+                      <strong>Ebooks &amp; Prompts</strong>
+                      <p>Kits actionables, pr&ecirc;ts &agrave; l&apos;emploi</p>
+                    </div>
+                  </div>
+                  <div className={styles.heroService}>
+                    <span className={styles.heroServiceIcon}>
+                      <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="#E8C547" strokeWidth="1.5" /><circle cx="9" cy="10" r="1.5" fill="#E8C547" /><circle cx="15" cy="10" r="1.5" fill="#E8C547" /><path d="M9 15c0 0 1.5 2 3 2s3-2 3-2" stroke="#E8C547" strokeWidth="1.5" strokeLinecap="round" /></svg>
+                    </span>
+                    <div>
+                      <strong>Agents IA</strong>
+                      <p>Cr&eacute;e et d&eacute;ploie tes agents autonomes</p>
+                    </div>
+                  </div>
+                  <div className={styles.heroService}>
+                    <span className={styles.heroServiceIcon}>
+                      <svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="#E8C547" strokeWidth="1.5" /><path d="M16.5 16.5L21 21" stroke="#E8C547" strokeWidth="1.5" strokeLinecap="round" /><path d="M8 11h6M11 8v6" stroke="#E8C547" strokeWidth="1.2" strokeLinecap="round" /></svg>
+                    </span>
+                    <div>
+                      <strong>Audit &amp; Consulting</strong>
+                      <p>Accompagnement sur-mesure pour ton business</p>
+                    </div>
+                  </div>
+                  <div className={styles.heroService}>
+                    <span className={styles.heroServiceIcon}>
+                      <svg viewBox="0 0 24 24" fill="none"><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="#E8C547" strokeWidth="1.5" strokeLinecap="round" /><circle cx="12" cy="12" r="3" fill="#E8C547" /></svg>
+                    </span>
+                    <div>
+                      <strong>Formations live</strong>
+                      <p>Ateliers pratiques, r&eacute;sultats imm&eacute;diats</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <div className={`hero-bottom ${styles.heroBottom} rv d3`}>
             <div>
@@ -135,7 +182,7 @@ export default function HomePage() {
               <div className="shop-price"><span className="amount">27</span><span className="currency">&euro;</span></div>
               <div className={styles.shopBtnWrap}>
                 <Link href="/kit-ia" className="btn-shop dl">D&eacute;tails</Link>
-                <a href="https://buy.stripe.com/28E8wPczv2W8h0A3cOdIA01" className="btn-shop buy">Acheter &rarr;</a>
+                <a href="https://buy.stripe.com/test_3cI5kF6T1b7jgGIfs57g401" className="btn-shop buy">Acheter &rarr;</a>
               </div>
             </div>
           </div>
@@ -165,7 +212,7 @@ export default function HomePage() {
               </div>
               <div className={styles.shopBtnWrap}>
                 <Link href="/guide-agents-ia" className="btn-shop dl">D&eacute;tails</Link>
-                <a href="https://buy.stripe.com/dRm00j42ZbsEcKkcNodIA02" className="btn-shop buy">Acheter &rarr;</a>
+                <a href="https://buy.stripe.com/test_28E6oJ2CL2AN7685Rv7g400" className="btn-shop buy">Acheter &rarr;</a>
               </div>
             </div>
           </div>

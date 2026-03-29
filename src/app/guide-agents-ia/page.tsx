@@ -60,7 +60,7 @@ export default function GuideAgentsIAPage() {
               <span className={styles.heroPriceOld}>49&euro;</span>
               <span className={styles.heroPriceAmount}>29&euro;</span>
             </div>
-            <a href="https://buy.stripe.com/dRm00j42ZbsEcKkcNodIA02" className="btn-buy rv d4">
+            <a href="https://buy.stripe.com/test_28E6oJ2CL2AN7685Rv7g400" className="btn-buy rv d4">
               T&eacute;l&eacute;charger le Guide &rarr;
             </a>
             <div className={`${styles.heroTrust} rv d5`}>
@@ -280,7 +280,7 @@ export default function GuideAgentsIAPage() {
           <p className="rv d1">5 agents pr&ecirc;ts &agrave; l&rsquo;emploi + le framework RACE + un plan 30 jours.</p>
           <div className="final-price rv d2">29&euro;</div>
           <div className="final-price-old rv d2">49&euro;</div>
-          <a href="https://buy.stripe.com/dRm00j42ZbsEcKkcNodIA02" className="btn-buy rv d3">
+          <a href="https://buy.stripe.com/test_28E6oJ2CL2AN7685Rv7g400" className="btn-buy rv d3">
             T&eacute;l&eacute;charger le Guide &rarr;
           </a>
           <div className="final-trust rv d4">

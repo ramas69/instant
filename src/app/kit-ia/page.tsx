@@ -59,7 +59,7 @@ export default function KitIAPage() {
               <span className={styles.heroPriceOld}>47&euro;</span>
               <span className={styles.heroPriceAmount}>27&euro;</span>
             </div>
-            <a href="https://buy.stripe.com/28E8wPczv2W8h0A3cOdIA01" className="btn-buy rv d4">
+            <a href="https://buy.stripe.com/test_3cI5kF6T1b7jgGIfs57g401" className="btn-buy rv d4">
               T&eacute;l&eacute;charger le Kit &rarr;
             </a>
             <div className={`${styles.heroTrust} rv d5`}>
@@ -220,7 +220,7 @@ export default function KitIAPage() {
           <p className="rv d1">50 m&eacute;ga-prompts + 5 workflows. Tout est pr&ecirc;t, il ne manque que toi.</p>
           <div className="final-price rv d2">27&euro;</div>
           <div className="final-price-old rv d2">47&euro;</div>
-          <a href="https://buy.stripe.com/28E8wPczv2W8h0A3cOdIA01" className="btn-buy rv d3">
+          <a href="https://buy.stripe.com/test_3cI5kF6T1b7jgGIfs57g401" className="btn-buy rv d3">
             T&eacute;l&eacute;charger le Kit &rarr;
           </a>
           <div className="final-trust rv d4">
