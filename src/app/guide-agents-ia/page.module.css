@@ -1,0 +1,393 @@
+/* ═══ HERO ═══ */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding: 8rem 3rem 4rem;
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heroBadge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  background: rgba(232, 197, 71, 0.15);
+  color: var(--gold-bright);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+.heroPrice {
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.heroPriceOld {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: line-through;
+  font-family: var(--font-space);
+}
+
+.heroPriceAmount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--gold-bright);
+  letter-spacing: -2px;
+  font-family: var(--font-space);
+}
+
+.heroTrust {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.78rem;
+}
+
+.heroRight {
+  display: flex;
+  justify-content: center;
+}
+
+.heroCard {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.heroFeats {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.heroFeat {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.heroFeatIcon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+/* ═══ CHAPTERS GRID ═══ */
+.chGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.chCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  border: 1px solid rgba(6, 78, 59, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.chCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(6, 78, 59, 0.08);
+}
+
+.chNum {
+  display: inline-block;
+  font-family: var(--font-space);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--gold);
+  background: var(--gold-pale);
+  padding: 0.2rem 0.6rem;
+  border-radius: 50px;
+  margin-bottom: 0.8rem;
+}
+
+.chCard h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.chCard p {
+  font-size: 0.85rem;
+  color: var(--txt2);
+  line-height: 1.7;
+}
+
+/* ═══ AGENTS GRID ═══ */
+.agentsGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+}
+
+.agentCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(6, 78, 59, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.agentCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(6, 78, 59, 0.08);
+}
+
+.agentIcon {
+  font-size: 2rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.agentCard h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.4rem;
+}
+
+.agentUse {
+  font-size: 0.82rem;
+  color: var(--txt2);
+  line-height: 1.6;
+}
+
+/* ═══ PEEK CARDS ═══ */
+.peekCards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.peekCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem;
+  border: 1px solid rgba(6, 78, 59, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.peekCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(6, 78, 59, 0.08);
+}
+
+.peekCard h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.peekCard > p {
+  font-size: 0.9rem;
+  color: var(--txt2);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+.peekPrompt {
+  background: var(--green);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.peekPrompt code {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-family: var(--font-space);
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+/* ═══ BONUS SECTION ═══ */
+.bonusGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.bonusChecklist {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.bonusChecklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--txt2);
+  line-height: 1.6;
+}
+
+.bonusChecklist li::before {
+  content: '\2713';
+  color: var(--green);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.bonusVisual {
+  background: #fff;
+  border-radius: 24px;
+  padding: 2.5rem;
+  border: 1px solid rgba(6, 78, 59, 0.06);
+}
+
+.bonusFeat {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bonusItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.bonusItem > span {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.bonusItem strong {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--green);
+  margin-bottom: 0.1rem;
+}
+
+.bonusItem p {
+  font-size: 0.82rem;
+  color: var(--txt2);
+  line-height: 1.5;
+}
+
+/* ═══ WHO GRID ═══ */
+.whoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.whoCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  border: 1px solid rgba(6, 78, 59, 0.06);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.whoCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(6, 78, 59, 0.08);
+}
+
+.whoCard h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--green);
+  margin-bottom: 0.5rem;
+}
+
+.whoCard p {
+  font-size: 0.9rem;
+  color: var(--txt2);
+  line-height: 1.7;
+}
+
+.whoIcon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 900px) {
+  .hero {
+    padding: 7rem 1.5rem 3rem;
+    min-height: auto;
+  }
+
+  .heroGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .heroTrust {
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .chGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .agentsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .peekCards {
+    grid-template-columns: 1fr;
+  }
+
+  .bonusGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .whoGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .agentsGrid {
+    grid-template-columns: 1fr;
+  }
+}
