@@ -11,15 +11,15 @@ export const metadata: Metadata = {
 }
 
 const navLinks = [
-  { href: '/#offres', label: 'Offres' },
   { href: '/#boutique', label: 'Boutique' },
+  { href: '/#offres', label: 'Accompagnement' },
   { href: '/#rama', label: 'A propos' },
   { href: 'mailto:hello@instant-ia.com', label: 'Contactez-moi', isCta: true },
 ]
 
 const footerLinks = [
-  { href: '/#offres', label: 'Offres' },
   { href: '/#boutique', label: 'Boutique' },
+  { href: '/#offres', label: 'Accompagnement' },
   { href: '/#rama', label: 'A propos' },
   { href: 'mailto:hello@instant-ia.com', label: 'Contact' },
 ]
