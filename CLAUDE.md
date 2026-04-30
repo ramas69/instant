@@ -56,10 +56,10 @@ Consultante 39 ans Lyon, ex-RH grand groupe, 80K€ CA, 55h/sem, 8 clients en pa
 
 | Couche | Choix |
 |---|---|
-| Framework | Symfony 7.2+ |
-| PHP | 8.5.5 (installé Homebrew, supporté Symfony 7.2) |
+| Framework | Symfony 7.4 (installé via `^7.2`, dernière LTS 11/2028) |
+| PHP | 8.5.5 (Homebrew CLI) |
 | ORM | Doctrine 3 |
-| BDD | PostgreSQL 16 |
+| BDD | MySQL 8.0 via MAMP (port 8889 en local, cf. décision #013) |
 | Front | Twig + Symfony UX (Stimulus + Turbo) + Tailwind CSS 3 |
 | Build | AssetMapper + Tailwind CLI standalone |
 | Admin | EasyAdmin 4 |

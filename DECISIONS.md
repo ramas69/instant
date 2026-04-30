@@ -6,6 +6,12 @@
 
 ---
 
+## 2026-05-01
+
+| # | Décision | Raison | Alternatives écartées |
+|---|---|---|---|
+| 013 | **BDD = MySQL 8.0 via MAMP** (port 8889, root/root en local). **Annule partiellement la décision #002** sur le point BDD (PostgreSQL 16 → MySQL 8.0). Suppression des fichiers `compose.yaml` + `compose.override.yaml` générés par Symfony Flex pour Postgres. | Rama utilise déjà MAMP en local pour ses autres projets PHP (port 8889 actif), interface phpMyAdmin familière, pas de nouveau setup à apprendre. MySQL 8.0 supporte JSON, BINARY(16) pour Uuid v7, et tous les hosts (Platform.sh / Scalingo) le supportent en prod. Doctrine abstrait 95% des différences SQL. Charset utf8mb4. | (a) PostgreSQL Homebrew → respecte la stack initiale mais zéro familiarité Rama, friction inutile. (b) SQLite → impossible en prod réaliste. (c) Lancer Postgres en plus de MAMP → 2 stacks BDD à gérer en parallèle, sur-complexité. |
+
 ## 2026-04-30
 
 | # | Décision | Raison | Alternatives écartées |
