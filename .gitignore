@@ -45,3 +45,8 @@ Thumbs.db
 # Backups
 *.bak
 *.swp
+
+###> phpunit/phpunit ###
+/phpunit.xml
+/.phpunit.cache/
+###< phpunit/phpunit ###
