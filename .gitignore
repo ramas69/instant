@@ -1,15 +1,47 @@
-# dependencies
-node_modules/
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
 
-# next.js
-.next/
-out/
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
 
-# misc
+###> symfony/phpunit-bridge ###
+.phpunit.result.cache
+/phpunit.xml
+###< symfony/phpunit-bridge ###
+
+###> phpstan/phpstan ###
+phpstan.neon
+###< phpstan/phpstan ###
+
+# Build / dependencies front
+/node_modules/
+/public/build/
+
+# Tailwind CLI standalone binary (téléchargé localement)
+/tools/tailwindcss
+
+# OS
 .DS_Store
-*.tsbuildinfo
-next-env.d.ts
+Thumbs.db
 
-# env files
-.env
-.env*.local
+# IDE
+/.idea/
+/.vscode/
+/*.iml
+/.fleet/
+
+# Local Claude Code
+/.claude/
+
+# Backups
+*.bak
+*.swp

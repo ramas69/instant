@@ -1,0 +1,30 @@
+# DECISIONS.md — Choix architecturaux Instant IA
+
+> Format : Date | Décision | Raison | Alternatives écartées
+> Toute décision technique non triviale est consignée ici.
+> Ordre chronologique inversé : la décision la plus récente en haut.
+
+---
+
+## 2026-04-30
+
+| # | Décision | Raison | Alternatives écartées |
+|---|---|---|---|
+| 010 | Repo `ramas69/instant` réutilisé. Ancien code Next.js archivé en branche locale `legacy-nextjs`. `main` resetté pour le projet Symfony from scratch. | Conserver l'historique sans dupliquer un repo. La branche legacy permet de retrouver le Next.js si besoin (copy de référence, assets PDF). | (a) Nouveau repo dédié → perte de l'historique, double gestion. (b) Garder Next.js sur main et coder Symfony dans un sous-dossier → mauvaise pratique, double-stack confuse. |
+| 009 | Stratégie pragmatique de release : on construit les **fondations communes A/B/C** (setup + DS + landing + Stripe + légales) en J0-J8, puis check-point pour décider entre pré-launch mi-mai (Option A), MVP complet mi-juin (Option B) ou hybride liste d'attente (Option C). | Deadline early-bird mi-mai annoncée publiquement, mais 6 sprints × 6 semaines = ~90h ≠ ~24h dispo en 2 semaines. Refus de coder un MVP complet impossible à tenir. Refus de figer A/B/C trop tôt sans données. | (a) MVP complet mi-mai → impossible avec qualité OWASP/PHPStan 8/tests. (b) Décaler à mi-juin sans pré-launch → risque de perte de momentum. (c) Annoncer report tout de suite sans plan → trop précoce. |
+| 008 | Bonus existants (Kit IA Solopreneur 27€, Guide Pratique 29€) **sortis du MVP**, reportés post-MVP (Phase 2). | Capacité dev limitée pour mi-mai. Les bonus sont déjà vendables sur l'ancien site Next.js (toujours servable temporairement) ou par email. Priorité MVP = formation principale. | Inclure dans MVP en téléchargement automatique post-achat → trop coûteux pour le ROI MVP. |
+| 007 | Refonte instant-ia.com **from scratch en Symfony** (pas de migration progressive ni de sous-domaine séparé). | Ancien site = Next.js marketing simple sans backend e-learning. La plateforme membre nécessite un backend lourd (auth, paiement, progression, certificat). Repartir from scratch est plus rapide qu'une migration. Le DS "Editorial Atelier" est nouveau, donc rien à conserver visuellement. | (a) Sous-domaine `app.instant-ia.com` → fragmente le SEO et l'expérience. (b) Migration progressive page par page → double maintenance pendant des semaines. |
+| 006 | UI **100% en français** pour le MVP, **pas d'i18n** dès le départ. | Audience exclusivement francophone (Sandra = consultante Lyon). YAGNI : ajouter i18n maintenant, c'est de la complexité sans valeur. Si segment international apparaît post-MVP, on refactorera. | Implémenter `symfony/translation` + clés `trans` dès le début → over-engineering pour zéro bénéfice court terme. |
+| 005 | **Naming entités Doctrine** : `User` reste en anglais (exception convention Symfony Security), tout le reste du domaine métier en français : `Cours`, `Module`, `Lecon`, `Achat`, `Progression`, `Certificat`. | `User` est massivement référencé dans la doc Symfony Security, EasyAdmin, fixtures, etc. — le renommer = friction technique sans bénéfice utilisateur. Le métier en FR aligne le code avec le langage business de Rama. Les noms de classes en ASCII (Lecon sans cédille) pour portabilité PSR-1. | (a) Tout en anglais → écart avec le langage métier FR. (b) Tout en français y compris User → friction Symfony Security inutile. (c) `Leçon` avec cédille → casse PSR-1 et certains environnements. |
+| 004 | **Build front** : AssetMapper + Tailwind CLI standalone (pas Webpack Encore). | AssetMapper est la stack moderne Symfony 7, sans Node toolchain runtime. Tailwind CLI standalone tourne sans webpack/postcss config. Plus léger, plus rapide à mettre en place, recommandé Symfony 7. | (a) Webpack Encore → Node toolchain plus lourde, on s'en passe pour ce projet seul. |
+| 003 | **PHP 8.5.5** utilisé en local (Homebrew), supporté Symfony 7.2. | Dernière version stable installée. Symfony 7.2 supporte officiellement 8.5. Aucun blocage attendu. Hosting prod (Platform.sh / Scalingo) à aligner sur 8.5 lors du déploiement. | (a) Downgrade vers 8.4 ou 8.3 → aucun bénéfice, ajoute du friction. |
+| 002 | **Stack imposée** : Symfony 7.2+ / PHP 8.3+ / Doctrine 3 / Twig+Tailwind / PostgreSQL 16 / Stripe officiel / Vimeo Pro / Brevo / EasyAdmin 4 / PHPUnit + Panther / PHPStan niveau 8. | Choix de Rama, alignée avec son expertise Symfony et les contraintes RGPD-EU + budget solo. | Cf. CLAUDE.md §2 — toute déviation requiert justification écrite + 3 alternatives chiffrées. |
+| 001 | **Design System "Editorial Atelier"** validé comme source unique pour l'identité visuelle. Bundle récupéré depuis l'URL Anthropic Claude Design `https://api.anthropic.com/v1/design/h/dVazrt_LoY9C7Dx7uF_QIg` (gzip + tar). | DS déjà conçu et validé par Rama. 23 composants couvrent 100% du besoin MVP. Tokens CSS structurés (couleurs, typo, spacing, radii, shadows, motion) prêts à mapper sur Tailwind config. | (a) Custom from scratch → travail redondant, divergence possible. (b) Autre DS open source → contradit l'identité Instant IA. |
+
+---
+
+## Conventions du document
+
+- **Numérotation** : ordre d'apparition global (ne pas réutiliser un numéro même si une décision est annulée — créer plutôt une nouvelle ligne "annule la décision XXX").
+- **Annulations** : si une décision est révoquée, créer une nouvelle ligne avec mention "Annule la décision N°XXX du YYYY-MM-DD" en colonne Raison.
+- **Granularité** : on consigne les décisions techniques **non triviales**. Pas la peine de noter "j'ai utilisé un foreach plutôt qu'un map".
