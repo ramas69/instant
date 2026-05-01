@@ -1,0 +1,694 @@
+{% extends 'base.html.twig' %}
+{% import 'components/_buttons.html.twig' as buttons %}
+
+{% block title %}Le Système Claude du Consultant — Formation IA en 14 jours{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Formation Claude IA pour consultants et formateurs solo. 27 vidéos, 3 agents IA construits, méthode P.R.O.M.P.T. 147€ (offre fondateur). Garantie 14j.{% endblock %}
+
+{% block body %}
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 1 — HERO PAGE DE VENTE
+   ════════════════════════════════════════════════════════════════ #}
+<section class="relative overflow-hidden bg-cream-100 px-6 py-24 md:px-12 md:py-32">
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-6xl">
+        <div class="grid items-center gap-12 lg:grid-cols-[1.2fr_1fr]">
+
+            <div>
+                <p class="eyebrow mb-6 rv">Formation · 14 jours · Pour solos</p>
+                <h1 class="serif text-4xl leading-tight text-ink-900 rv d1 sm:text-5xl md:text-6xl">
+                    Le <em>Système Claude</em> du Consultant.
+                </h1>
+                <p class="mt-6 max-w-xl text-lg leading-relaxed text-ink-300 rv d2 md:text-xl">
+                    En 14 jours, tu construis tes 3 Agents IA, tu maîtrises la méthode P.R.O.M.P.T.
+                    et tu récupères 9 à 12 heures par semaine. Sans coder. Sans devenir tech.
+                </p>
+
+                <ul class="mt-8 space-y-3 rv d3">
+                    <li class="flex items-start gap-3 text-ink-900">
+                        <span class="mt-1 text-gold-500" aria-hidden="true">✓</span>
+                        <span><em class="not-italic font-medium">27 vidéos courtes</em> (3-5 min) — 45 min/jour seulement</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-ink-900">
+                        <span class="mt-1 text-gold-500" aria-hidden="true">✓</span>
+                        <span><em class="not-italic font-medium">3 Agents Claude opérationnels</em> à la fin du sprint</span>
+                    </li>
+                    <li class="flex items-start gap-3 text-ink-900">
+                        <span class="mt-1 text-gold-500" aria-hidden="true">✓</span>
+                        <span><em class="not-italic font-medium">Garantie 14 jours</em> sans questions, sans petites lignes</span>
+                    </li>
+                </ul>
+
+                <div class="mt-10 flex flex-wrap items-center gap-4 rv d4">
+                    {{ buttons.primary('Je rejoins (147€)', '/achat/le-systeme-claude-du-consultant') }}
+                    {{ buttons.ghost('Voir le programme', '#programme', { arrow: true }) }}
+                </div>
+
+                {# Compteur scarcity #}
+                <div class="mt-8 inline-flex items-center gap-3 rounded-pill bg-gold-100 px-4 py-2 rv d5">
+                    <span class="relative flex h-3 w-3">
+                        <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold-400 opacity-75"></span>
+                        <span class="relative inline-flex h-3 w-3 rounded-full bg-gold-400"></span>
+                    </span>
+                    <span class="font-mono text-xs uppercase tracking-widest text-ink-700">
+                        <span data-controller="counter-animation"
+                              data-counter-animation-target-value="27">0</span>
+                        places fondateur restantes sur 30
+                    </span>
+                </div>
+            </div>
+
+            {# Bloc droite — VSL placeholder ou hero card #}
+            <div class="rv-r d2">
+                <div class="rounded-2xl bg-paper p-2 shadow-4">
+                    <div class="aspect-video flex items-center justify-center rounded-xl bg-ink-700 text-paper">
+                        <div class="text-center">
+                            <div class="serif text-6xl text-gold-300">▶</div>
+                            <p class="mt-4 font-mono text-xs uppercase tracking-widest text-paper/60">
+                                [PLACEHOLDER : VSL Vimeo]
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <p class="mt-3 text-center font-mono text-2xs uppercase tracking-widest text-ink-200">
+                    [PLACEHOLDER : ID Vimeo de la vidéo de vente à fournir]
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 2 — STORYTELLING SANDRA
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-50 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-3xl">
+        <p class="eyebrow mb-4 rv">L'histoire de Sandra</p>
+        <h2 class="serif mb-12 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            L'histoire de Sandra <em>(et probablement la tienne aussi)</em>.
+        </h2>
+
+        <div class="space-y-5 text-lg leading-relaxed text-ink-300 rv d2">
+            <p>
+                Sandra a 39 ans. Elle est consultante en transformation managériale à Lyon.
+                Ex-cadre RH dans un grand groupe. En solo depuis 2 ans et demi.
+            </p>
+            <p>
+                Sur le papier, ça tourne : 80K€ de CA, 8 clients en parallèle, des recommandations
+                qui arrivent. Mais elle bosse 55 heures par semaine. Elle rédige ses propals à 23h.
+                Elle se sent submergée.
+            </p>
+
+            <div class="rounded-2xl border border-dashed border-ink-300/30 bg-paper p-6 my-8 text-center">
+                <p class="font-mono text-2xs uppercase tracking-widest text-ink-200 mb-3">
+                    [PLACEHOLDER : storytelling Sandra 300-400 mots]
+                </p>
+                <p class="text-sm text-ink-300">
+                    À fournir par Rama : développement de l'arc narratif Sandra
+                    (découverte ChatGPT déçue → premier contact Claude → installation des 3 Agents
+                    → transformation business). Ton : émotionnel, identification forte, voix Instant IA
+                    (tutoiement direct, zéro blabla).
+                </p>
+            </div>
+
+            <p class="serif text-2xl italic leading-snug text-gold-500">
+                « Si tu te reconnais ne serait-ce qu'à moitié dans Sandra,
+                cette formation a été pensée pour toi. »
+            </p>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 3 — LES 7 MODULES
+   ════════════════════════════════════════════════════════════════ #}
+<section id="programme" class="bg-cream-100 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-5xl">
+        <p class="eyebrow mb-4 rv">Programme détaillé</p>
+        <h2 class="serif mb-3 max-w-3xl text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Ce que tu apprends en <em>14 jours</em>.
+        </h2>
+        <p class="mb-12 max-w-2xl text-lg text-ink-300 rv d2">
+            7 modules, 27 vidéos courtes (3-5 min). Tout est conçu pour 45 minutes par jour, sprint sur 14 jours.
+            Tu peux ralentir, accélérer, revenir : tu as accès à vie.
+        </p>
+
+        {% include 'components/module-accordion.html.twig' with {
+            modules: [
+                { code: 'M0', title: 'Bienvenue & Quick Win', description: 'Pose les bases avant tout. En 30 minutes, tu obtiens ton premier résultat concret avec Claude — ce qui te donne la confiance pour la suite.', videoCount: 3 },
+                { code: 'M1', title: 'Comprendre Claude', description: 'Comment Claude pense, ce qu\'il sait faire (vraiment), et comment lui parler pour qu\'il donne le meilleur. La différence avec ChatGPT, les pièges, les forces.', videoCount: 4 },
+                { code: 'M2', title: 'Méthode P.R.O.M.P.T.', description: 'La méthode signature. Une fois mémorisée, tu n\'écris plus jamais un mauvais prompt. Structure universelle qui marche pour toutes tes tâches consultant.', videoCount: 5, featured: true },
+                { code: 'M3', title: 'Projects Claude', description: 'Comment structurer ton travail dans des Projects Claude pour qu\'il garde le contexte d\'une mission à l\'autre. Fini de tout ré-expliquer à chaque fois.', videoCount: 4 },
+                { code: 'M4', title: 'Construire tes 3 Agents', description: 'On passe à l\'action. Tu construis Agent Inbox, Agent Mission et Agent Propal pas à pas, ensemble, avec ton vrai contenu. À la fin du module, tes 3 Agents tournent.', videoCount: 6, featured: true },
+                { code: 'M5', title: 'Routines & anti-erreurs', description: 'Comment intégrer Claude dans ta journée et éviter les pièges classiques (hallucinations, dérives, oublis de contexte, sécurité des données client).', videoCount: 3 },
+                { code: 'M6', title: 'Et après ?', description: 'La suite : comment progresser, le Niveau 2, Le Cercle, les ressources continues. Comment rester à jour sur Claude (qui évolue vite).', videoCount: 2 },
+            ]
+        } only %}
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 4 — LES 3 AGENTS DÉTAILLÉS
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-200 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-5xl">
+        <p class="eyebrow mb-4 rv">Tes 3 Agents Claude</p>
+        <h2 class="serif mb-12 max-w-3xl text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Les 3 Agents que tu vas <em>construire ensemble</em>.
+        </h2>
+
+        <div class="space-y-12">
+
+            {# Agent Inbox #}
+            <article class="grid items-start gap-8 md:grid-cols-[auto_1fr] rv">
+                <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-gold-400 text-4xl shadow-glow-gold">
+                    📧
+                </div>
+                <div>
+                    <p class="mb-2 font-mono text-xs uppercase tracking-widest text-gold-500">Agent 01</p>
+                    <h3 class="serif mb-3 text-3xl leading-tight text-ink-900">L'Agent Inbox</h3>
+                    <p class="mb-4 text-lg leading-relaxed text-ink-300">
+                        Trie tes emails entrants par priorité, pré-rédige les réponses dans ton ton à toi,
+                        gère tes relances clients en silence. Tu ouvres Gmail, 80% du boulot est déjà fait.
+                    </p>
+                    <div class="rounded-lg bg-paper px-5 py-3 font-mono text-sm text-ink-700">
+                        → <em class="not-italic font-medium text-gold-500">4 à 5 heures par semaine</em> récupérées
+                    </div>
+                </div>
+            </article>
+
+            {# Agent Mission #}
+            <article class="grid items-start gap-8 md:grid-cols-[auto_1fr] rv d1">
+                <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-gold-400 text-4xl shadow-glow-gold">
+                    🎙️
+                </div>
+                <div>
+                    <p class="mb-2 font-mono text-xs uppercase tracking-widest text-gold-500">Agent 02</p>
+                    <h3 class="serif mb-3 text-3xl leading-tight text-ink-900">L'Agent Mission</h3>
+                    <p class="mb-4 text-lg leading-relaxed text-ink-300">
+                        Synthétise tes calls clients en compte-rendus pro structurés. Tu termines un call,
+                        tu copies la transcription, Claude te sort un CR prêt à envoyer avec plan d'action.
+                    </p>
+                    <div class="rounded-lg bg-paper px-5 py-3 font-mono text-sm text-ink-700">
+                        → <em class="not-italic font-medium text-gold-500">3 à 4 heures par semaine</em> récupérées
+                    </div>
+                </div>
+            </article>
+
+            {# Agent Propal #}
+            <article class="grid items-start gap-8 md:grid-cols-[auto_1fr] rv d2">
+                <div class="flex h-20 w-20 items-center justify-center rounded-2xl bg-gold-400 text-4xl shadow-glow-gold">
+                    📋
+                </div>
+                <div>
+                    <p class="mb-2 font-mono text-xs uppercase tracking-widest text-gold-500">Agent 03</p>
+                    <h3 class="serif mb-3 text-3xl leading-tight text-ink-900">L'Agent Propal</h3>
+                    <p class="mb-4 text-lg leading-relaxed text-ink-300">
+                        Génère tes propositions commerciales en 15 minutes. Tu remplis 3 champs (client, contexte, scope),
+                        Claude te sort une propal calibrée à ton offre, à ton pricing, à ton ton.
+                    </p>
+                    <div class="rounded-lg bg-paper px-5 py-3 font-mono text-sm text-ink-700">
+                        → <em class="not-italic font-medium text-gold-500">2 à 3 heures par semaine</em> récupérées
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 5 — MÉTHODE P.R.O.M.P.T.
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-ink-700 px-6 py-24 md:px-12 text-paper">
+    <div class="mx-auto max-w-5xl text-center">
+        <p class="eyebrow mb-4 rv" style="color: var(--color-gold-300);">Méthode signature</p>
+        <h2 class="serif mb-6 text-4xl leading-tight rv d1 md:text-5xl">
+            La méthode <em>P.R.O.M.P.T.</em>
+        </h2>
+        <p class="mx-auto mb-12 max-w-2xl text-lg text-paper/80 rv d2">
+            Une structure universelle de 6 étapes. Une fois mémorisée, tu n'écris plus jamais un mauvais prompt.
+            Tes consultants la mémorisent en 30 minutes, l'appliquent à vie.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3 rv d3">
+            {% for letter in ['P', 'R', 'O', 'M', 'P', 'T'] %}
+                <div class="flex h-24 w-24 items-center justify-center rounded-2xl bg-gold-400 font-mono text-4xl font-bold text-ink-900 shadow-glow-gold">
+                    {{ letter }}
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="mt-12 rounded-2xl border border-dashed border-paper/20 bg-ink-900 p-6 max-w-2xl mx-auto rv d4">
+            <p class="font-mono text-2xs uppercase tracking-widest text-gold-300 mb-3">
+                [PLACEHOLDER : signification des 6 lettres]
+            </p>
+            <p class="text-sm text-paper/70">
+                Rama, dans le brief v2 tu as nommé l'acronyme P.R.O.M.P.T. mais sans préciser la signification
+                de chaque lettre. À fournir avant lancement : la décomposition complète des 6 étapes.
+            </p>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 6 — LE FORMAT
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-100 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-5xl">
+        <p class="eyebrow mb-4 rv">Comment ça se passe</p>
+        <h2 class="serif mb-12 max-w-3xl text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Le format, <em>concrètement</em>.
+        </h2>
+
+        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl bg-paper p-6 shadow-2 rv">
+                <div class="serif mb-3 text-5xl text-gold-500">14</div>
+                <h3 class="serif text-xl text-ink-900 mb-1">Jours</h3>
+                <p class="text-sm text-ink-300">en mode sprint, accès à vie ensuite</p>
+            </div>
+            <div class="rounded-2xl bg-paper p-6 shadow-2 rv d1">
+                <div class="serif mb-3 text-5xl text-gold-500">45</div>
+                <h3 class="serif text-xl text-ink-900 mb-1">Minutes / jour</h3>
+                <p class="text-sm text-ink-300">à investir, à ton rythme</p>
+            </div>
+            <div class="rounded-2xl bg-paper p-6 shadow-2 rv d2">
+                <div class="serif mb-3 text-5xl text-gold-500">27</div>
+                <h3 class="serif text-xl text-ink-900 mb-1">Vidéos courtes</h3>
+                <p class="text-sm text-ink-300">3 à 5 min chacune</p>
+            </div>
+            <div class="rounded-2xl bg-paper p-6 shadow-2 rv d3">
+                <div class="serif mb-3 text-5xl text-gold-500">3</div>
+                <h3 class="serif text-xl text-ink-900 mb-1">Lives Q&R</h3>
+                <p class="text-sm text-ink-300">par mois, communauté + Rama</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 7 — BONUS INCLUS (~985€)
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-200 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-5xl">
+        <p class="eyebrow mb-4 rv">Bonus inclus</p>
+        <h2 class="serif mb-3 max-w-3xl text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Et les <em>bonus inclus</em> (valeur ~985€).
+        </h2>
+        <p class="mb-12 max-w-2xl text-lg text-ink-300 rv d2">
+            Tu paies la formation, tu reçois tous ces bonus en plus. Sans surcoût.
+        </p>
+
+        <div class="space-y-3">
+            {% set bonuses = [
+                { title: 'Kit IA Solopreneur', value: '27€', description: '50 méga-prompts Claude + 5 workflows d\'automatisation' },
+                { title: 'Guide Pratique des Agents IA', value: '29€', description: '70 pages pour passer du prompt unique à l\'automatisation intelligente' },
+                { title: 'Prompt Library Consultant Pro', value: '197€', description: '100 prompts pré-configurés pour consultants/formateurs/coachs' },
+                { title: '3 Templates Projets Claude', value: '97€', description: 'Templates Project prêts à dupliquer pour démarrer vite' },
+                { title: 'Communauté privée WhatsApp', value: '297€', description: 'Échanges entre élèves, accès direct aux coachings express' },
+                { title: '3 Lives Q&R mensuels', value: '297€', description: '90 minutes en direct avec Rama, chaque mois' },
+                { title: 'Mises à jour à vie', value: 'Inestimable', description: 'Claude évolue vite. Tu suis sans rien repayer.' },
+                { title: 'Certificat de complétion', value: '97€', description: 'Certificat Instant IA partageable sur LinkedIn, vérifiable' },
+            ] %}
+
+            {% for bonus in bonuses %}
+                <div class="flex items-center gap-4 rounded-2xl bg-paper p-5 shadow-1 rv {{ loop.index > 1 ? 'd' ~ ((loop.index - 1) % 5 + 1) : '' }}">
+                    <div class="flex h-10 w-10 items-center justify-center rounded-full bg-gold-100 font-mono text-xs font-bold text-ink-700">
+                        {{ '%02d'|format(loop.index) }}
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-medium text-ink-900">{{ bonus.title }}</h3>
+                        <p class="text-sm text-ink-300">{{ bonus.description }}</p>
+                    </div>
+                    <div class="serif text-xl text-gold-500 whitespace-nowrap">{{ bonus.value }}</div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <p class="mt-8 text-center font-mono text-sm uppercase tracking-widest text-ink-300 rv">
+            Valeur totale des bonus : <em class="not-italic font-bold text-gold-500">985€</em>
+        </p>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 8 — TA FORMATRICE (BIO RAMA)
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-100 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-5xl">
+        <div class="grid items-start gap-12 md:grid-cols-[auto_1fr]">
+            <div class="rv-l">
+                <div class="flex h-64 w-64 items-center justify-center rounded-full bg-ink-700 shadow-3"
+                     aria-label="Photo de Rama (à fournir)">
+                    <span class="serif text-9xl text-gold-300">R</span>
+                </div>
+                <p class="mt-3 text-center font-mono text-2xs uppercase tracking-widest text-ink-200">
+                    [PLACEHOLDER : photo Rama]
+                </p>
+            </div>
+
+            <div class="rv-r d1">
+                <p class="eyebrow mb-4">Ta formatrice</p>
+                <h2 class="serif mb-6 text-4xl leading-tight text-ink-900 md:text-5xl">
+                    Rama Soumaré.
+                </h2>
+                <div class="space-y-4 text-lg leading-relaxed text-ink-300">
+                    <p>
+                        Formatrice IA, experte technique, stratège business — je porte toutes ces casquettes
+                        parce que je crois qu'on ne peut pas enseigner ce qu'on ne pratique pas.
+                        Chaque jour, j'utilise Claude pour mon propre business.
+                    </p>
+                    <p>
+                        Ce que je t'enseigne, je l'applique d'abord sur mes propres projets.
+                        Chaque prompt, chaque agent, chaque automatisation que je te montre —
+                        je l'ai testée et déployée dans la vraie vie.
+                    </p>
+                    <p>
+                        Mon approche : zéro blabla, que de l'actionnable. Tu repars de cette formation
+                        avec des compétences que tu appliques dès le lendemain.
+                    </p>
+                </div>
+
+                <div class="mt-8 rounded-2xl border border-dashed border-ink-300/30 bg-paper p-5 rv d2">
+                    <p class="font-mono text-2xs uppercase tracking-widest text-ink-200 mb-2">
+                        [PLACEHOLDER : chiffres clés Rama]
+                    </p>
+                    <p class="text-sm text-ink-300">
+                        À fournir : X élèves accompagnés / X heures sauvées / X% de satisfaction.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 9 — TÉMOIGNAGES (5-7 personnes)
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-200 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-6xl">
+        <p class="eyebrow mb-4 rv">Témoignages</p>
+        <h2 class="serif mb-12 max-w-3xl text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Elles ont <em>transformé leur business</em> avec Claude.
+        </h2>
+
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {% include 'components/testimonial-card.html.twig' with {
+                testimonial: {
+                    quote: 'Grâce à Rama, j\'ai automatisé 80% de ma création de contenu. Je gagne 15h par semaine. Honnêtement, c\'est le meilleur investissement que j\'ai fait cette année.',
+                    author: 'Sophie M.',
+                    role: 'Coach business',
+                    initial: 'S',
+                }
+            } only %}
+            {% include 'components/testimonial-card.html.twig' with {
+                testimonial: {
+                    quote: 'L\'atelier prompt engineering m\'a ouvert les yeux. En 3h j\'ai pigé ce que des mois de bidouillage tout seul ne m\'avaient jamais appris. Rama explique les choses simplement.',
+                    author: 'Karim D.',
+                    role: 'Fondateur e-commerce',
+                    initial: 'K',
+                },
+                delayClass: 'd1'
+            } only %}
+            {% include 'components/testimonial-card.html.twig' with {
+                testimonial: {
+                    quote: 'On a bossé ensemble sur la stratégie IA de notre agence. ROI visible dès le premier mois. Rama ne fait pas que conseiller — elle met les mains dedans avec toi.',
+                    author: 'Laura P.',
+                    role: 'Directrice agence marketing',
+                    initial: 'L',
+                },
+                delayClass: 'd2'
+            } only %}
+
+            {# Placeholders pour 4 témoignages additionnels #}
+            <div class="rounded-2xl border-2 border-dashed border-ink-300/30 bg-paper/50 p-7 rv d3 flex flex-col items-center justify-center text-center min-h-[260px]">
+                <p class="font-mono text-2xs uppercase tracking-widest text-ink-200 mb-2">
+                    [PLACEHOLDER : 4 témoignages]
+                </p>
+                <p class="text-sm text-ink-300">
+                    Le brief v2 demande 5-7 témoignages avec photo + métier + résultat chiffré.
+                    À fournir par Rama : 4 témoignages additionnels (recueillis avec accord écrit).
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 10 — TARIF & OFFRE FONDATEUR
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-100 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-6xl">
+        <p class="eyebrow mb-4 rv">Tarif & offre fondateur</p>
+        <h2 class="serif mb-3 max-w-3xl text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Trois tarifs, <em>une seule formation</em>.
+        </h2>
+        <p class="mb-12 max-w-2xl text-lg text-ink-300 rv d2">
+            Plus tu rejoins tôt, moins tu payes. L'offre fondateur est limitée aux 30 premières acheteuses.
+        </p>
+
+        {% include 'components/pricing-table.html.twig' with {
+            tiers: [
+                {
+                    name: 'Early-bird',
+                    badge: '30 places fondateur',
+                    price: '147€',
+                    priceCrossed: '297€',
+                    description: 'Le tarif fondateur. Réservé aux 30 premières acheteuses.',
+                    features: ['27 vidéos courtes', 'Méthode P.R.O.M.P.T.', '3 Agents construits', 'Tous les bonus (~985€)', 'Garantie 14 jours'],
+                    ctaLabel: 'Je rejoins',
+                    ctaHref: '/achat/le-systeme-claude-du-consultant',
+                    highlight: true,
+                },
+                {
+                    name: 'Lancement',
+                    price: '197€',
+                    description: 'Tarif de lancement après les 30 premières places.',
+                    features: ['27 vidéos courtes', 'Méthode P.R.O.M.P.T.', '3 Agents construits', 'Tous les bonus', 'Garantie 14 jours'],
+                    ctaLabel: 'Bientôt',
+                    ctaHref: '#',
+                    highlight: false,
+                },
+                {
+                    name: 'Catalogue',
+                    price: '297€',
+                    description: 'Tarif catalogue régulier après la phase de lancement.',
+                    features: ['27 vidéos courtes', 'Méthode P.R.O.M.P.T.', '3 Agents construits', 'Tous les bonus', 'Garantie 14 jours'],
+                    ctaLabel: 'Bientôt',
+                    ctaHref: '#',
+                    highlight: false,
+                },
+            ]
+        } only %}
+
+        {# Modalités paiement #}
+        <div class="mt-10 grid gap-4 sm:grid-cols-2 rv">
+            <div class="rounded-xl bg-paper p-5 shadow-1">
+                <p class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-2">Comptant</p>
+                <p class="text-ink-900">Paiement immédiat sécurisé via Stripe.</p>
+            </div>
+            <div class="rounded-xl bg-paper p-5 shadow-1">
+                <p class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-2">3× sans frais</p>
+                <p class="text-ink-900">Sur le tarif catalogue (297€), payable en 3 fois sans frais.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 11 — GARANTIE 14 JOURS
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-gold-100 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-3xl text-center">
+        <div class="mb-6 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gold-400 shadow-glow-gold rv">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" fill="currentColor" class="text-ink-900"/>
+            </svg>
+        </div>
+        <p class="eyebrow mb-4 rv d1">Garantie</p>
+        <h2 class="serif mb-6 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            <em>14 jours</em> satisfait ou remboursé.
+        </h2>
+        <p class="text-lg leading-relaxed text-ink-700 rv d2">
+            Si dans les 14 jours tu n'as pas tes 3 Agents opérationnels, tu m'écris à
+            <a href="mailto:hello@instant-ia.com" class="underline decoration-gold-500/40 underline-offset-4">hello@instant-ia.com</a>
+            et je te rembourse intégralement. Pas de questions, pas de petites lignes, pas de chichis.
+        </p>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 12 — FAQ FORMATION (15 Q/R)
+   ════════════════════════════════════════════════════════════════ #}
+{% include 'components/faq.html.twig' with {
+    faq: {
+        eyebrow: 'FAQ formation',
+        title: 'Questions <em>fréquentes</em> sur la formation.',
+        items: [
+            { question: 'Faut-il être tech pour suivre ?', answer: 'Non. La formation est conçue pour les non-tech. Si tu sais utiliser un navigateur web, tu peux suivre. Je vulgarise tout, pas besoin de coder.' },
+            { question: 'Combien de temps prend la formation ?', answer: '14 jours en sprint à 45 min/jour. Tu peux accélérer ou étaler, tu as accès à vie. La plupart des élèves la finissent entre 10 et 21 jours.' },
+            { question: 'Quel matériel j\'ai besoin ?', answer: 'Un ordinateur (Mac ou PC), une connexion internet, un compte Claude (gratuit pour démarrer, payant Claude Pro recommandé pour les Agents avancés ~20€/mois).' },
+            { question: 'Quelle version de Claude on utilise ?', answer: 'Claude Sonnet 4.5 (dernière génération Anthropic). On voit ensemble la différence entre le compte gratuit et Claude Pro, et ce que chaque tier permet.' },
+            { question: 'Et si je débute totalement avec Claude ?', answer: 'C\'est exactement pour toi. Le Module 0 part de zéro et le Module 1 te fait comprendre Claude en profondeur avant d\'attaquer la méthode P.R.O.M.P.T.' },
+            { question: 'Comment je récupère mon accès après achat ?', answer: 'Tu reçois un email de confirmation immédiatement après ton paiement. En attendant la plateforme membre (mi-juin 2026), tu reçois les leçons par email tous les jours pendant 14 jours.' },
+            { question: 'La garantie 14 jours, c\'est vraiment sans condition ?', answer: 'Oui. Tu m\'écris à hello@instant-ia.com avant J+14, je te rembourse. Pas de questionnaire, pas de petites lignes. Si la formation ne t\'apporte pas ce que tu cherches, tu repars sans frais.' },
+            { question: 'Est-ce que je peux poser mes questions à Rama ?', answer: 'Oui. Tu as accès à 3 lives Q&R mensuels avec moi (90 min chacun) + la communauté privée WhatsApp pour les questions du quotidien.' },
+            { question: 'Ça marche pour quel métier ?', answer: 'Conçue pour consultants, formateurs et coachs solo. Mais si tu es solopreneur dans un autre métier (graphiste, copywriter, RH freelance, etc.), 90% de la méthode reste applicable.' },
+            { question: 'Et si je suis débordée et que je n\'ai pas le temps ?', answer: 'C\'est précisément pour ça que c\'est conçu en 45 min/jour. Tu peux ralentir si tu veux. Et l\'accès à vie te laisse y revenir quand tu veux.' },
+            { question: 'Y a-t-il des sessions en présentiel ?', answer: 'Pas pour cette formation Niveau 1 (100% en ligne pour les solos). Pour les entreprises avec plusieurs personnes à former, écris-moi : on adapte avec un format dédié.' },
+            { question: 'Vous proposez des Niveaux 2 et 3 ?', answer: 'Oui. Niveau 2 (Productivité Pro : Excel, PowerPoint, Skills) et Niveau 3 (Cowork & Automatisation MCP) sont en préparation. Les diplômés Niveau 1 ont un tarif préférentiel.' },
+            { question: 'Que se passe-t-il après les 14 jours ?', answer: 'Tu gardes l\'accès à vie aux 27 vidéos. Tu continues de bénéficier des mises à jour, de la communauté, des lives. Et tu peux passer au Niveau 2 quand tu veux.' },
+            { question: 'Mes données et celles de mes clients sont-elles en sécurité avec Claude ?', answer: 'Le Module 5 traite spécifiquement de ce sujet. On voit ensemble les bonnes pratiques RGPD avec Claude, ce qu\'il faut éviter, comment configurer Claude Pro pour la confidentialité maximale.' },
+            { question: 'Je peux acheter pour quelqu\'un d\'autre (cadeau) ?', answer: 'Oui. Au moment du paiement Stripe, indique l\'email de la personne qui suivra la formation. Pour un mode plus formel (facturation pro, code cadeau), écris-moi à hello@instant-ia.com.' },
+        ],
+    }
+} only %}
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 13 — DERNIER PUSH
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-ink-700 px-6 py-24 md:px-12 text-paper">
+    <div class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow mb-4 rv" style="color: var(--color-gold-300);">Dernier push</p>
+        <h2 class="serif mb-6 text-4xl leading-tight rv d1 md:text-5xl">
+            Tu hésites <em>encore ?</em>
+        </h2>
+        <div class="mx-auto mb-10 max-w-xl space-y-3 text-lg leading-relaxed text-paper/80 rv d2">
+            <p>14 jours pour avoir tes 3 Agents Claude opérationnels.</p>
+            <p>Tu récupères 9 à 12 heures par semaine, tu maîtrises la méthode P.R.O.M.P.T., tu repars avec un système qui tourne.</p>
+            <p>Si ça marche pas, tu me dis stop et je te rembourse. <em class="text-gold-300 not-italic font-medium">Le risque est de mon côté.</em></p>
+        </div>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 rv d3">
+            {{ buttons.primary('Je rejoins (147€)', '/achat/le-systeme-claude-du-consultant') }}
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 14 — PAS PRÊTE ? Lead magnet
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-100 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow mb-4 rv">Pas prête à investir ?</p>
+        <h2 class="serif mb-6 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Récupère les <em>3 Agents IA gratuits.</em>
+        </h2>
+        <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-ink-300 rv d2">
+            Une version condensée de la méthode, en 3 agents prêts à utiliser pour automatiser
+            ton contenu, tes emails et ta veille. En 10 minutes. Sans CB.
+        </p>
+        <div class="rv d3">
+            {{ buttons.secondary('Récupère 3 Agents gratuits', '/3-agents-ia-gratuits') }}
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 15 — ALTERNATIVES (Niveaux 2 et 3)
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-200 px-6 py-24 md:px-12">
+    <div class="mx-auto max-w-5xl">
+        <p class="eyebrow mb-4 rv">Plus avancée ?</p>
+        <h2 class="serif mb-12 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Tu maîtrises déjà Claude ? <em>Découvre les Niveaux 2 et 3.</em>
+        </h2>
+
+        <div class="grid gap-6 md:grid-cols-2">
+            <a href="/claude-productivite-pro" class="block rounded-2xl bg-paper p-7 shadow-2 transition hover:shadow-3 rv-l">
+                <div class="mb-3 inline-flex items-center gap-2 rounded-pill bg-gold-100 px-3 py-1 font-mono text-xs uppercase tracking-widest text-ink-700">
+                    <span aria-hidden="true">🟡</span>
+                    <span>Niveau 2</span>
+                </div>
+                <h3 class="serif mb-3 text-2xl text-ink-900">Claude Productivité Pro</h3>
+                <p class="mb-4 text-ink-300">
+                    Excel, PowerPoint, Artifacts, Skills, Connecteurs. Pour ceux qui veulent
+                    transformer Claude en équipe complète.
+                </p>
+                <p class="font-mono text-sm text-gold-500">À partir de 297€ (early-bird diplômés N1) →</p>
+            </a>
+
+            <a href="/claude-cowork-automatisation" class="block rounded-2xl bg-paper p-7 shadow-2 transition hover:shadow-3 rv-r d1">
+                <div class="mb-3 inline-flex items-center gap-2 rounded-pill bg-gold-100 px-3 py-1 font-mono text-xs uppercase tracking-widest text-ink-700">
+                    <span aria-hidden="true">🔴</span>
+                    <span>Niveau 3 — Master Class</span>
+                </div>
+                <h3 class="serif mb-3 text-2xl text-ink-900">Claude Cowork & Automatisation</h3>
+                <p class="mb-4 text-ink-300">
+                    Cowork, MCP, Sub-agents, Plugins. Claude en autonomie totale,
+                    il pilote ton ordinateur. Niveau 2 recommandé.
+                </p>
+                <p class="font-mono text-sm text-gold-500">À partir de 597€ (early-bird diplômés N2) →</p>
+            </a>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SCHEMA.ORG — Course + Offer + FAQPage + AggregateRating
+   ════════════════════════════════════════════════════════════════ #}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Course",
+            "@id": "https://instant-ia.com/formation-claude-consultant#course",
+            "name": "Le Système Claude du Consultant",
+            "description": "Formation Claude IA en 14 jours pour consultants, formateurs et coachs solo non-tech. 27 vidéos, 3 Agents IA construits, méthode P.R.O.M.P.T.",
+            "provider": {
+                "@type": "Organization",
+                "name": "Instant IA",
+                "url": "https://instant-ia.com"
+            },
+            "instructor": {
+                "@type": "Person",
+                "name": "Rama Soumaré",
+                "jobTitle": "Formatrice IA & cofondatrice technique"
+            },
+            "educationalLevel": "Beginner",
+            "inLanguage": "fr-FR",
+            "timeRequired": "P14D",
+            "offers": [
+                {
+                    "@type": "Offer",
+                    "name": "Early-bird (30 premières)",
+                    "price": "147",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/LimitedAvailability",
+                    "url": "https://instant-ia.com/achat/le-systeme-claude-du-consultant"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Lancement",
+                    "price": "197",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock"
+                },
+                {
+                    "@type": "Offer",
+                    "name": "Catalogue",
+                    "price": "297",
+                    "priceCurrency": "EUR",
+                    "availability": "https://schema.org/InStock"
+                }
+            ]
+        },
+        {
+            "@type": "FAQPage",
+            "mainEntity": [
+                { "@type": "Question", "name": "Faut-il être tech pour suivre ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. La formation est conçue pour les non-tech. Si tu sais utiliser un navigateur web, tu peux suivre. Je vulgarise tout, pas besoin de coder." } },
+                { "@type": "Question", "name": "Combien de temps prend la formation ?", "acceptedAnswer": { "@type": "Answer", "text": "14 jours en sprint à 45 min/jour. Tu peux accélérer ou étaler, tu as accès à vie." } },
+                { "@type": "Question", "name": "Quelle version de Claude on utilise ?", "acceptedAnswer": { "@type": "Answer", "text": "Claude Sonnet 4.5 (dernière génération Anthropic). On voit ensemble la différence gratuit/Pro." } },
+                { "@type": "Question", "name": "La garantie 14 jours, c'est vraiment sans condition ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Tu m'écris à hello@instant-ia.com avant J+14, je te rembourse. Pas de questionnaire, pas de petites lignes." } }
+            ]
+        }
+    ]
+}
+</script>
+
+{% endblock %}
