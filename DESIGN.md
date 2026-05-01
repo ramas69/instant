@@ -332,6 +332,19 @@ dashboard, badges flottants). Existe pour la home actuelle mais n'est PAS le pat
 default. À utiliser avec parcimonie — si un futur écran a besoin d'un hero, partir du
 hero light/cream et justifier explicitement le passage en kinetic dark.
 
+### Header Sticky (exception glassmorphism documentée)
+
+Le header de navigation utilise `backdrop-filter: blur(...)` + fond `bg-cream-100/85`
+pour rester lisible au-dessus du contenu en scroll. C'est la **seule exception
+documentée** au Don't glassmorphism. Conditions strictes :
+- backdrop-blur subtil uniquement (`blur-md` Tailwind, pas plus fort)
+- opacité du fond ≥80% pour préserver le contraste WCAG AA
+- bordure basse 1px `ink-700/8` pour ancrer la séparation
+- pattern Apple/Stripe largement validé sur navigation persistante
+
+Aucune autre surface (cards, sections, modales) n'est autorisée à utiliser le
+glassmorphism par ce précédent.
+
 ## 6. Do's and Don'ts
 
 ### Do:
@@ -362,8 +375,10 @@ hero light/cream et justifier explicitement le passage en kinetic dark.
   capture de virement bancaire, des boutons orange clignotants `REJOINS LA TRIBU 🔥`.
 - **Don't** virer vers le bleu nuit + jaune fluo neon (style "tech bros ChatGPT").
   Pas de vocabulaire `second brain / productivity stack / ROI 10x` dans la copy.
-- **Don't** utiliser des photos studio fond noir regard intense. Photo Rama = lumière
-  naturelle, fond uni clair, regard direct mais chaleureux.
+- **Don't** utiliser des photos studio fond noir regard intense (style tech bros).
+- **Don't** mettre Rama (la fondatrice) en photo / portrait / avatar nulle part. La
+  marque est *faceless* par choix : l'identité passe par la voix, la typo, l'or
+  signature, le tutoiement. Pas par un visage.
 - **Don't** virer vers le rose poudré, beige sable, typo manuscrite (Caveat / Dancing
   Script). Décrédibilise la marque que Sandra vend à ses propres clients DRH.
 - **Don't** utiliser des tarifs en 333€ / 777€ ou des promesses `alignement / abondance /
