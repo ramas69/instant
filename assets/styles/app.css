@@ -468,6 +468,165 @@
     background: var(--color-gold-500);
   }
 
+  /* ─── HERO BRUTALIST EDITORIAL TYPE-HEAVY (Style C) ───────────── */
+  .hero-brutalist {
+    min-height: 100vh;
+    background: var(--color-cream-100);
+    padding: 6rem 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Lignes décoratives subtiles dans les coins */
+  .hero-brutalist::before,
+  .hero-brutalist::after {
+    content: '';
+    position: absolute;
+    background: var(--color-gold-500);
+    opacity: 0.4;
+  }
+  .hero-brutalist::before {
+    top: 2rem;
+    right: 2rem;
+    width: 80px;
+    height: 1px;
+  }
+  .hero-brutalist::after {
+    bottom: 2rem;
+    left: 2rem;
+    width: 80px;
+    height: 1px;
+  }
+
+  /* Top — eyebrow + numéro de "couverture" */
+  .hero-brutalist-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .hero-brutalist-vol {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-ink-300);
+    text-align: right;
+    line-height: 1.4;
+  }
+  .hero-brutalist-vol em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-gold-500);
+    font-size: var(--text-md);
+    text-transform: none;
+    letter-spacing: var(--tracking-tightest);
+  }
+
+  /* Headline brutalist : mots dispersés en typo asymétrique */
+  .hero-brutalist-headline {
+    font-family: var(--font-display);
+    font-weight: 400;
+    line-height: 0.92;
+    letter-spacing: var(--tracking-tightest);
+    color: var(--color-ink-900);
+    margin: 4rem 0;
+  }
+  .hero-brutalist-word {
+    display: block;
+    font-size: clamp(2.5rem, 9vw, 7.5rem);
+    line-height: 0.9;
+  }
+  .hero-brutalist-word--gold      { color: var(--color-gold-500); font-style: italic; }
+  .hero-brutalist-word--gold-dim  { color: var(--color-gold-300); font-style: italic; }
+  .hero-brutalist-word--ink-italic{ color: var(--color-ink-700); font-style: italic; }
+  .hero-brutalist-word--xl        { font-size: clamp(3.5rem, 13vw, 11rem); }
+  .hero-brutalist-word--lg        { font-size: clamp(3rem, 11vw, 9rem); }
+  .hero-brutalist-word--md        { font-size: clamp(2rem, 6vw, 4.5rem); }
+  .hero-brutalist-word--sm        { font-size: clamp(1.5rem, 4vw, 3rem); }
+
+  .hero-brutalist-word--center { text-align: center; }
+  .hero-brutalist-word--right  { text-align: right; }
+  .hero-brutalist-word--shift  { padding-left: clamp(2rem, 12vw, 12rem); }
+  .hero-brutalist-word--shift-right { padding-right: clamp(2rem, 12vw, 12rem); }
+
+  /* Hover : lettres tremblent légèrement (effet "vibrant editorial") */
+  .hero-brutalist-word:hover {
+    transition: transform 0.4s var(--ease-spring);
+    transform: translateY(-4px);
+  }
+
+  /* Footer du hero — eyebrow + CTAs minimaux */
+  .hero-brutalist-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .hero-brutalist-foot-meta {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 2rem;
+    align-items: center;
+    border-top: 1px solid var(--rule-strong);
+    padding-top: 1.5rem;
+  }
+  .hero-brutalist-foot-meta .lead {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-ink-300);
+    line-height: 1.6;
+  }
+  .hero-brutalist-foot-meta .lead em {
+    font-family: var(--font-display);
+    font-style: italic;
+    color: var(--color-gold-500);
+    font-size: var(--text-md);
+    text-transform: none;
+    letter-spacing: var(--tracking-tightest);
+  }
+  .hero-brutalist-cta {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    font-weight: 700;
+    color: var(--color-ink-900);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-ink-900);
+    padding-bottom: 0.5rem;
+    transition: gap 0.3s var(--ease-out), border-color 0.3s var(--ease-out), color 0.3s var(--ease-out);
+    white-space: nowrap;
+  }
+  .hero-brutalist-cta:hover {
+    gap: 1.5rem;
+    color: var(--color-gold-500);
+    border-color: var(--color-gold-500);
+  }
+  .hero-brutalist-cta--ghost {
+    border-color: transparent;
+    color: var(--color-ink-300);
+  }
+  .hero-brutalist-cta--ghost:hover {
+    color: var(--color-ink-700);
+    border-color: var(--color-ink-700);
+  }
+
+  @media (max-width: 768px) {
+    .hero-brutalist { padding: 5rem 1.5rem 2rem; }
+    .hero-brutalist-headline { margin: 2rem 0; }
+    .hero-brutalist-word--shift { padding-left: 1rem; }
+    .hero-brutalist-word--shift-right { padding-right: 1rem; }
+    .hero-brutalist-foot-meta { grid-template-columns: 1fr; gap: 1rem; }
+  }
+
   /* ─── HERO SCROLL-DRIVING ─────────────────────────────────────── */
   .hero-sticky {
     position: relative;

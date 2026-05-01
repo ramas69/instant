@@ -11,43 +11,52 @@
 {% block body %}
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 1 — HERO scroll-driving (sticky 200vh)
+   SECTION 1 — HERO BRUTALIST EDITORIAL (Style C — type heavy)
    ════════════════════════════════════════════════════════════════ #}
-<section class="hero-sticky" data-controller="hero-scroll particles" data-particles-count-value="14">
-    <div class="hero-sticky-inner">
-        <div class="hero-grid-bg"></div>
-        <div class="hero-glow" data-hero-scroll-target="glow"></div>
+<section class="hero-brutalist">
 
-        <div class="hero-content-driven" data-hero-scroll-target="content">
-            <div class="eyebrow-ds" style="color: var(--color-gold-300);">Formation · 14 jours · Pour solos</div>
+    <div class="hero-brutalist-top">
+        <p class="eyebrow-ds reveal">
+            <span aria-hidden="true">*</span>&nbsp;Atelier · Instant IA
+        </p>
+        <p class="hero-brutalist-vol reveal delay-1">
+            <em>Vol. 01</em><br>
+            Édition 2026<br>
+            Pour solos non-tech
+        </p>
+    </div>
 
-            <h1 style="font-family: var(--font-display); font-weight: 400; font-size: clamp(3rem, 7.5vw, 6.4rem); line-height: 1.02; letter-spacing: var(--tracking-tightest); margin: 0 0 1.5rem; color: var(--color-paper);">
-                Transforme Claude<br>
-                en ton <em style="font-style: italic; color: var(--color-gold-300);">bras droit.</em>
-            </h1>
+    <h1 class="hero-brutalist-headline split" data-controller="split-text">
+        <span class="hero-brutalist-word hero-brutalist-word--lg">Transforme</span>
+        <span class="hero-brutalist-word hero-brutalist-word--gold hero-brutalist-word--xl hero-brutalist-word--right hero-brutalist-word--shift-right">Claude</span>
+        <span class="hero-brutalist-word hero-brutalist-word--md hero-brutalist-word--shift">en ton</span>
+        <span class="hero-brutalist-word hero-brutalist-word--ink-italic hero-brutalist-word--lg hero-brutalist-word--center">bras droit.</span>
+        <span class="hero-brutalist-word hero-brutalist-word--sm hero-brutalist-word--right hero-brutalist-word--shift-right">en</span>
+        <span class="hero-brutalist-word hero-brutalist-word--gold-dim hero-brutalist-word--xl hero-brutalist-word--shift">14 jours.</span>
+    </h1>
 
-            <p style="font-size: var(--text-lg); color: rgba(255,255,255,0.7); line-height: var(--leading-relaxed); max-width: 56ch; margin: 0 auto 2.5rem;">
-                En 14 jours, tu construis tes 3 Agents IA, tu maîtrises la méthode P.R.O.M.P.T. et tu récupères 9 à 12 heures par semaine. Sans coder.
+    <div class="hero-brutalist-foot">
+        <span class="rule-draw" style="max-width: 240px;"></span>
+
+        <div class="hero-brutalist-foot-meta">
+            <p class="lead reveal">
+                Pour <em>consultants</em> · formateurs · coachs solo<br>
+                non-tech qui veulent récupérer 10h/sem.
             </p>
-
-            <div class="flex flex-wrap items-center justify-center gap-3">
-                <a href="/formation-claude-consultant"
-                   data-controller="magnetic-button"
-                   class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-7 py-4 font-medium text-ink-700 shadow-glow-gold hover:bg-gold-300">
-                    <span>Je découvre la formation</span>
+            <div></div>
+            <div class="flex flex-wrap items-center gap-6 reveal delay-2">
+                <a href="/formation-claude-consultant" class="hero-brutalist-cta">
+                    <span class="font-display italic text-gold-500" style="font-style: italic;">01</span>
+                    <span>Je découvre</span>
                     <span aria-hidden="true">→</span>
                 </a>
-                <a href="/3-agents-ia-gratuits" class="inline-flex items-center gap-2 rounded-pill border border-paper/40 px-7 py-4 font-medium text-paper transition hover:border-paper hover:bg-paper/5">
-                    <span>3 Agents gratuits</span>
+                <a href="/3-agents-ia-gratuits" class="hero-brutalist-cta hero-brutalist-cta--ghost">
+                    <span>02 — 3 Agents gratuits</span>
                 </a>
             </div>
         </div>
-
-        <div class="scroll-cue" data-hero-scroll-target="cue" aria-hidden="true">
-            <span>Scroll</span>
-            <div class="cue-line"></div>
-        </div>
     </div>
+
 </section>
 
 {# ════════════════════════════════════════════════════════════════
