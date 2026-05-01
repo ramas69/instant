@@ -62,7 +62,9 @@ final class CoursTest extends TestCase
         $module->addLecon($lecon);
 
         self::assertCount(1, $cours->getModules());
-        self::assertCount(1, $cours->getModules()->first()->getLecons());
+        $premierModule = $cours->getModules()->first();
+        self::assertInstanceOf(Module::class, $premierModule);
+        self::assertCount(1, $premierModule->getLecons());
         self::assertSame($module, $lecon->getModule());
     }
 }

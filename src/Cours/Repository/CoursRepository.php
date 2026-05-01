@@ -24,7 +24,7 @@ class CoursRepository extends ServiceEntityRepository
     }
 
     /**
-     * @return list<Cours>
+     * @return array<int, Cours>
      */
     public function findAllPublished(): array
     {

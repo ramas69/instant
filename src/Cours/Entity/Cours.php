@@ -36,7 +36,7 @@ class Cours
     #[Assert\NotBlank]
     #[Assert\Regex(
         pattern: '/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
-        message: 'Le slug doit être en kebab-case minuscule (lettres, chiffres, tirets).'
+        message: 'Le slug doit être en kebab-case minuscule (lettres, chiffres, tirets).',
     )]
     #[Assert\Length(max: 200)]
     private string $slug;

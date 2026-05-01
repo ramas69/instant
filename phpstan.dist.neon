@@ -1,0 +1,16 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+
+    excludePaths:
+        - src/Kernel.php
+        - tests/bootstrap.php
+        - var/*
+
+    treatPhpDocTypesAsCertain: false
+
+    # Symfony : kernel + container path pour autodiscovery (généré par cache:warmup)
+    symfony:
+        containerXmlPath: var/cache/dev/App_KernelDevDebugContainer.xml

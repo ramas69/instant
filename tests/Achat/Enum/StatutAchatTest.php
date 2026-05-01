@@ -29,6 +29,9 @@ final class StatutAchatTest extends TestCase
         self::assertSame($attendu, $statut->ouvreAcces());
     }
 
+    /**
+     * @return iterable<string, array{StatutAchat, bool}>
+     */
     public static function ouvreAccesProvider(): iterable
     {
         yield 'pending ne donne pas accès' => [StatutAchat::PENDING, false];

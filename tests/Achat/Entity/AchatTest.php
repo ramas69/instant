@@ -30,7 +30,7 @@ final class AchatTest extends TestCase
         self::assertSame(14700, $achat->getMontantCentimes());
         self::assertSame('cs_test_a1b2c3', $achat->getStripeSessionId());
         self::assertNull($achat->getPaidAt());
-        self::assertInstanceOf(\DateTimeImmutable::class, $achat->getCreatedAt());
+        self::assertLessThanOrEqual(new \DateTimeImmutable(), $achat->getCreatedAt());
     }
 
     public function testMarquerPayeFixePaidAt(): void

@@ -21,7 +21,7 @@ final class StatutProgressionTest extends TestCase
         self::assertFalse(StatutProgression::NOT_STARTED->estTermine());
     }
 
-    public function testEstCommenceDesIN_PROGRESS(): void
+    public function testEstCommenceQuandPasNotStarted(): void
     {
         self::assertFalse(StatutProgression::NOT_STARTED->estCommence());
         self::assertTrue(StatutProgression::IN_PROGRESS->estCommence());

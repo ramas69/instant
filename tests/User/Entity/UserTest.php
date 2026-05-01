@@ -7,7 +7,6 @@ namespace App\Tests\User\Entity;
 use App\Shared\Enum\RoleUtilisateur;
 use App\User\Entity\User;
 use PHPUnit\Framework\TestCase;
-use Symfony\Component\Uid\Uuid;
 
 final class UserTest extends TestCase
 {
@@ -15,13 +14,12 @@ final class UserTest extends TestCase
     {
         $user = new User('sandra@example.fr', '$argon2id$dummy$hash');
 
-        self::assertInstanceOf(Uuid::class, $user->getId());
-        // Uuid v7 → version 7 explicitement
-        self::assertSame(7, $user->getId()->toRfc4122()[14] === '7' ? 7 : 0);
+        // L'ID est forcément un Uuid v7 — on vérifie le caractère version (4-bits, position 14)
+        self::assertSame('7', $user->getId()->toRfc4122()[14]);
         self::assertSame('sandra@example.fr', $user->getEmail());
         self::assertSame('$argon2id$dummy$hash', $user->getPassword());
         self::assertFalse($user->isVerified());
-        self::assertInstanceOf(\DateTimeImmutable::class, $user->getCreatedAt());
+        self::assertLessThanOrEqual(new \DateTimeImmutable(), $user->getCreatedAt());
     }
 
     public function testGetUserIdentifierRetourneEmail(): void

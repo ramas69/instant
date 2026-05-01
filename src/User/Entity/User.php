@@ -87,9 +87,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     /**
      * Identifiant unique pour Symfony Security (utilisé pour l'authentification).
+     *
+     * @return non-empty-string
      */
     public function getUserIdentifier(): string
     {
+        \assert('' !== $this->email);
+
         return $this->email;
     }
 
