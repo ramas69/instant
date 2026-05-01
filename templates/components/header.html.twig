@@ -13,9 +13,14 @@
         data-controller="mobile-menu">
     <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12">
 
-        {# Logo #}
-        <a href="{{ path('app_home') }}" class="serif text-2xl text-ink-900">
-            Instant <em class="text-gold-500">IA</em>
+        {# Logo : cercle gold avec bolt + wordmark "Instant IA" (pattern legacy adapté) #}
+        <a href="{{ path('app_home') }}" class="flex items-center gap-2.5 group">
+            <span class="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gold-400/60 transition group-hover:border-gold-500">
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+                    <path d="M13 2L4.5 13.5H11.5L10.5 22L19.5 10.5H12.5L13 2Z" fill="#D4AF37"/>
+                </svg>
+            </span>
+            <span class="serif text-2xl text-ink-900">Instant <em class="text-gold-500">IA</em></span>
         </a>
 
         {# Desktop nav #}
