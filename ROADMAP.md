@@ -162,13 +162,50 @@ Plateforme membre complète livrée le 15 juin aux 30 premières acheteuses.
 | Phase | Statut | Date |
 |---|---|---|
 | **Sprint 1 — Setup & entités** | ✅ **Terminé** (33 tests / PHPStan 0 / 14 commits) | 2026-04-30 → 2026-05-01 |
-| Phase 1 — Fondations communes (Sprint 2) | 🟡 En cours (Sprint 1 livré, suite à attaquer) | démarré 2026-04-30 |
-| Check-point J+8 | ⬜ À venir | ~2026-05-08 |
-| Phase 2 (A/B/C) | ⬜ À déterminer au check-point | — |
-| Post-MVP M3+ | ⬜ Non démarré | — |
+| **Sprint 2 — Phase 1 Fondations vendables** | ✅ **Terminé** (37 tests / PHPStan 0 / 9 commits / 14 routes publiques) | 2026-05-01 |
+| Check-point J+8 — décision A / B / C | ⬜ À venir | ~2026-05-08 |
+| Phase 2A pré-launch mi-mai | ⬜ À déterminer au check-point | — |
+| Phase 2B MVP complet mi-juin | ⬜ À déterminer au check-point | — |
+| Post-MVP M3+ (membership, blog SEO, Niveau 2/3) | ⬜ Non démarré | — |
 
 ### Avance / retard sur le timing
 
 - **J0 = 2026-04-30**, cible early-bird = ~2026-05-15 (mi-mai)
-- **J+1 = 2026-05-01** : Sprint 1 livré (entités+admin+qualité). Estimation initiale 8-12h, réel ~6-7h.
-- **Avance** sur le timing initial → on a de la marge pour Phase 1 fondations (page de vente + Stripe + auth basique).
+- **J+1 = 2026-05-01** :
+  - Sprint 1 livré (entités+admin+qualité) en ~6-7h
+  - Sprint 2 livré (10 sous-tâches, 14 pages publiques, Stripe webhook complet, scroll-driving) en ~6-8h
+- **TOTAL fin Sprint 2 : ~13-15h consommées sur ~24h disponibles avant mi-mai** → ~10h de marge
+- **Site vendable maintenant** sous réserve que Rama configure les 4 placeholders critiques (Stripe Payment Link + whsec + SIRET + photo)
+
+### Ce qui est vendable maintenant
+
+✅ **Route `/`** Home complète 12 sections avec scroll-driving
+✅ **Route `/formation-claude-consultant`** Niveau 1 page de vente 15 sections
+✅ **Route `/3-agents-ia-gratuits`** lead magnet avec capture email
+✅ **Route `/achat/le-systeme-claude-du-consultant`** redirige vers Stripe Payment Link
+✅ **Route `/webhooks/stripe`** webhook signature + idempotence + email confirmation
+✅ **Routes légales** mentions / CGV / confidentialité / cookies
+✅ **Route `/a-propos`** + **`/contact`** (form anti-spam)
+✅ **Header sticky avec dropdowns** + **footer 4 colonnes**
+✅ **EasyAdmin `/admin`** pour gérer les entités
+
+### Ce qui manque pour publier (à fournir par Rama)
+
+**🔴 Critique** :
+- Payment Link Stripe Niveau 1 early-bird 147€ (dashboard Stripe)
+- Webhook secret Stripe (`whsec_*`) à mettre dans `.env.local`
+- Pour CGV/mentions : SIRET + dénomination + adresse
+- Photo Rama (au moins une, peut-être tirée de l'ancien site)
+
+**🟡 Important** :
+- Storytelling Sandra (300-400 mots)
+- Acronyme P.R.O.M.P.T. (significations des 6 lettres)
+- Bio Rama version finale + chiffres clés
+- ID Vimeo VSL Niveau 1 (ou retrait du placeholder VSL)
+- 4 témoignages additionnels (5-7 au total demandés brief v2)
+
+**🟢 Différable** :
+- Brevo configuration (Sprint 4)
+- Validation juridique pages légales par avocat
+- 18 articles blog SEO (M+3 post-MVP)
+- Espace membre (Sprint 3+ après check-point J+8)

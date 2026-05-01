@@ -5,6 +5,76 @@
 
 ---
 
+## Session 2 — 2026-05-01 — Sprint 2 complet (site vendable mi-mai)
+
+**Sprint en cours :** Sprint 2 / Phase 1 Fondations communes → **TERMINÉ ✅**
+**Branche :** `main`
+**Commits ajoutés cette session :** 9 (de `df7d318` à `(2.9)`)
+**Heures travaillées :** ~6-8h cumulées
+
+### ✅ Fait — 10 sous-tâches Sprint 2
+
+| # | Sous-tâche | Commit |
+|---|---|---|
+| 2.0 | Préparation : extraction copy legacy + spec v2 SEO + placeholders + stratégie Stripe (4 docs dans docs/specifications/) | `df7d318` |
+| 2.1 | 4 Stimulus controllers (scroll-reveal, counter-animation, marquee, faq-accordion) + CSS animations (.rv/.rv-l/.rv-r/.vis/.d1-d5, blobs, marquee) + page démo | `91a2370` |
+| 2.2 | 10 composants Twig DS (header dropdowns + drawer mobile, footer 4 cols, button macros, hero, card, faq, module-accordion, pricing-table, testimonial-card, newsletter-signup) + 5e controller mobile-menu | `c13d8db` |
+| 2.3 | Page Home `/` complète 12 sections + Schema.org Organization+Person+FAQPage + scroll-driving cascadé | `3fe70df` |
+| 2.4 | Page Niveau 1 `/formation-claude-consultant` 15 sections (LA page de vente principale) + Schema.org Course+Offer+FAQPage | `c0dd35e` |
+| 2.5 | Lead magnet `/3-agents-ia-gratuits` + page merci + capture email avec validation Symfony Validator + consentement RGPD | `258174a` |
+| 2.6 | Stripe Payment Links integration + AchatController routes /achat/{slug} success annule + composer require stripe/stripe-php | `39829fa` |
+| 2.7 | StripeWebhookController (signature + idempotence) + AchatService final readonly + AchatMailer + email confirmation HTML+texte + 4 tests fonctionnels | `fe864cb` |
+| 2.8 | 4 pages légales (mentions/CGV/confidentialité/cookies avec layout commun + sidebar nav + placeholders) + /a-propos 6 sections + /contact (form anti-spam honeypot) | `(2.8 commit)` |
+| 2.9 | MAJ docs mémoire (CLAUDE.md routes/services + PROGRESS.md + ROADMAP.md) | (ce commit) |
+
+### 📊 État technique en fin de Sprint 2
+
+- **Pages publiques livrées** : 14 routes (home, niveau 1, lead magnet form/submit/merci, achat slug/success/annule, mentions, CGV, confidentialité, cookies, a-propos, contact form/submit, webhook stripe)
+- **Composants Twig** : 10 partials réutilisables dans `templates/components/`
+- **Stimulus controllers** : 5 (scroll-reveal, counter-animation, marquee, faq-accordion, mobile-menu)
+- **Schemas Schema.org** : Organization, Person Rama, Course, Offer (3 tiers), FAQPage (sur home et Niveau 1)
+- **Tests** : **37 tests / 83 assertions / 100% PASS** en ~10ms
+- **PHPStan** : niveau 8, 0 erreur
+- **PHP-CS-Fixer** : code conforme
+- **Server boot** : `symfony serve` HTTP 200, TTFB 91-208ms selon page
+- **Tailwind v4** : build 35-65ms
+
+### 🎁 Ce qui est livré et vendable mi-mai
+
+Le site peut **encaisser une vente Niveau 1 maintenant** (à condition que Rama configure les Payment Links Stripe + les 4 placeholders critiques :
+1. Payment Link Niveau 1 early-bird 147€ dans dashboard Stripe
+2. Webhook secret Stripe (whsec) dans .env.local
+3. SIRET + dénomination + adresse pour mentions/CGV
+4. Photo Rama + vidéo VSL Niveau 1 (ou retrait du placeholder VSL)
+
+Tout le reste (storytelling Sandra, P.R.O.M.P.T., bio détaillée, témoignages additionnels, chiffres clés Rama, Brevo) sont des **améliorations** mais le site fonctionne sans.
+
+### 🔜 Sprint suivant — décision check-point J+8
+
+Selon ROADMAP.md stratégie pragmatique :
+- **Option A** (pré-launch mi-mai) : Rama publie le site, ouvre les 30 places early-bird, livraison contenu par email pendant qu'on développe la suite
+- **Option B** (MVP complet mi-juin) : on continue Sprint 3 (auth Symfony Security) → Sprint 4 (espace membre) → Sprint 5 (progression) → Sprint 6 (certificats + déploiement prod)
+- **Option C** (hybride) : liste d'attente mi-mai, vente fin mai/début juin
+
+À trancher avec Rama au check-point J+8 (~2026-05-08).
+
+### 🐛 Bugs corrigés cette session
+- Routing : `/achat/{slug}` matchait `/achat/success` et `/achat/annule` → ajout requirement regex `(?!success|annule)[a-z0-9-]+`
+- Env vars : `MAILER_FROM_EMAIL` avec `@` → split en 2 vars dans .env (pas de chars spéciaux dans noms env)
+- PHPStan : strict comparison false avec password_hash() → retiré (PHP 8+ throw plutôt que return false)
+
+### ⏸️ Points en attente
+- **Push branche `main`** sur le remote (à valider avec Rama avant push)
+- **Décision check-point J+8** : option A / B / C
+- **Placeholders à fournir par Rama** (cf. docs/specifications/placeholders-required.md, 13 blocs copy + 10 visuels + 4 Stripe + 5 légal + 4 Brevo)
+- **Tests métier AchatService** : nécessitent fixtures Cours en BDD (Sprint 3)
+- **Brevo intégration** : Sprint 4 — actuellement MAILER_DSN=null:// → emails dans logs
+
+### 📌 Décisions ajoutées cette session
+*(aucune nouvelle décision majeure — cf. DECISIONS.md, les choix Sprint 2 dérivent des décisions Sprint 1)*
+
+---
+
 ## Session 1 — 2026-05-01 — Sprint 1 complet
 
 **Sprint en cours :** Sprint 1 — Setup & Entités → **TERMINÉ ✅**

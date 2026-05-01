@@ -3,7 +3,7 @@
 > Fichier source de vérité pour reprendre le projet à zéro à n'importe quel moment.
 > Mis à jour à chaque décision technique majeure.
 
-**Dernière mise à jour :** 2026-05-01 (fin Sprint 1)
+**Dernière mise à jour :** 2026-05-01 (fin Sprint 2)
 **Auteur projet :** Rama Soumaré (rama@hallia.ai) — formatrice IA & cofondatrice technique
 **Repo :** https://github.com/ramas69/instant
 **URL prod cible :** https://instant-ia.com
@@ -190,27 +190,61 @@ utilisateur ──< certificat ──── cours    (unique pair)
 
 ---
 
-## 6. Routes principales (à compléter au fil des sprints)
+## 6. Routes principales (mises à jour fin Sprint 2 — 2026-05-01)
 
-| Méthode | Route | Action |
-|---|---|---|
-| GET | `/` | Page d'accueil |
-| GET | `/formations` | Catalogue |
-| GET | `/formations/{slug}` | Détail formation |
-| GET/POST | `/inscription` | Register |
-| GET/POST | `/connexion` | Login |
-| GET | `/mon-compte` | Dashboard élève |
-| GET | `/mon-compte/formations` | Mes formations |
-| GET | `/mon-compte/formations/{slug}/lecons/{leconSlug}` | Page leçon |
-| POST | `/checkout/{slug}` | Créer session Stripe |
-| GET | `/checkout/success` | Callback success |
-| POST | `/webhooks/stripe` | Webhook Stripe |
-| GET | `/certificats/{code}` | Vérification publique |
-| GET | `/admin` | EasyAdmin dashboard |
+### Pages publiques actives
+
+| Méthode | Route | Name | Action / Sprint |
+|---|---|---|---|
+| GET | `/` | `app_home` | Home 12 sections (Sprint 2.3) |
+| GET | `/formation-claude-consultant` | `formation_le_systeme_claude` | Niveau 1 page de vente (Sprint 2.4) |
+| GET | `/3-agents-ia-gratuits` | `lead_magnet_form` | Lead magnet squeeze (Sprint 2.5) |
+| POST | `/3-agents-ia-gratuits` | `lead_magnet_submit` | Capture email (Sprint 2.5) |
+| GET | `/merci-3-agents-ia` | `lead_magnet_merci` | Page de remerciement |
+| GET | `/a-propos` | `a_propos` | Bio Rama 6 sections (Sprint 2.8) |
+| GET | `/contact` | `contact_form` | Formulaire (Sprint 2.8) |
+| POST | `/contact` | `contact_submit` | Envoi email + honeypot anti-spam |
+
+### Pages légales (Sprint 2.8)
+
+| GET | `/mentions-legales` | `legal_mentions` |
+| GET | `/cgv` | `legal_cgv` |
+| GET | `/confidentialite` | `legal_confidentialite` |
+| GET | `/cookies` | `legal_cookies` |
+
+### Parcours achat (Sprint 2.6 / 2.7)
+
+| GET | `/achat/{slug}` | `achat_init` | Redirect 302 vers Stripe Payment Link |
+| GET | `/achat/success` | `achat_success` | Confirmation paiement |
+| GET | `/achat/annule` | `achat_annule` | Retour annulation |
+| POST | `/webhooks/stripe` | `webhook_stripe` | Webhook signature + idempotence |
+
+### Pages à venir (Sprint 3+)
+
+| GET | `/formations` | (à créer) | Catalogue 3 niveaux |
+| GET | `/claude-productivite-pro` | (à créer) | Niveau 2 |
+| GET | `/claude-cowork-automatisation` | (à créer) | Niveau 3 |
+| GET | `/audit-ia` | (à créer) | Service audit 497€ |
+| GET | `/consulting` | (à créer) | Service consulting 1500€+ |
+| GET | `/le-cercle` | (à créer) | Membership teaser |
+| GET | `/blog` + `/blog/{slug}` | (à créer) | Blog SEO |
+| GET | `/temoignages` | (à créer) | Page témoignages |
+| GET | `/verifier-certificat/{code}` | (à créer) | Vérification publique cert |
+
+### Espace membre (Sprint 3+ avec Symfony Security)
+
+| GET/POST | `/app/connexion` `/app/inscription` `/app/mot-de-passe-oublie` |
+| GET | `/app/mes-formations` `/app/formation/{slug}` `/app/formation/{slug}/lecon/{id}` |
+| GET | `/app/mes-certificats` `/app/mon-compte` |
+
+### Admin
+
+| GET | `/admin` | `admin` | EasyAdmin dashboard (Sprint 1.8) |
+| GET | `/admin/{entity}/...` | `admin_*` | CRUD 7 entités |
 
 ---
 
-## 7. Services & Repositories (au fil des sprints)
+## 7. Services & Repositories
 
 ### Repositories (Sprint 1) — créés
 - `App\User\Repository\UserRepository` — `findOneByEmail()`, `upgradePassword()` (PasswordUpgraderInterface)
@@ -221,10 +255,14 @@ utilisateur ──< certificat ──── cours    (unique pair)
 - `App\Progression\Repository\ProgressionRepository` — `findOneByEleveAndLecon()`
 - `App\Certificat\Repository\CertificatRepository` — `findOneByCode()`, `findOneByEleveAndCours()`
 
-### Services (à venir aux Sprints 2-6)
-- `App\User\Service\InscriptionService` — register avec verify email (Sprint 2)
-- `App\Achat\Service\AchatService` — création Stripe Checkout, traitement webhook, idempotence (Sprint 4 / Phase 1)
-- `App\Cours\Service\CatalogueService` — listing publié, lookup slug (Sprint 3)
+### Services métier (Sprint 2) — créés
+- `App\Achat\Service\AchatService` (final readonly) — `traiterPaiementReussi(Session)` idempotent : lookup par stripeSessionId, création User à la volée argon2id, persist Achat avec marquerPaye(), trigger AchatMailer, log Monolog (Sprint 2.7)
+- `App\Achat\Mailer\AchatMailer` — `envoyerConfirmation(Achat)` via TemplatedEmail HTML+texte (templates/email/achat-confirme.*)
+- `App\Achat\Exception\AchatProcessingException` — exception métier dédiée avec named constructors
+
+### Services (à venir aux Sprints 3-6)
+- `App\User\Service\InscriptionService` — register avec verify email (Sprint 3)
+- `App\Cours\Service\CatalogueService` — listing publié, lookup slug, refacto FormationController (Sprint 3)
 - `App\Progression\Service\ProgressionService` — marquer leçon vue, calculer pourcentage (Sprint 5)
 - `App\Certificat\Service\CertificatService` — génération PDF, vérification code (Sprint 6)
 
