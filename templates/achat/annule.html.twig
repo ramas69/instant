@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+{% import 'components/_buttons.html.twig' as buttons %}
+
+{% block title %}Achat annulé{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Ton paiement a été annulé. Reviens quand tu veux — la formation t'attend.{% endblock %}
+
+{% block body %}
+
+<section class="bg-cream-100 px-6 py-24 md:px-12 md:py-32">
+    <div class="mx-auto max-w-3xl text-center">
+
+        <p class="eyebrow mb-4 rv">Pas de souci</p>
+
+        <h1 class="serif text-4xl leading-tight text-ink-900 rv d1 md:text-6xl">
+            Ton paiement a été <em>annulé</em>.
+        </h1>
+
+        <p class="mt-6 text-lg leading-relaxed text-ink-300 rv d2 md:text-xl">
+            Pas de souci, rien n'a été débité. Tu peux revenir à la formation quand tu veux —
+            les 30 places fondateur restent ouvertes.
+        </p>
+
+        <div class="mt-12 grid gap-4 text-left sm:grid-cols-2 rv d3">
+            <a href="/formation-claude-consultant" class="block rounded-2xl bg-paper p-6 shadow-2 transition hover:shadow-3">
+                <p class="eyebrow mb-2">Une question ?</p>
+                <h2 class="serif mb-2 text-xl text-ink-900">Revoir le programme</h2>
+                <p class="text-sm text-ink-300">Tous les détails de la formation : 7 modules, 27 vidéos, 11 bonus.</p>
+                <p class="mt-3 font-mono text-sm text-gold-500">Voir le programme →</p>
+            </a>
+
+            <a href="/3-agents-ia-gratuits" class="block rounded-2xl bg-paper p-6 shadow-2 transition hover:shadow-3">
+                <p class="eyebrow mb-2">Pas prête à investir ?</p>
+                <h2 class="serif mb-2 text-xl text-ink-900">Récupère 3 Agents IA gratuits</h2>
+                <p class="text-sm text-ink-300">Une version condensée pour goûter à la méthode. Sans CB.</p>
+                <p class="mt-3 font-mono text-sm text-gold-500">Récupérer →</p>
+            </a>
+        </div>
+
+        <div class="mt-12 rv d4">
+            <p class="serif text-xl italic leading-snug text-ink-300">
+                Si quelque chose t'a fait hésiter au moment du paiement,
+                <a href="mailto:hello@instant-ia.com" class="text-gold-500 underline decoration-gold-500/40 underline-offset-4">écris-moi</a>.
+                Je te réponds en 24h.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

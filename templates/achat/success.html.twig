@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+{% import 'components/_buttons.html.twig' as buttons %}
+
+{% block title %}Bienvenue dans Le Système Claude{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Ton paiement est confirmé. Bienvenue dans Le Système Claude du Consultant.{% endblock %}
+
+{% block body %}
+
+<section class="relative overflow-hidden bg-cream-100 px-6 py-24 md:px-12 md:py-32">
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-3xl text-center">
+
+        {# Icône check #}
+        <div class="mb-8 inline-flex h-24 w-24 items-center justify-center rounded-full bg-gold-400 shadow-glow-gold rv">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" class="text-ink-900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <p class="eyebrow mb-4 rv d1">Bienvenue à bord</p>
+
+        <h1 class="serif text-4xl leading-tight text-ink-900 rv d2 md:text-6xl">
+            Bienvenue dans <em>Le Système Claude</em>.
+        </h1>
+
+        <p class="mt-6 text-lg leading-relaxed text-ink-300 rv d3 md:text-xl">
+            Ton paiement est confirmé. Tu vas recevoir un email de confirmation dans les 30 secondes.
+            Et la première leçon arrive demain dans ta boîte mail.
+        </p>
+
+        {# Bloc info — étapes suivantes #}
+        <div class="mt-12 rounded-2xl bg-paper p-8 text-left shadow-3 rv d4">
+            <p class="eyebrow mb-4">Tes prochaines étapes</p>
+            <ol class="space-y-4 text-ink-900">
+                <li class="flex gap-4">
+                    <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gold-400 font-mono text-sm font-bold text-ink-900">1</span>
+                    <span class="leading-relaxed">
+                        <em class="not-italic font-medium">Vérifie ta boîte mail</em>
+                        — un email de bienvenue arrive avec ton accès au Module 0.
+                    </span>
+                </li>
+                <li class="flex gap-4">
+                    <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gold-400 font-mono text-sm font-bold text-ink-900">2</span>
+                    <span class="leading-relaxed">
+                        <em class="not-italic font-medium">Bloque 45 min/jour</em>
+                        dans ton agenda pour les 14 prochains jours.
+                    </span>
+                </li>
+                <li class="flex gap-4">
+                    <span class="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-gold-400 font-mono text-sm font-bold text-ink-900">3</span>
+                    <span class="leading-relaxed">
+                        <em class="not-italic font-medium">Rejoins la communauté privée</em>
+                        — le lien WhatsApp est dans l'email de bienvenue.
+                    </span>
+                </li>
+            </ol>
+        </div>
+
+        {# Affichage info Achat si disponible (debug + transparence) #}
+        {% if achat %}
+            <div class="mt-8 rounded-xl bg-success-bg px-5 py-4 text-left rv d5">
+                <p class="font-mono text-2xs uppercase tracking-widest text-success">Confirmation</p>
+                <p class="mt-1 text-sm text-ink-700">
+                    Achat #{{ achat.id|slice(0, 8) }} — {{ (achat.montantCentimes / 100)|number_format(0, ',', ' ') }} €
+                    — {{ achat.cours.titre }}
+                </p>
+            </div>
+        {% elseif sessionId %}
+            <div class="mt-8 rounded-xl border border-dashed border-ink-300/30 px-5 py-4 text-left rv d5">
+                <p class="font-mono text-2xs uppercase tracking-widest text-ink-200">Synchronisation en cours</p>
+                <p class="mt-1 text-sm text-ink-300">
+                    Stripe nous transmet ton paiement. Si l'email de bienvenue n'arrive pas dans 5 min,
+                    écris-nous à <a href="mailto:hello@instant-ia.com" class="underline decoration-gold-500/40 underline-offset-2">hello@instant-ia.com</a>.
+                </p>
+            </div>
+        {% endif %}
+
+        <div class="mt-12 rv d5">
+            <p class="serif mb-6 text-2xl italic leading-snug text-ink-900">
+                Une question ? Écris-moi <em class="text-gold-500">directement</em>.
+            </p>
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                {{ buttons.primary('Retour à l\'accueil', '/') }}
+                {{ buttons.secondary('Contacter Rama', 'mailto:hello@instant-ia.com', { external: true, arrow: false }) }}
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
