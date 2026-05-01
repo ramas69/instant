@@ -2006,17 +2006,17 @@
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     max-width: 480px;
   }
-  .quote-section .avatar-q {
-    width: 56px;
-    height: 56px;
-    border-radius: 50%;
-    background: var(--color-gold-300);
-    color: var(--color-ink-700);
-    display: grid;
-    place-items: center;
+  /* Initiale signataire — typographie pure, pas de cercle (cohérence faceless) */
+  .quote-section .author-initial {
     font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    line-height: 1;
+    color: var(--color-gold-300);
+    letter-spacing: var(--tracking-tight);
+    flex-shrink: 0;
+  }
+  .quote-section .author-initial em {
     font-style: italic;
-    font-size: var(--text-2xl);
   }
 
   /* ─── CTA FINAL GOLD ───────────────────────────────────────────── */
