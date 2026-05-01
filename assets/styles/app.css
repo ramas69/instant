@@ -471,35 +471,62 @@
   /* ─── HERO BRUTALIST EDITORIAL TYPE-HEAVY (Style C) ───────────── */
   .hero-brutalist {
     min-height: 100vh;
-    background: var(--color-cream-100);
-    padding: 6rem 2.5rem 3rem;
+    background:
+      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(212, 175, 55, 0.08), transparent 70%),
+      radial-gradient(ellipse 60% 40% at 100% 100%, rgba(6, 78, 59, 0.06), transparent 60%),
+      var(--color-cream-100);
+    padding: 5rem 2.5rem 2.5rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
+    isolation: isolate;
   }
 
-  /* Lignes décoratives subtiles dans les coins */
-  .hero-brutalist::before,
+  /* Texture grain subtile via pattern SVG inline */
+  .hero-brutalist::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.6 0 0 0 0 0.5 0 0 0 0 0.3 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.18;
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Lignes décoratives dorées dans les coins */
   .hero-brutalist::after {
     content: '';
     position: absolute;
+    bottom: 1.5rem;
+    left: 2.5rem;
+    width: 80px;
+    height: 1px;
     background: var(--color-gold-500);
-    opacity: 0.4;
+    opacity: 0.5;
+    z-index: 1;
   }
-  .hero-brutalist::before {
-    top: 2rem;
-    right: 2rem;
-    width: 80px;
-    height: 1px;
+
+  /* Mot fantôme géant en background — effet profondeur magazine */
+  .hero-brutalist-ghost {
+    position: absolute;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(14rem, 32vw, 32rem);
+    line-height: 0.85;
+    color: var(--color-ink-900);
+    opacity: 0.045;
+    letter-spacing: var(--tracking-tightest);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    white-space: nowrap;
   }
-  .hero-brutalist::after {
-    bottom: 2rem;
-    left: 2rem;
-    width: 80px;
-    height: 1px;
-  }
+  .hero-brutalist-ghost--top { top: 8rem; left: -4rem; }
+  .hero-brutalist-ghost--bottom { bottom: -2rem; right: -2rem; }
 
   /* Top — eyebrow + numéro de "couverture" */
   .hero-brutalist-top {
@@ -507,6 +534,8 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 2rem;
+    position: relative;
+    z-index: 2;
   }
   .hero-brutalist-vol {
     font-family: var(--font-mono);
@@ -533,30 +562,70 @@
     line-height: 0.92;
     letter-spacing: var(--tracking-tightest);
     color: var(--color-ink-900);
-    margin: 4rem 0;
+    margin: 2.5rem 0;
+    position: relative;
+    z-index: 2;
   }
   .hero-brutalist-word {
     display: block;
-    font-size: clamp(2.5rem, 9vw, 7.5rem);
+    font-size: clamp(2rem, 6.5vw, 5rem);
     line-height: 0.9;
+    position: relative;
+    transition: transform 0.4s var(--ease-spring);
   }
-  .hero-brutalist-word--gold      { color: var(--color-gold-500); font-style: italic; }
-  .hero-brutalist-word--gold-dim  { color: var(--color-gold-300); font-style: italic; }
-  .hero-brutalist-word--ink-italic{ color: var(--color-ink-700); font-style: italic; }
-  .hero-brutalist-word--xl        { font-size: clamp(3.5rem, 13vw, 11rem); }
-  .hero-brutalist-word--lg        { font-size: clamp(3rem, 11vw, 9rem); }
-  .hero-brutalist-word--md        { font-size: clamp(2rem, 6vw, 4.5rem); }
-  .hero-brutalist-word--sm        { font-size: clamp(1.5rem, 4vw, 3rem); }
+  /* Couleurs */
+  .hero-brutalist-word--gold {
+    color: var(--color-gold-500);
+    font-style: italic;
+    text-shadow:
+      0 1px 0 rgba(212, 175, 55, 0.25),
+      0 8px 24px rgba(212, 175, 55, 0.20);
+  }
+  .hero-brutalist-word--gold-dim {
+    color: var(--color-gold-300);
+    font-style: italic;
+    text-shadow:
+      0 1px 0 rgba(232, 197, 71, 0.20),
+      0 8px 22px rgba(232, 197, 71, 0.18);
+  }
+  .hero-brutalist-word--ink-italic {
+    color: var(--color-ink-700);
+    font-style: italic;
+    text-shadow: 0 1px 0 rgba(6, 78, 59, 0.10);
+  }
+  /* Tailles — réduites pour densité plus éditoriale */
+  .hero-brutalist-word--xl { font-size: clamp(2.6rem, 8.5vw, 7rem); }
+  .hero-brutalist-word--lg { font-size: clamp(2.2rem, 6.5vw, 5.2rem); }
+  .hero-brutalist-word--md { font-size: clamp(1.5rem, 3.8vw, 2.8rem); }
+  .hero-brutalist-word--sm { font-size: clamp(1rem, 2.5vw, 1.6rem); }
 
   .hero-brutalist-word--center { text-align: center; }
   .hero-brutalist-word--right  { text-align: right; }
-  .hero-brutalist-word--shift  { padding-left: clamp(2rem, 12vw, 12rem); }
-  .hero-brutalist-word--shift-right { padding-right: clamp(2rem, 12vw, 12rem); }
+  .hero-brutalist-word--shift  { padding-left: clamp(1rem, 8vw, 8rem); }
+  .hero-brutalist-word--shift-right { padding-right: clamp(1rem, 8vw, 8rem); }
 
-  /* Hover : lettres tremblent légèrement (effet "vibrant editorial") */
+  /* Layered effect : le mot principal a un "echo" légèrement décalé en gold-100 derrière */
+  .hero-brutalist-word--echo {
+    --echo-color: var(--color-gold-100);
+  }
+  .hero-brutalist-word--echo::before {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    color: var(--echo-color);
+    transform: translate(0.3em, 0.15em);
+    z-index: -1;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  /* Hover : lift subtle + scale */
   .hero-brutalist-word:hover {
-    transition: transform 0.4s var(--ease-spring);
     transform: translateY(-4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-brutalist-word { transition: none; }
+    .hero-brutalist-word:hover { transform: none; }
   }
 
   /* Footer du hero — eyebrow + CTAs minimaux */
@@ -564,6 +633,8 @@
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    position: relative;
+    z-index: 2;
   }
   .hero-brutalist-foot-meta {
     display: grid;
@@ -1305,7 +1376,6 @@
     background: var(--color-ink-700);
     color: var(--color-paper);
     padding: 0.75rem 1rem;
-    font-size: var(--text-sm);
     line-height: var(--leading-snug);
     border-radius: var(--radius-sm);
     font-family: var(--font-mono);
