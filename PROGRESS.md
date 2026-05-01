@@ -5,6 +5,63 @@
 
 ---
 
+## Session 1 — 2026-05-01 — Sprint 1 complet
+
+**Sprint en cours :** Sprint 1 — Setup & Entités → **TERMINÉ ✅**
+**Branche :** `feature/sprint-1-setup-entities`
+**Commits ajoutés cette session :** 11 (de `81f8925` à `fb8b77e`)
+**Heures travaillées :** ~6-7h cumulées
+
+### ✅ Fait — 9 sous-tâches Sprint 1
+
+| # | Sous-tâche | Commit |
+|---|---|---|
+| 1.1 | Init Symfony **7.4.8** + webapp pack + `symfony/uid` + `symfonycasts/tailwind-bundle` | `f01cec7` |
+| — | Décisions D1 (Uuid v7) + D2 (tailwind-bundle) | `81f8925` |
+| 1.2 | Configuration BDD MySQL 8.0 via MAMP (port 8889) + base `instant_ia` créée | `2a196d1` |
+| — | Décision D3 (MySQL au lieu de PostgreSQL) | `ba2a2af` |
+| 1.3 | Tailwind v4 + tokens DS Editorial Atelier (16 couleurs, 3 fonts, type scale, spacing, radii, shadows) + 8 polices WOFF2 self-hosted + page hello | `66763a0` |
+| — | Décisions D4 (Tailwind v4) + D5 (polices self-hosted) | `aeb2a38` |
+| 1.4 | Enums `RoleUtilisateur`, `StatutAchat`, `StatutProgression` + 12 tests | `d1a7de3` |
+| 1.5 | Entité `User` (UUID v7, UserInterface, PasswordAuthenticatedUserInterface) + repo + 8 tests | `728b78c` |
+| 1.6 | 6 entités métier (Cours, Module, Lecon, Achat, Progression, Certificat) + repos + migration init + 13 tests | `c4053cf` |
+| 1.7 | PHP-CS-Fixer + PHPStan niveau 8 (0 erreur) + 8 corrections de typage | `fd569a0` |
+| 1.8 | EasyAdmin 5 minimal (dashboard + 7 CRUD controllers, `/admin` HTTP 200) | `fb8b77e` |
+| 1.9 | MAJ docs mémoire (CLAUDE.md, PROGRESS.md, ROADMAP.md) | (ce commit) |
+
+### 📊 État technique en fin de Sprint 1
+
+- **Symfony** : 7.4.8 (LTS jusqu'au 11/2028)
+- **PHP** : 8.5.5 (Homebrew)
+- **BDD** : MySQL 8.0.44 via MAMP (`instant_ia`, 9 tables dont 7 métier)
+- **Bundles activés** : 14 (incl. Doctrine, Twig, Security, AssetMapper, EasyAdmin, Stimulus, Turbo, Mailer, Maker, Monolog, WebProfiler, Tailwind)
+- **Tests** : **33 tests / 77 assertions / 100% PASS** en 0.012s
+- **PHPStan** : niveau 8 sur 33 fichiers, **0 erreur**
+- **PHP-CS-Fixer** : code conforme PSR-12 + Symfony + risky
+- **Server boot** : `symfony serve` HTTP 200, TTFB ~210ms
+- **Routes principales** : `/` (HomeController), `/admin`, `/admin/{entity}`
+
+### 🔜 Sprint suivant — Phase 1 Fondations (J+8 check-point)
+
+Selon ROADMAP.md stratégie pragmatique :
+- **Sprint 2 / Phase 1** : auth + page d'accueil avec copy + page formation détail + Stripe Checkout + emails
+- **Check-point J+8** (~2026-05-08) : décision A/B/C selon avancement
+
+### 🐛 Bugs connus
+- Aucun.
+
+### ⏸️ Points en attente
+- **Push branche `feature/sprint-1-setup-entities`** sur le remote (à valider avec Rama avant push)
+- **Merge branche → develop / main** (à décider : on crée `develop` ? on merge direct sur main ?)
+- Vidéos formation toujours à tourner (placeholders Vimeo en attendant)
+- Doc Notion stratégie SEO/GEO toujours en attente (lien privé, à fournir)
+- Comptes tiers à confirmer avant les Sprints concernés (Brevo, Vimeo Pro, OVH/AWS S3, Sentry, Plausible)
+
+### 📌 Décisions ajoutées cette session
+6 décisions consignées (#011 à #015) → cf. DECISIONS.md.
+
+---
+
 ## Session 0 — 2026-04-30 — Initialisation & cadrage
 
 **Sprint en cours :** Pré-Sprint 1 (cadrage, mémoire, plan)

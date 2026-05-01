@@ -3,7 +3,7 @@
 > Fichier source de vérité pour reprendre le projet à zéro à n'importe quel moment.
 > Mis à jour à chaque décision technique majeure.
 
-**Dernière mise à jour :** 2026-04-30
+**Dernière mise à jour :** 2026-05-01 (fin Sprint 1)
 **Auteur projet :** Rama Soumaré (rama@hallia.ai) — formatrice IA & cofondatrice technique
 **Repo :** https://github.com/ramas69/instant
 **URL prod cible :** https://instant-ia.com
@@ -155,28 +155,38 @@ Exemples :
 
 ---
 
-## 5. Entités & relations (à compléter au Sprint 1)
-
-À documenter dès la création des entités.
+## 5. Entités & relations (figé Sprint 1 — 2026-05-01)
 
 ```
-User ────< Achat >──── Cours
-                       └─< Module ─< Lecon
-User ────< Progression >──── Lecon
-User ────< Certificat ──── Cours
+utilisateur ──< achat >──── cours
+                            └─< module ─< lecon
+utilisateur ──< progression >──── lecon  (unique pair)
+utilisateur ──< certificat ──── cours    (unique pair)
 ```
 
-| Entité | Champs clés | Relations |
-|---|---|---|
-| User | email, password, roles, isVerified | hasMany Achat, Progression, Certificat |
-| Cours | titre, slug, description, prix, isPublished | hasMany Module |
-| Module | titre, ordre, cours_id | belongsTo Cours, hasMany Lecon |
-| Lecon | titre, slug, ordre, vimeoId, contenu, module_id | belongsTo Module |
-| Achat | montant, stripeSessionId, statut, user_id, cours_id | belongsTo User, Cours |
-| Progression | user_id, lecon_id, completedAt | belongsTo User, Lecon |
-| Certificat | user_id, cours_id, code, generatedAt, pdfPath | belongsTo User, Cours |
+### Schéma de base
 
-> Schéma indicatif, à valider/ajuster au Sprint 1.
+| Entité | Bounded context | Table | UUID v7 | Champs notables | Contraintes |
+|---|---|---|---|---|---|
+| `User` | `App\User\Entity` | `utilisateur` | ✅ | email unique 180c, password 255c (argon2id), roles json, isVerified, createdAt | UNIQ email |
+| `Cours` | `App\Cours\Entity` | `cours` | ✅ | titre, slug unique, description text, prixCentimes int, isPublished, ordre, createdAt | UNIQ slug ; slug regex kebab-case |
+| `Module` | `App\Cours\Entity` | `module` | ✅ | titre, ordre, description? | FK cours (CASCADE) |
+| `Lecon` | `App\Cours\Entity` | `lecon` | ✅ | titre, slug, ordre, vimeoId?, contenu? | FK module (CASCADE) ; UNIQ (module, slug) |
+| `Achat` | `App\Achat\Entity` | `achat` | ✅ | montantCentimes, stripeSessionId unique indexé, statut enum, createdAt, paidAt? | FK user+cours (CASCADE) |
+| `Progression` | `App\Progression\Entity` | `progression` | ✅ | statut enum, lastViewedAt?, completedAt? | FK eleve+lecon (CASCADE) ; UNIQ (eleve, lecon) |
+| `Certificat` | `App\Certificat\Entity` | `certificat` | ✅ | code unique 8-32c, generatedAt, pdfPath? | FK eleve+cours (CASCADE) ; UNIQ (eleve, cours) |
+
+### Enums (3)
+
+| Enum | Bounded context | Valeurs | Méthodes métier |
+|---|---|---|---|
+| `RoleUtilisateur` | `Shared\Enum` | USER=ROLE_USER, ADMIN=ROLE_ADMIN | — |
+| `StatutAchat` | `Achat\Enum` | PENDING, PAID, REFUNDED, FAILED | `ouvreAcces()`, `peutEtreRembourse()` |
+| `StatutProgression` | `Progression\Enum` | NOT_STARTED, IN_PROGRESS, COMPLETED | `estTermine()`, `estCommence()` |
+
+### Migration init
+
+`migrations/Version20260501094008.php` — crée 7 tables métier + FK + UNIQ + index. **Appliquée**.
 
 ---
 
@@ -200,15 +210,23 @@ User ────< Certificat ──── Cours
 
 ---
 
-## 7. Services métier (à compléter au fil des sprints)
+## 7. Services & Repositories (au fil des sprints)
 
-À documenter dès leur création.
+### Repositories (Sprint 1) — créés
+- `App\User\Repository\UserRepository` — `findOneByEmail()`, `upgradePassword()` (PasswordUpgraderInterface)
+- `App\Cours\Repository\CoursRepository` — `findOneBySlug()`, `findAllPublished()`
+- `App\Cours\Repository\ModuleRepository`
+- `App\Cours\Repository\LeconRepository` — `findOneBySlugInModule()`
+- `App\Achat\Repository\AchatRepository` — `findOneByStripeSessionId()`, `aAcheteCours()`
+- `App\Progression\Repository\ProgressionRepository` — `findOneByEleveAndLecon()`
+- `App\Certificat\Repository\CertificatRepository` — `findOneByCode()`, `findOneByEleveAndCours()`
 
-- `App\Achat\AchatService` — création Stripe Checkout, traitement webhook, idempotence
-- `App\Cours\CatalogueService` — listing publié, lookup slug
-- `App\Progression\ProgressionService` — marquer leçon vue, calculer pourcentage
-- `App\Certificat\CertificatService` — génération PDF, vérification code
-- `App\User\InscriptionService` — register avec verify email
+### Services (à venir aux Sprints 2-6)
+- `App\User\Service\InscriptionService` — register avec verify email (Sprint 2)
+- `App\Achat\Service\AchatService` — création Stripe Checkout, traitement webhook, idempotence (Sprint 4 / Phase 1)
+- `App\Cours\Service\CatalogueService` — listing publié, lookup slug (Sprint 3)
+- `App\Progression\Service\ProgressionService` — marquer leçon vue, calculer pourcentage (Sprint 5)
+- `App\Certificat\Service\CertificatService` — génération PDF, vérification code (Sprint 6)
 
 ---
 

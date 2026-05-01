@@ -161,7 +161,14 @@ Plateforme membre complète livrée le 15 juin aux 30 premières acheteuses.
 
 | Phase | Statut | Date |
 |---|---|---|
-| Phase 1 — Fondations communes | 🟡 En cours (cadrage terminé, dev à démarrer) | démarré 2026-04-30 |
-| Check-point J+8 | ⬜ À venir | ~2026-05-10 |
+| **Sprint 1 — Setup & entités** | ✅ **Terminé** (33 tests / PHPStan 0 / 14 commits) | 2026-04-30 → 2026-05-01 |
+| Phase 1 — Fondations communes (Sprint 2) | 🟡 En cours (Sprint 1 livré, suite à attaquer) | démarré 2026-04-30 |
+| Check-point J+8 | ⬜ À venir | ~2026-05-08 |
 | Phase 2 (A/B/C) | ⬜ À déterminer au check-point | — |
 | Post-MVP M3+ | ⬜ Non démarré | — |
+
+### Avance / retard sur le timing
+
+- **J0 = 2026-04-30**, cible early-bird = ~2026-05-15 (mi-mai)
+- **J+1 = 2026-05-01** : Sprint 1 livré (entités+admin+qualité). Estimation initiale 8-12h, réel ~6-7h.
+- **Avance** sur le timing initial → on a de la marge pour Phase 1 fondations (page de vente + Stripe + auth basique).
