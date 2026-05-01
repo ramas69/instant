@@ -2585,4 +2585,115 @@
     max-height: 600px;
     padding: 0 0 1.5rem;
   }
+
+  /* ─── REFONTE PAGE NIVEAU 1 — utilitaires spécifiques ────────────── */
+
+  /* Monogramme R · S — signature visuelle faceless en Section 5 */
+  .monogramme-rs {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(7rem, 14vw, 12.5rem);
+    line-height: 1;
+    color: var(--color-gold-400);
+    letter-spacing: -0.04em;
+    display: inline-block;
+  }
+
+  /* Numéros géants 01 02 03 (sections agents + chiffres promesse) */
+  .numero-geant {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(6rem, 12vw, 10rem);
+    line-height: 1;
+    color: var(--color-gold-400);
+    letter-spacing: -0.03em;
+    display: inline-block;
+  }
+
+  /* Chiffres promesse 14 / 10 / 0 — variant légèrement plus petit */
+  .chiffre-promesse {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(4.5rem, 10vw, 7.5rem);
+    line-height: 0.95;
+    color: var(--color-gold-400);
+    letter-spacing: -0.03em;
+  }
+
+  /* Capture Claude — placeholder élégant ratio 16:10 */
+  .capture-claude-placeholder {
+    aspect-ratio: 16 / 10;
+    background-color: var(--color-cream-200);
+    border: 1px solid rgba(6, 78, 59, 0.08);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-ink-300);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.20em;
+  }
+
+  /* Encadré garantie — variant card sobre */
+  .garantie-card {
+    background-color: var(--color-cream-50);
+    border: 1px solid var(--color-ink-700);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    max-width: 540px;
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  /* Carrousel témoignages — fade transition */
+  .testimonial-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 400ms var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .testimonial-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    position: relative;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .testimonial-slide {
+      transition: none;
+    }
+  }
+
+  /* Flèches navigation carrousel */
+  .carousel-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-ink-700);
+    border: 1px solid rgba(6, 78, 59, 0.15);
+    cursor: pointer;
+    transition: all 200ms var(--ease-out);
+  }
+  .carousel-arrow:hover {
+    background: var(--color-ink-700);
+    color: var(--color-paper);
+    border-color: var(--color-ink-700);
+  }
+  .carousel-arrow:focus-visible {
+    outline: 3px solid var(--color-gold-300);
+    outline-offset: 3px;
+  }
 }

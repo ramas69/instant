@@ -1,0 +1,25 @@
+{#
+   ─── SECTION DIVIDER ────────────────────────────────────────────────
+   Tiret horizontal or signature, centré ou aligné à gauche.
+
+   Usage :
+     {% include 'components/_section_divider.html.twig' with { width: 60 } %}
+     {% include 'components/_section_divider.html.twig' with { width: 80, centered: false } %}
+     {% include 'components/_section_divider.html.twig' with { animate: true } %}
+
+   Variables :
+     - width    : int (default 60) — largeur en pixels
+     - centered : bool (default true)
+     - animate  : bool (default false) — utilise rule-draw (anime au scroll)
+     - tone     : 'gold'|'ink' (default 'gold')
+#}
+
+{% set _w = width|default(60) %}
+{% set _centered = centered|default(true) %}
+{% set _animate = animate|default(false) %}
+{% set _tone = tone|default('gold') %}
+{% set _color_class = _tone == 'ink' ? 'bg-ink-700' : 'bg-gold-400' %}
+
+<div class="{{ _centered ? 'mx-auto' : '' }} {{ _animate ? 'rule-draw' : '' }} {{ _color_class }}"
+     style="height: 1px; width: {{ _animate ? '100%' : (_w ~ 'px') }}; max-width: {{ _w }}px;"
+     aria-hidden="true"></div>

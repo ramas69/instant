@@ -1,0 +1,42 @@
+{#
+   ─── TESTIMONIAL SLIDE ──────────────────────────────────────────────
+   Slide pour carrousel mono-citation (faceless, initiales gold sur cercle).
+   Format différent du component testimonial-card.html.twig (qui est card grid).
+
+   Variables attendues :
+     - slide.quote   : string (citation, sans guillemets)
+     - slide.name    : string ('Sophie M.')
+     - slide.role    : string ('Coach business')
+     - slide.initial : string (1 lettre, ex: 'S')
+     - slide.index   : int (0-based, pour aria + data-index)
+     - active        : bool (default false) — affiche/cache pour fade carrousel
+#}
+
+{% set _active = active|default(false) %}
+
+<div class="testimonial-slide {{ _active ? 'is-active' : '' }}"
+     data-testimonial-carousel-target="slide"
+     data-index="{{ slide.index }}"
+     role="group"
+     aria-roledescription="témoignage"
+     aria-label="Témoignage {{ slide.index + 1 }} sur 3"
+     aria-hidden="{{ _active ? 'false' : 'true' }}">
+
+    <blockquote class="serif italic text-ink-700 text-center leading-tight mx-auto"
+                style="font-size: clamp(1.75rem, 4.5vw, 3.25rem); max-width: 800px; line-height: 1.2;">
+        {{ slide.quote }}
+    </blockquote>
+
+    <div class="mt-12 flex flex-col items-center gap-3">
+        <div class="flex h-[60px] w-[60px] items-center justify-center rounded-full bg-gold-100"
+             aria-hidden="true">
+            <span class="serif italic text-2xl text-gold-700">{{ slide.initial }}</span>
+        </div>
+        <div class="text-center">
+            <div class="font-medium text-ink-900">{{ slide.name }}</div>
+            <div class="font-mono text-xs uppercase tracking-[0.15em] text-ink-300 mt-1">
+                {{ slide.role }}
+            </div>
+        </div>
+    </div>
+</div>
