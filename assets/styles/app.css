@@ -1660,17 +1660,20 @@
     }
   }
 
-  /* ─── TRUST ROW (3 trust points honnêtes — remplace stats placeholder) ─ */
+  /* ─── TRUST ROW (3 trust points — asymétrie éditoriale) ─────────── */
   .trust-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+    max-width: 1240px;
+    margin: 5rem auto 0;
     border-top: 1px solid var(--rule-strong);
-    border-bottom: 1px solid var(--rule-strong);
-    padding: 2.5rem 0;
+    padding: 4rem 0 2rem;
   }
   .trust-item {
-    padding: 0 2rem;
-    border-right: 1px dashed var(--rule);
+    padding: 0;
+    /* Pas de dividers verticaux — l'espace fait le travail */
   }
-  .trust-item:last-child { border-right: 0; }
   .trust-eyebrow {
     font-family: var(--font-mono);
     font-size: var(--text-2xs);
@@ -1678,33 +1681,78 @@
     letter-spacing: var(--tracking-widest);
     color: var(--color-gold-500);
     font-weight: 700;
-    margin-bottom: 0.75rem;
+    margin-bottom: 1.25rem;
+    display: block;
   }
   .trust-headline {
     font-size: clamp(1.75rem, 3vw, 2.25rem);
-    line-height: 1.1;
+    line-height: 1.05;
     color: var(--color-ink-900);
     letter-spacing: var(--tracking-tight);
-    margin-bottom: 0.75rem;
+    margin: 0 0 1rem;
+    /* Préparation du staggered reveal du <em> italique */
+    position: relative;
   }
   .trust-headline em {
     font-style: italic;
     color: var(--color-gold-500);
+    /* L'italique gold (qualification) arrive après le chiffre principal */
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 700ms var(--ease-out) 400ms,
+                transform 700ms var(--ease-out) 400ms;
+  }
+  .trust-item.in .trust-headline em,
+  .reveal.in .trust-headline em {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Asymétrie typographique : 147€ XL > 14 jours L > 45 min M */
+  .trust-item:nth-child(1) .trust-headline {
+    font-size: clamp(2rem, 3.6vw, 2.75rem);
+  }
+  .trust-item:nth-child(3) .trust-headline {
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+  }
+  /* Rule-draw or sous chaque chiffre, dessinée au reveal */
+  .trust-headline::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 0;
+    background: var(--color-gold-500);
+    margin-top: 0.875rem;
+    transition: width 1000ms var(--ease-out) 200ms;
+  }
+  .trust-item.in .trust-headline::after,
+  .reveal.in .trust-headline::after {
+    width: 48px;
   }
   .trust-helper {
     font-size: var(--text-sm);
     color: var(--fg-muted);
     line-height: var(--leading-relaxed);
     max-width: 32ch;
+    margin: 0;
   }
   @media (max-width: 1024px) {
-    .trust-item {
-      border-right: 0;
-      border-bottom: 1px dashed var(--rule);
-      padding: 1.5rem 0;
+    .trust-row {
+      gap: 3rem;
+      padding: 3rem 0 1.5rem;
     }
-    .trust-item:last-child { border-bottom: 0; }
     .trust-helper { max-width: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .trust-headline em {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .trust-headline::after {
+      width: 48px;
+      transition: none;
+    }
   }
 
   /* ─── PILLARS (scroll-pin accordion + sticky visual) ────────────── */
