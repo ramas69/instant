@@ -456,7 +456,8 @@
     letter-spacing: var(--tracking-widest);
     color: var(--color-gold-500);
     font-weight: 700;
-    display: inline-flex;
+    display: flex;
+    width: fit-content;
     align-items: center;
     gap: 0.5rem;
     margin-bottom: 1rem;
@@ -466,6 +467,12 @@
     width: 24px;
     height: 1px;
     background: var(--color-gold-500);
+  }
+  /* Eyebrow centrée dans une section centered-text */
+  .hero-kinetic-grid--centered .eyebrow-ds,
+  .eyebrow-ds[data-centered] {
+    margin-inline: auto;
+    justify-content: center;
   }
 
   /* ═══════════════════════════════════════════════════════════════
