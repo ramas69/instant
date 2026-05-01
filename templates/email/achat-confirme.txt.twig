@@ -1,0 +1,26 @@
+Bienvenue dans Le Système Claude.
+
+Bonjour {{ achat.acheteur.email|split('@')|first }},
+
+Ton paiement de {{ (achat.montantCentimes / 100)|number_format(0, ',', ' ') }} € pour {{ achat.cours.titre }} a été reçu et confirmé. Bienvenue à bord !
+
+TES PROCHAINES ÉTAPES :
+
+1. Le Module 0 arrive demain matin dans cette boîte mail. Bloque 45 min/jour pendant 14 jours.
+
+2. Communauté privée : le lien WhatsApp arrive dans l'email du Module 0.
+
+3. Garantie 14 jours : si tu n'as pas tes 3 Agents opérationnels, je te rembourse. Sans question.
+
+Retour sur instant-ia.com : https://instant-ia.com/
+
+---
+
+Récap commande :
+- Référence : {{ achat.id|slice(0, 8) }}
+- Stripe Session : {{ achat.stripeSessionId }}
+- Date : {{ achat.paidAt ? achat.paidAt|date('d/m/Y à H:i') : achat.createdAt|date('d/m/Y à H:i') }}
+
+Une question ? Réponds à cet email ou écris à hello@instant-ia.com
+
+Instant IA · Rama Soumaré
