@@ -248,4 +248,157 @@
 
   .serif      { font-family: var(--font-display); font-weight: 400; }
   .serif em   { font-style: italic; color: var(--fg-accent); }
+
+  /* ─── SCROLL REVEAL ─────────────────────────────────────────────── */
+  /* Classes utilisées avec le controller Stimulus `scroll-reveal`.    */
+  /* État initial : caché + décalé. .vis (ajoutée par IO) : visible.   */
+  .rv,
+  .rv-l,
+  .rv-r {
+    opacity: 0;
+    transition:
+      opacity 700ms var(--ease-out),
+      transform 700ms var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .rv   { transform: translateY(24px); }
+  .rv-l { transform: translateX(-32px); }
+  .rv-r { transform: translateX(32px); }
+
+  .rv.vis,
+  .rv-l.vis,
+  .rv-r.vis {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+
+  /* Délais cumulés pour effet d'escalier (staircase) */
+  .d1.vis { transition-delay: 100ms; }
+  .d2.vis { transition-delay: 200ms; }
+  .d3.vis { transition-delay: 350ms; }
+  .d4.vis { transition-delay: 500ms; }
+  .d5.vis { transition-delay: 700ms; }
+
+  /* Respecte les préférences utilisateur de réduction de mouvement */
+  @media (prefers-reduced-motion: reduce) {
+    .rv, .rv-l, .rv-r {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  /* ─── BLOBS DÉCORATIFS (legacy hero pattern) ────────────────────── */
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .blob-1 {
+    width: 480px;
+    height: 480px;
+    background: var(--color-gold-300);
+    top: -120px;
+    right: -120px;
+    animation: blob-float 14s ease-in-out infinite alternate;
+  }
+  .blob-2 {
+    width: 380px;
+    height: 380px;
+    background: var(--color-ink-500);
+    bottom: -100px;
+    left: -100px;
+    animation: blob-float 18s ease-in-out infinite alternate-reverse;
+  }
+  @keyframes blob-float {
+    from { transform: translate(0, 0) scale(1); }
+    to   { transform: translate(40px, 30px) scale(1.1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .blob-1, .blob-2 { animation: none; }
+  }
+
+  /* ─── MARQUEE (défilement infini) ───────────────────────────────── */
+  .marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    background: var(--color-ink-700);
+    padding: 1.5rem 0;
+  }
+  .marquee-track {
+    display: inline-flex;
+    gap: 4rem;
+    animation: marquee-scroll 40s linear infinite;
+    will-change: transform;
+  }
+  .marquee-item {
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-gold-300);
+    white-space: nowrap;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation-play-state: paused; }
+  }
+
+  /* ─── FAQ ACCORDION ─────────────────────────────────────────────── */
+  .faq-item {
+    border-top: 1px solid var(--rule-strong);
+  }
+  .faq-item:last-child {
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 1.5rem 0;
+    background: none;
+    border: none;
+    font-family: var(--font-sans);
+    font-size: var(--text-lg);
+    font-weight: 500;
+    color: var(--fg-primary);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    transition: color 200ms var(--ease-out);
+  }
+  .faq-question:hover {
+    color: var(--fg-accent);
+  }
+  .faq-question::after {
+    content: '+';
+    font-family: var(--font-display);
+    font-size: var(--text-2xl);
+    color: var(--fg-accent);
+    transition: transform 300ms var(--ease-out);
+    flex-shrink: 0;
+  }
+  .faq-item.open .faq-question::after {
+    transform: rotate(45deg);
+  }
+  .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition:
+      max-height 400ms var(--ease-out),
+      padding 300ms var(--ease-out);
+    color: var(--fg-muted);
+    line-height: var(--leading-relaxed);
+  }
+  .faq-item.open .faq-answer {
+    max-height: 600px;
+    padding: 0 0 1.5rem;
+  }
 }
