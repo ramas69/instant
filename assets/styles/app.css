@@ -1091,6 +1091,211 @@
     .particle { animation: none; }
   }
 
+  /* ═══════════════════════════════════════════════════════════════
+     VISUAL DENSITY (Axe C) — éléments visuels concrets
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* Mockup Agent Claude — fenêtre browser fake avec UI Claude */
+  .agent-mockup {
+    position: relative;
+    background: var(--color-paper);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-3);
+    overflow: hidden;
+    border: 1px solid var(--rule);
+  }
+  .agent-mockup-window {
+    background: var(--color-cream-200);
+    padding: 0.75rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .agent-mockup-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-ink-200);
+    opacity: 0.5;
+  }
+  .agent-mockup-url {
+    margin-left: 1rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    color: var(--fg-muted);
+    background: var(--color-paper);
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+    flex: 1;
+  }
+  .agent-mockup-body {
+    padding: 1.25rem;
+  }
+  .agent-mockup-prompt {
+    background: var(--color-cream-100);
+    border-left: 3px solid var(--color-gold-400);
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.75rem;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    color: var(--color-ink-700);
+    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  }
+  .agent-mockup-response {
+    background: var(--color-ink-700);
+    color: var(--color-paper);
+    padding: 0.75rem 1rem;
+    font-size: var(--text-sm);
+    line-height: var(--leading-snug);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+  }
+  .agent-mockup-response strong { color: var(--color-gold-300); }
+
+  /* Calendrier 14 jours — grille 7×2 */
+  .calendar-14 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .calendar-day {
+    aspect-ratio: 1;
+    border: 1px solid var(--rule-strong);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-paper);
+    transition: all 0.3s var(--ease-out);
+    position: relative;
+  }
+  .calendar-day-num {
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--color-ink-700);
+    line-height: 1;
+  }
+  .calendar-day-label {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    color: var(--fg-subtle);
+    margin-top: 0.3rem;
+  }
+  .calendar-day.featured {
+    background: var(--color-gold-400);
+    border-color: var(--color-gold-500);
+  }
+  .calendar-day.featured .calendar-day-num,
+  .calendar-day.featured .calendar-day-label {
+    color: var(--color-ink-900);
+  }
+  .calendar-day.weekend {
+    background: var(--color-cream-200);
+    border-style: dashed;
+  }
+
+  /* Diagramme P.R.O.M.P.T. — 6 cards en cercle */
+  .prompt-circle {
+    position: relative;
+    width: clamp(280px, 50vw, 480px);
+    height: clamp(280px, 50vw, 480px);
+    margin: 0 auto;
+  }
+  .prompt-letter {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    width: clamp(70px, 12vw, 100px);
+    height: clamp(70px, 12vw, 100px);
+    margin: calc(clamp(70px, 12vw, 100px) * -0.5);
+    border-radius: 50%;
+    background: var(--color-gold-400);
+    color: var(--color-ink-900);
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    display: grid;
+    place-items: center;
+    box-shadow: var(--shadow-glow-gold);
+    transition: transform 0.3s var(--ease-out);
+  }
+  .prompt-letter:hover {
+    transform: var(--prompt-tx) scale(1.15);
+    z-index: 2;
+  }
+  .prompt-circle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 60%;
+    height: 60%;
+    transform: translate(-50%, -50%);
+    border: 1px dashed var(--color-gold-400);
+    border-radius: 50%;
+    opacity: 0.4;
+  }
+
+  /* Stats illustrés — barres horizontales gold */
+  .stats-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 560px;
+  }
+  .stats-bar-item {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: 1rem;
+    align-items: center;
+  }
+  .stats-bar-item .label {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--fg-muted);
+  }
+  .stats-bar-item .track {
+    height: 28px;
+    background: var(--color-cream-200);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+    position: relative;
+  }
+  .stats-bar-item .fill {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, var(--color-gold-300), var(--color-gold-500));
+    border-radius: var(--radius-pill);
+    width: var(--w, 0%);
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .stats-bars.in .stats-bar-item .fill,
+  .stats-bar-item.in .fill {
+    transform: scaleX(1);
+  }
+  .stats-bar-item .value {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-2xl);
+    color: var(--color-gold-500);
+    line-height: 1;
+    min-width: 80px;
+    text-align: right;
+  }
+
   /* Hover lift — élévation accentuée sur cards interactives */
   .hover-lift {
     transition:

@@ -122,6 +122,114 @@
 </section>
 
 {# ════════════════════════════════════════════════════════════════
+   SECTION 3.5 — LES 3 AGENTS (mockups Claude)
+   ════════════════════════════════════════════════════════════════ #}
+<section class="relative overflow-hidden bg-cream-50" style="padding: 8rem 2.5rem;">
+    <div class="relative z-10" style="max-width: 1240px; margin: 0 auto;">
+        <div class="reveal" style="margin-bottom: 4rem;">
+            <span class="deco-asterisk" aria-hidden="true">*</span>
+            <div class="eyebrow-ds">Les 3 Agents</div>
+            <h2 class="section-title-ds split" data-controller="split-text">
+                Trois agents qui <em>tournent</em><br>en arrière-plan.
+            </h2>
+            <span class="rule-draw" style="max-width: 200px; margin-top: 1.5rem;"></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem;" class="agents-mockup-grid">
+
+            {# Agent Inbox #}
+            <div class="reveal">
+                <div class="agent-mockup">
+                    <div class="agent-mockup-window">
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-url">claude.ai/projects/inbox</span>
+                    </div>
+                    <div class="agent-mockup-body">
+                        <div class="agent-mockup-prompt">
+                            Trie les emails reçus aujourd'hui et propose une réponse pour chaque.
+                        </div>
+                        <div class="agent-mockup-response">
+                            <strong>3 emails urgents</strong> · 2 relances clients<br>
+                            <strong>5 emails à classer</strong> sans urgence<br>
+                            → 12 réponses pré-rédigées dispo
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 1.25rem;">
+                    <p class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-1">Agent 01</p>
+                    <h3 class="serif text-2xl text-ink-900 mb-2">L'Agent Inbox</h3>
+                    <p class="text-sm text-ink-300 leading-relaxed">
+                        Tu ouvres Gmail, 80% du boulot est déjà fait. <em class="not-italic font-medium text-gold-500">4-5h/sem récupérées</em>.
+                    </p>
+                </div>
+            </div>
+
+            {# Agent Mission #}
+            <div class="reveal delay-2">
+                <div class="agent-mockup">
+                    <div class="agent-mockup-window">
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-url">claude.ai/projects/mission</span>
+                    </div>
+                    <div class="agent-mockup-body">
+                        <div class="agent-mockup-prompt">
+                            Voici la transcription de mon call client. Donne-moi un CR + plan d'action.
+                        </div>
+                        <div class="agent-mockup-response">
+                            <strong>Compte-rendu</strong><br>
+                            • 4 sujets discutés<br>
+                            • 3 décisions actées<br>
+                            <strong>Plan d'action</strong> · 7 tâches priorisées
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 1.25rem;">
+                    <p class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-1">Agent 02</p>
+                    <h3 class="serif text-2xl text-ink-900 mb-2">L'Agent Mission</h3>
+                    <p class="text-sm text-ink-300 leading-relaxed">
+                        Sors d'un call avec ton CR déjà prêt. <em class="not-italic font-medium text-gold-500">3-4h/sem récupérées</em>.
+                    </p>
+                </div>
+            </div>
+
+            {# Agent Propal #}
+            <div class="reveal delay-3">
+                <div class="agent-mockup">
+                    <div class="agent-mockup-window">
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-dot"></span>
+                        <span class="agent-mockup-url">claude.ai/projects/propal</span>
+                    </div>
+                    <div class="agent-mockup-body">
+                        <div class="agent-mockup-prompt">
+                            Client : Acme Corp · Scope : audit RH · Budget : 8K€. Génère la propal.
+                        </div>
+                        <div class="agent-mockup-response">
+                            <strong>Propal_AcmeCorp.pdf</strong><br>
+                            • 12 pages · branding adapté<br>
+                            • Pricing · livrables · planning<br>
+                            → prête en <strong>15 min</strong>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 1.25rem;">
+                    <p class="font-mono text-xs uppercase tracking-widest text-gold-500 mb-1">Agent 03</p>
+                    <h3 class="serif text-2xl text-ink-900 mb-2">L'Agent Propal</h3>
+                    <p class="text-sm text-ink-300 leading-relaxed">
+                        Tu cliques, Claude rédige, tu envoies. <em class="not-italic font-medium text-gold-500">2-3h/sem récupérées</em>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
    SECTION 4 — PILLARS (scroll-pin avec 3 méthodes)
    ════════════════════════════════════════════════════════════════ #}
 <section class="relative overflow-hidden" style="background: var(--color-cream-200); padding: 8rem 2.5rem;" data-controller="pillars-pin">
@@ -239,6 +347,82 @@
             <p>Je construis tes Agents avec toi, je te forme, je te branche sur tes outils. Sur-mesure, devis selon scope.</p>
             <a class="cta" href="/consulting">Discuter →</a>
         </article>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 5.5 — MÉTHODE P.R.O.M.P.T. + CALENDRIER 14 JOURS
+   ════════════════════════════════════════════════════════════════ #}
+<section class="relative overflow-hidden" style="background: var(--color-cream-200); padding: 8rem 2.5rem;">
+    <span class="editorial-number right" aria-hidden="true">04</span>
+
+    <div class="relative z-10" style="max-width: 1240px; margin: 0 auto;">
+        <div class="reveal" style="margin-bottom: 4rem;">
+            <span class="deco-asterisk" aria-hidden="true">*</span>
+            <div class="eyebrow-ds">Méthode signature</div>
+            <h2 class="section-title-ds split" data-controller="split-text">
+                <em>P.R.O.M.P.T.</em><br>en 14 jours.
+            </h2>
+            <span class="rule-draw" style="max-width: 200px; margin-top: 1.5rem;"></span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;" class="prompt-grid">
+
+            {# Diagramme circulaire P.R.O.M.P.T. #}
+            <div class="reveal-left">
+                <div class="prompt-circle" aria-label="Diagramme P.R.O.M.P.T.">
+                    <span class="prompt-letter" style="--prompt-tx: translate(0, -180%); transform: translate(0, -180%);">P</span>
+                    <span class="prompt-letter" style="--prompt-tx: translate(160%, -90%); transform: translate(160%, -90%);">R</span>
+                    <span class="prompt-letter" style="--prompt-tx: translate(160%, 90%); transform: translate(160%, 90%);">O</span>
+                    <span class="prompt-letter" style="--prompt-tx: translate(0, 180%); transform: translate(0, 180%);">M</span>
+                    <span class="prompt-letter" style="--prompt-tx: translate(-160%, 90%); transform: translate(-160%, 90%);">P</span>
+                    <span class="prompt-letter" style="--prompt-tx: translate(-160%, -90%); transform: translate(-160%, -90%);">T</span>
+                </div>
+                <p class="text-center font-mono text-2xs uppercase tracking-widest text-ink-300 mt-6">
+                    [PLACEHOLDER : 6 lettres + significations à fournir par Rama]
+                </p>
+            </div>
+
+            {# Calendrier 14 jours #}
+            <div class="reveal-right delay-2">
+                <p class="eyebrow-ds mb-4">Sprint 14 jours · 45 min/jour</p>
+                <div class="calendar-14" aria-label="Calendrier des 14 jours de formation">
+                    {% for day in 1..14 %}
+                        {% set isFeatured = (day == 1) or (day == 7) or (day == 14) %}
+                        {% set isWeekend = ((day % 7) == 6) or ((day % 7) == 0) %}
+                        <div class="calendar-day{% if isFeatured %} featured{% elseif isWeekend %} weekend{% endif %}"
+                             aria-label="Jour {{ day }}{% if isFeatured %} — étape clé{% endif %}">
+                            <span class="calendar-day-num">{{ day }}</span>
+                            <span class="calendar-day-label">
+                                {% if day == 1 %}Start
+                                {% elseif day == 7 %}Mid
+                                {% elseif day == 14 %}Goal
+                                {% else %}J{{ day }}
+                                {% endif %}
+                            </span>
+                        </div>
+                    {% endfor %}
+                </div>
+                <ul class="mt-6 space-y-2 text-sm text-ink-300">
+                    <li class="flex gap-3">
+                        <span class="font-mono text-xs uppercase tracking-widest text-gold-500 min-w-[60px]">J 1-3</span>
+                        <span>Setup Claude + Méthode P.R.O.M.P.T.</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-mono text-xs uppercase tracking-widest text-gold-500 min-w-[60px]">J 4-7</span>
+                        <span>Construction Agent Inbox + Mission</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-mono text-xs uppercase tracking-widest text-gold-500 min-w-[60px]">J 8-12</span>
+                        <span>Agent Propal + Routines anti-erreurs</span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="font-mono text-xs uppercase tracking-widest text-gold-500 min-w-[60px]">J 13-14</span>
+                        <span>Bilan + plan post-formation</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </section>
