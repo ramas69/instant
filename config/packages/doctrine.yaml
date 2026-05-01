@@ -10,16 +10,40 @@ doctrine:
     orm:
         validate_xml_mapping: true
         naming_strategy: doctrine.orm.naming_strategy.underscore
-        identity_generation_preferences:
-            Doctrine\DBAL\Platforms\PostgreSQLPlatform: identity
         auto_mapping: true
+        # Un mapping par bounded context (DDD light).
+        # Chaque entité métier vit dans son contexte, sous src/<Context>/Entity/.
         mappings:
-            App:
+            User:
                 type: attribute
                 is_bundle: false
-                dir: '%kernel.project_dir%/src/Entity'
-                prefix: 'App\Entity'
-                alias: App
+                dir: '%kernel.project_dir%/src/User/Entity'
+                prefix: 'App\User\Entity'
+                alias: User
+            Cours:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Cours/Entity'
+                prefix: 'App\Cours\Entity'
+                alias: Cours
+            Achat:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Achat/Entity'
+                prefix: 'App\Achat\Entity'
+                alias: Achat
+            Progression:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Progression/Entity'
+                prefix: 'App\Progression\Entity'
+                alias: Progression
+            Certificat:
+                type: attribute
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Certificat/Entity'
+                prefix: 'App\Certificat\Entity'
+                alias: Certificat
 
 when@test:
     doctrine:
