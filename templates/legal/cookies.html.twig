@@ -1,0 +1,84 @@
+{% extends 'legal/_layout.html.twig' %}
+
+{% block title %}Politique de cookies{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Politique cookies Instant IA — liste, finalités, gestion des consentements.{% endblock %}
+
+{% set title = 'Politique de <em>cookies</em>' %}
+{% set lastUpdate = '1er mai 2026' %}
+{% set currentRoute = 'legal_cookies' %}
+
+{% block legal_content %}
+
+<p>
+    Instant IA utilise un nombre <strong>volontairement réduit</strong> de cookies, dans le respect
+    du RGPD et de la directive ePrivacy.
+</p>
+
+<h2>1. Qu'est-ce qu'un cookie ?</h2>
+<p>
+    Un cookie est un petit fichier texte déposé sur ton ordinateur ou ton téléphone par un site
+    que tu visites. Il permet au site de te reconnaître à ta prochaine visite ou de fonctionner
+    correctement (ex : maintenir ta session connectée).
+</p>
+
+<h2>2. Cookies utilisés sur instant-ia.com</h2>
+
+<h3>2.1 Cookies strictement nécessaires (sans consentement requis)</h3>
+<p>Ces cookies sont indispensables au fonctionnement du site. Ils ne peuvent pas être désactivés.</p>
+<ul>
+    <li><strong>PHPSESSID</strong> — gère ta session connectée à la plateforme membre. Durée : session.</li>
+    <li><strong>cookie_consent</strong> — mémorise ton choix de consentement pour ne pas te re-demander à chaque visite. Durée : 12 mois.</li>
+</ul>
+
+<h3>2.2 Cookies d'analyse (avec consentement)</h3>
+<p>
+    <strong>Instant IA n'utilise PAS Google Analytics</strong> ni aucun outil d'analyse à base de cookies traceurs.
+</p>
+<p>
+    Pour les statistiques de fréquentation, nous utilisons
+    <a href="https://plausible.io" target="_blank" rel="noopener">Plausible Analytics</a>,
+    un outil RGPD-friendly qui fonctionne <strong>sans cookies</strong> et sans collecte d'IP individualisée.
+</p>
+
+<h3>2.3 Cookies tiers (Stripe, Vimeo)</h3>
+<p>Lorsque tu interagis avec certaines fonctionnalités, des cookies tiers peuvent être déposés :</p>
+<ul>
+    <li><strong>Stripe</strong> : lors d'un paiement, Stripe dépose ses propres cookies pour la sécurité (anti-fraude).
+    Cf. <a href="https://stripe.com/legal/privacy-policy" target="_blank" rel="noopener">politique cookies Stripe</a>.</li>
+    <li><strong>Vimeo</strong> : lors du visionnage d'une vidéo de formation, Vimeo dépose ses propres cookies.
+    Cf. <a href="https://vimeo.com/cookie_policy" target="_blank" rel="noopener">politique cookies Vimeo</a>.</li>
+</ul>
+
+<h2>3. Gestion de tes consentements</h2>
+<p>
+    Lors de ta première visite, une bannière cookies s'affiche pour te demander ton consentement
+    pour les cookies non essentiels.
+</p>
+<p>
+    Tu peux à tout moment <strong>modifier tes préférences</strong> via le bouton "Gérer mes cookies"
+    en bas du site (à venir Sprint 6 avec la solution Tarteaucitron ou équivalent — pour l'instant,
+    Instant IA n'utilise que des cookies strictement nécessaires, donc aucune bannière n'est affichée).
+</p>
+
+<h2>4. Bloquer les cookies depuis ton navigateur</h2>
+<p>
+    Tu peux toujours configurer ton navigateur pour bloquer ou supprimer les cookies :
+</p>
+<ul>
+    <li><a href="https://support.google.com/chrome/answer/95647" target="_blank" rel="noopener">Chrome</a></li>
+    <li><a href="https://support.mozilla.org/fr/kb/effacer-les-cookies" target="_blank" rel="noopener">Firefox</a></li>
+    <li><a href="https://support.apple.com/fr-fr/guide/safari/sfri11471" target="_blank" rel="noopener">Safari</a></li>
+    <li><a href="https://support.microsoft.com/fr-fr/microsoft-edge/supprimer-les-cookies-dans-microsoft-edge" target="_blank" rel="noopener">Edge</a></li>
+</ul>
+<p>
+    Note : bloquer le cookie PHPSESSID empêchera la connexion à la plateforme membre.
+</p>
+
+<h2>5. Contact</h2>
+<p>
+    Pour toute question sur les cookies ou la vie privée, écris à
+    <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a>.
+</p>
+
+{% endblock %}

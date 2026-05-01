@@ -1,0 +1,128 @@
+{% extends 'legal/_layout.html.twig' %}
+
+{% block title %}Politique de confidentialité{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Politique de confidentialité Instant IA — RGPD, données collectées, droits utilisateurs.{% endblock %}
+
+{% set title = 'Politique de <em>confidentialité</em>' %}
+{% set lastUpdate = '1er mai 2026' %}
+{% set currentRoute = 'legal_confidentialite' %}
+
+{% block legal_content %}
+
+<p>
+    La protection de tes données personnelles est une priorité pour Instant IA. Cette politique
+    explique de manière transparente quelles données sont collectées, pourquoi, et comment tu peux
+    exercer tes droits.
+</p>
+
+<h2>1. Responsable du traitement</h2>
+<p>
+    Le responsable du traitement des données est :
+</p>
+<ul>
+    <li><strong>Dénomination</strong> : <span class="placeholder">[PLACEHOLDER : nom commercial]</span></li>
+    <li><strong>SIRET</strong> : <span class="placeholder">[PLACEHOLDER : SIRET]</span></li>
+    <li><strong>Email contact RGPD</strong> : <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a></li>
+</ul>
+
+<h2>2. Données collectées</h2>
+
+<h3>2.1 Lors d'une inscription au lead magnet</h3>
+<ul>
+    <li>Adresse email</li>
+    <li>Adresse IP (à des fins de log technique uniquement)</li>
+    <li>Date et heure d'inscription</li>
+</ul>
+
+<h3>2.2 Lors d'un achat</h3>
+<ul>
+    <li>Adresse email</li>
+    <li>Prénom, nom (collectés par Stripe)</li>
+    <li>Informations de paiement (gérées exclusivement par Stripe — Instant IA n'a jamais accès aux numéros de carte bancaire)</li>
+    <li>Pays / ville (à des fins de facturation)</li>
+</ul>
+
+<h3>2.3 Lors de l'utilisation de la plateforme membre</h3>
+<ul>
+    <li>Adresse email</li>
+    <li>Mot de passe (stocké hashé en argon2id, non lisible en clair)</li>
+    <li>Progression sur les leçons (timestamps de connexion et de complétion)</li>
+    <li>Historique des achats</li>
+</ul>
+
+<h2>3. Bases légales du traitement</h2>
+<ul>
+    <li><strong>Exécution d'un contrat</strong> : pour les achats et l'accès aux formations (art. 6.1.b RGPD)</li>
+    <li><strong>Consentement</strong> : pour la newsletter et les emails marketing (art. 6.1.a RGPD)</li>
+    <li><strong>Intérêt légitime</strong> : pour les logs techniques et la sécurité (art. 6.1.f RGPD)</li>
+    <li><strong>Obligation légale</strong> : pour la conservation des factures pendant 10 ans (art. L123-22 Code de commerce)</li>
+</ul>
+
+<h2>4. Durée de conservation</h2>
+<ul>
+    <li><strong>Email lead magnet</strong> : 3 ans après le dernier contact actif</li>
+    <li><strong>Compte utilisateur</strong> : actif tant que le compte n'est pas supprimé. Suppression sur demande ou après 5 ans d'inactivité.</li>
+    <li><strong>Factures et données comptables</strong> : 10 ans (obligation légale)</li>
+    <li><strong>Logs techniques</strong> : 12 mois maximum</li>
+</ul>
+
+<h2>5. Destinataires des données</h2>
+<p>Les données personnelles sont exclusivement traitées par :</p>
+<ul>
+    <li>Rama Soumaré (Instant IA), responsable du traitement</li>
+    <li><strong>Stripe</strong> (sous-traitant) pour le traitement des paiements — DPA signé</li>
+    <li><strong>Brevo</strong> (sous-traitant) pour l'envoi des emails — serveurs en Europe, DPA signé</li>
+    <li><strong>Vimeo Pro</strong> (sous-traitant) pour la diffusion des vidéos de formation — DPA disponible</li>
+    <li><strong>Plausible Analytics</strong> (sous-traitant) pour les statistiques anonymisées — pas de cookies, pas d'IP individualisée</li>
+    <li><strong>Hébergeur du site</strong> : <span class="placeholder">[PLACEHOLDER : Platform.sh / Scalingo / autre]</span></li>
+</ul>
+<p>
+    <strong>Aucune donnée n'est revendue ni partagée avec des tiers à des fins commerciales.</strong>
+</p>
+
+<h2>6. Transferts hors Union européenne</h2>
+<p>
+    Stripe (États-Unis) traite certaines données dans le cadre de l'exécution du paiement.
+    Stripe est certifié au mécanisme de protection EU-US Data Privacy Framework et applique
+    les clauses contractuelles types de la Commission européenne.
+</p>
+
+<h2>7. Tes droits RGPD</h2>
+<p>Conformément au RGPD, tu disposes des droits suivants :</p>
+<ul>
+    <li><strong>Droit d'accès</strong> : tu peux demander à tout moment un export de toutes les données te concernant.</li>
+    <li><strong>Droit de rectification</strong> : modifie tes informations directement depuis ton compte (mon-compte) ou par email.</li>
+    <li><strong>Droit à l'effacement</strong> : tu peux supprimer ton compte à tout moment, ce qui entraîne une suppression de tes données dans un délai de 30 jours (sauf obligations légales de conservation comme les factures).</li>
+    <li><strong>Droit à la portabilité</strong> : tu peux récupérer tes données dans un format structuré et lisible.</li>
+    <li><strong>Droit d'opposition</strong> : tu peux te désabonner des emails marketing en 1 clic.</li>
+    <li><strong>Droit de réclamation</strong> : tu peux saisir la CNIL si tu estimes tes droits non respectés (<a href="https://www.cnil.fr" target="_blank" rel="noopener">cnil.fr</a>).</li>
+</ul>
+<p>
+    Pour exercer un droit, écris à <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a>
+    avec en objet "RGPD". Réponse sous 30 jours.
+</p>
+
+<h2>8. Sécurité</h2>
+<p>Instant IA met en œuvre les mesures techniques suivantes :</p>
+<ul>
+    <li>HTTPS obligatoire (TLS 1.3) sur toutes les pages</li>
+    <li>Mots de passe hashés avec argon2id (algorithme recommandé OWASP)</li>
+    <li>Sessions sécurisées (HttpOnly, Secure, SameSite)</li>
+    <li>Headers HTTP sécurisés (CSP, HSTS, X-Frame-Options)</li>
+    <li>Rate limiting sur les endpoints sensibles (login, register, reset password)</li>
+    <li>Logs de sécurité (tentatives d'accès, modifications sensibles)</li>
+</ul>
+
+<h2>9. Cookies</h2>
+<p>
+    Voir notre <a href="{{ path('legal_cookies') }}">Politique de cookies</a> dédiée.
+</p>
+
+<h2>10. Modifications</h2>
+<p>
+    Cette politique peut évoluer. Toute modification substantielle te sera notifiée par email
+    si tu disposes d'un compte. La version la plus récente est toujours disponible sur cette page.
+</p>
+
+{% endblock %}

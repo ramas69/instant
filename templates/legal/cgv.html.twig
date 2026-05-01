@@ -1,0 +1,129 @@
+{% extends 'legal/_layout.html.twig' %}
+
+{% block title %}CGV — Conditions générales de vente{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Conditions générales de vente Instant IA — modalités, garantie 14j, remboursement.{% endblock %}
+
+{% set title = 'CGV <em>(Conditions générales de vente)</em>' %}
+{% set lastUpdate = '1er mai 2026' %}
+{% set currentRoute = 'legal_cgv' %}
+
+{% block legal_content %}
+
+<h2>Article 1 — Préambule</h2>
+<p>
+    Les présentes conditions générales de vente régissent les relations contractuelles entre
+    <span class="placeholder">[PLACEHOLDER : dénomination + SIRET]</span> ci-après dénommé "Instant IA",
+    et toute personne physique ou morale ayant la capacité juridique pour contracter, ci-après dénommée "le Client",
+    qui souscrit à une formation, un service d'audit ou de consulting proposés sur le site
+    <a href="https://instant-ia.com">instant-ia.com</a>.
+</p>
+<p>
+    Toute commande implique l'acceptation pleine et entière par le Client des présentes CGV.
+</p>
+
+<h2>Article 2 — Produits et services</h2>
+<p>Instant IA propose les produits et services suivants :</p>
+<ul>
+    <li><strong>Formations en ligne</strong> sous forme de modules vidéo accessibles via une plateforme
+    membre, avec contenus actualisés à vie.</li>
+    <li><strong>Audit IA</strong> : prestation de diagnostic personnalisé délivrée en visioconférence,
+    accompagnée d'un rapport écrit.</li>
+    <li><strong>Consulting</strong> : prestations done-with-you sur devis personnalisé.</li>
+</ul>
+
+<h2>Article 3 — Tarifs et modalités de paiement</h2>
+<p>
+    Les tarifs sont indiqués en euros et toutes taxes comprises. Conformément au régime du
+    micro-entrepreneur, la TVA n'est pas applicable (art. 293 B du CGI).
+</p>
+<p>
+    Le paiement est exigible immédiatement à la commande, par carte bancaire via la plateforme
+    sécurisée Stripe. Pour les commandes d'un montant supérieur à 297€, un paiement en 3 fois sans
+    frais peut être proposé selon les options activées par Stripe.
+</p>
+
+<h2>Article 4 — Accès à la formation</h2>
+<p>
+    Dès réception du paiement validé par Stripe, le Client reçoit par email :
+</p>
+<ul>
+    <li>Une confirmation de commande avec récapitulatif</li>
+    <li>Un accès à la plateforme membre (ou aux contenus par email pendant la phase pré-launch
+    de la plateforme)</li>
+    <li>Le lien de la communauté privée WhatsApp incluse</li>
+</ul>
+<p>
+    L'accès est octroyé pour une durée illimitée, et inclut l'accès aux mises à jour à vie.
+</p>
+
+<h2>Article 5 — Garantie satisfait ou remboursé</h2>
+<p>
+    Conformément à l'engagement Instant IA, le Client bénéficie d'une garantie
+    <strong>satisfait ou remboursé</strong> de <strong>14 jours calendaires</strong> à compter de la
+    date du paiement.
+</p>
+<p>
+    Pour exercer cette garantie, le Client doit en faire la demande par email à
+    <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a> avant l'expiration du délai
+    de 14 jours. Aucune justification n'est requise.
+</p>
+<p>
+    Le remboursement intégral est effectué dans un délai maximum de 14 jours après la réception
+    de la demande, sur le moyen de paiement utilisé pour la commande.
+</p>
+
+<h2>Article 6 — Droit de rétractation</h2>
+<p>
+    Conformément à l'article L221-28 du Code de la consommation, le Client renonce expressément à
+    son droit de rétractation pour les contenus numériques fournis sur un support immatériel
+    et accessibles immédiatement après le paiement.
+</p>
+<p>
+    Toutefois, la garantie satisfait ou remboursé de 14 jours (Article 5) reste applicable et offre
+    une protection plus généreuse que le droit de rétractation légal.
+</p>
+
+<h2>Article 7 — Propriété intellectuelle</h2>
+<p>
+    L'ensemble des contenus pédagogiques (vidéos, prompts, agents IA, méthode P.R.O.M.P.T., supports
+    PDF, etc.) est la propriété exclusive de Rama Soumaré.
+</p>
+<p>
+    Le Client bénéficie d'un droit d'usage strictement personnel et non transférable. Toute
+    diffusion, reproduction, partage de comptes ou revente est strictement interdite et pourra
+    entraîner la résiliation immédiate de l'accès sans remboursement.
+</p>
+
+<h2>Article 8 — Responsabilité</h2>
+<p>
+    Instant IA s'engage à fournir des contenus pédagogiques de qualité et à jour. Toutefois,
+    Instant IA n'est tenu qu'à une obligation de moyens et ne peut garantir des résultats
+    business spécifiques (gain de temps, augmentation de chiffre d'affaires, etc.) qui
+    dépendent de l'application personnelle de la méthode par le Client.
+</p>
+
+<h2>Article 9 — Données personnelles</h2>
+<p>
+    Le traitement des données personnelles du Client est régi par la
+    <a href="{{ path('legal_confidentialite') }}">Politique de confidentialité</a>.
+</p>
+
+<h2>Article 10 — Litiges et droit applicable</h2>
+<p>
+    Les présentes CGV sont régies par le droit français. En cas de litige, les parties
+    s'efforceront de trouver une solution amiable. À défaut, le Client peut recourir
+    gratuitement à la plateforme européenne de règlement en ligne des litiges :
+    <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>.
+</p>
+<p>
+    À défaut de résolution amiable, les tribunaux français seront seuls compétents.
+</p>
+
+<h2>Article 11 — Contact</h2>
+<p>
+    Pour toute question relative aux présentes CGV, écris à
+    <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a>.
+</p>
+
+{% endblock %}

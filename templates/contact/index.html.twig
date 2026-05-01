@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Une question sur la formation ? Une demande pro ? Écris à hello@instant-ia.com — réponse sous 48h.{% endblock %}
+
+{% block body %}
+
+<section class="relative overflow-hidden bg-cream-100 px-6 py-24 md:px-12 md:py-32">
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-5xl">
+        <div class="grid gap-12 lg:grid-cols-[1fr_1.2fr]">
+
+            {# Colonne gauche : 3 options #}
+            <div>
+                <p class="eyebrow mb-4 rv">Contact</p>
+                <h1 class="serif text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+                    Comment puis-je <em>t'aider</em> ?
+                </h1>
+                <p class="mt-6 text-lg leading-relaxed text-ink-300 rv d2">
+                    Selon ta demande, voici 3 chemins plus rapides qu'un email classique.
+                </p>
+
+                <div class="mt-8 space-y-4">
+                    <a href="/formation-claude-consultant#programme" class="block rounded-2xl bg-paper p-5 shadow-1 transition hover:shadow-2 rv d3">
+                        <p class="eyebrow mb-2">Question sur la formation</p>
+                        <p class="font-medium text-ink-900">Voir la FAQ formation</p>
+                        <p class="mt-1 text-sm text-ink-300">15 questions/réponses détaillées sur la page Niveau 1.</p>
+                    </a>
+                    <a href="/audit-ia" class="block rounded-2xl bg-paper p-5 shadow-1 transition hover:shadow-2 rv d4">
+                        <p class="eyebrow mb-2">Demande professionnelle</p>
+                        <p class="font-medium text-ink-900">Réserver un audit IA</p>
+                        <p class="mt-1 text-sm text-ink-300">1h de visio + plan d'action personnalisé. 497€ HT.</p>
+                    </a>
+                    <a href="mailto:hello@instant-ia.com" class="block rounded-2xl bg-paper p-5 shadow-1 transition hover:shadow-2 rv d5">
+                        <p class="eyebrow mb-2">Support technique</p>
+                        <p class="font-medium text-ink-900">hello@instant-ia.com</p>
+                        <p class="mt-1 text-sm text-ink-300">Réponse personnelle sous 48h ouvrées.</p>
+                    </a>
+                </div>
+            </div>
+
+            {# Colonne droite : formulaire #}
+            <div class="rv-r d2">
+                <div class="rounded-2xl bg-paper p-8 shadow-3">
+                    <h2 class="serif mb-2 text-2xl text-ink-900">
+                        Ou écris-moi <em>ici</em>.
+                    </h2>
+                    <p class="mb-6 text-sm leading-relaxed text-ink-300">
+                        Réponse personnelle sous 48h ouvrées.
+                    </p>
+
+                    {# Flashes #}
+                    {% for message in app.flashes('success') %}
+                        <div class="mb-4 rounded-lg bg-success-bg px-4 py-3 text-sm" style="color: var(--color-success);">
+                            <span aria-hidden="true">✓</span> {{ message }}
+                        </div>
+                    {% endfor %}
+                    {% for message in app.flashes('error') %}
+                        <div class="mb-4 rounded-lg bg-danger-bg px-4 py-3 text-sm" style="color: var(--color-danger);">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+
+                    <form method="POST" action="{{ path('contact_submit') }}" class="space-y-4" novalidate>
+
+                        {# Honeypot anti-spam — caché aux humains, rempli par les bots #}
+                        <div style="position: absolute; left: -9999px;" aria-hidden="true">
+                            <label for="contact-website">Ne pas remplir ce champ</label>
+                            <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div>
+                            <label for="contact-name" class="mb-1 block font-mono text-xs uppercase tracking-widest text-ink-700">Nom</label>
+                            <input type="text"
+                                   id="contact-name"
+                                   name="name"
+                                   required
+                                   autocomplete="name"
+                                   maxlength="80"
+                                   class="w-full rounded-lg border border-ink-700/15 bg-paper px-4 py-3 text-ink-900 placeholder:text-ink-200 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-300/40">
+                        </div>
+
+                        <div>
+                            <label for="contact-email" class="mb-1 block font-mono text-xs uppercase tracking-widest text-ink-700">Email</label>
+                            <input type="email"
+                                   id="contact-email"
+                                   name="email"
+                                   required
+                                   autocomplete="email"
+                                   maxlength="180"
+                                   class="w-full rounded-lg border border-ink-700/15 bg-paper px-4 py-3 text-ink-900 placeholder:text-ink-200 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-300/40">
+                        </div>
+
+                        <div>
+                            <label for="contact-subject" class="mb-1 block font-mono text-xs uppercase tracking-widest text-ink-700">Sujet</label>
+                            <input type="text"
+                                   id="contact-subject"
+                                   name="subject"
+                                   maxlength="200"
+                                   placeholder="Optionnel"
+                                   class="w-full rounded-lg border border-ink-700/15 bg-paper px-4 py-3 text-ink-900 placeholder:text-ink-200 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-300/40">
+                        </div>
+
+                        <div>
+                            <label for="contact-message" class="mb-1 block font-mono text-xs uppercase tracking-widest text-ink-700">Message</label>
+                            <textarea id="contact-message"
+                                      name="message"
+                                      required
+                                      rows="6"
+                                      maxlength="5000"
+                                      class="w-full rounded-lg border border-ink-700/15 bg-paper px-4 py-3 text-ink-900 placeholder:text-ink-200 focus:border-gold-400 focus:outline-none focus:ring-2 focus:ring-gold-300/40"></textarea>
+                        </div>
+
+                        <button type="submit"
+                                class="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-gold-400 px-6 py-3.5 font-medium text-ink-900 shadow-glow-gold transition hover:bg-gold-500">
+                            <span>Envoyer le message</span>
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                        <p class="text-center text-xs text-ink-200">
+                            En envoyant ce message, tu acceptes que je traite tes données pour te répondre.
+                            Cf.
+                            <a href="{{ path('legal_confidentialite') }}" class="underline">Politique de confidentialité</a>.
+                        </p>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

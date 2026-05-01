@@ -1,0 +1,115 @@
+{#
+   ─── LAYOUT LÉGAL ──────────────────────────────────────────────────
+   Layout commun aux 4 pages légales. Inclut un avertissement explicite
+   "à valider par avocat" et un menu latéral pour naviguer entre les pages.
+
+   Variables attendues :
+     - title : string (H1 de la page, supporte raw HTML)
+     - lastUpdate : string (date au format "1er mai 2026")
+     - currentRoute : string (ex: 'legal_cgv') pour mettre en évidence dans la nav
+#}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<section class="bg-cream-100 px-6 py-16 md:px-12 md:py-20">
+    <div class="mx-auto max-w-6xl">
+
+        {# Avertissement #}
+        <div class="mb-10 rounded-2xl border-2 border-dashed border-gold-400 bg-gold-100 p-5 rv">
+            <p class="font-mono text-xs uppercase tracking-widest text-ink-700 mb-1">
+                ⚠️ Document de travail
+            </p>
+            <p class="text-sm leading-relaxed text-ink-700">
+                Cette page est un <em class="not-italic font-medium">squelette type</em> en attente de
+                validation juridique. Plusieurs <em class="not-italic font-medium">[PLACEHOLDER]</em> doivent
+                être remplis par Rama (SIRET, dénomination, adresse, hébergeur) et le contenu rédigé doit
+                être <em class="not-italic font-medium">validé par un avocat</em> avant publication réelle.
+            </p>
+        </div>
+
+        <div class="grid gap-12 lg:grid-cols-[260px_1fr]">
+
+            {# Sidebar navigation #}
+            <aside>
+                <div class="sticky top-24">
+                    <p class="eyebrow mb-4">Pages légales</p>
+                    <nav aria-label="Navigation pages légales">
+                        <ul class="space-y-1 text-sm">
+                            {% set links = [
+                                { route: 'legal_mentions', label: 'Mentions légales' },
+                                { route: 'legal_cgv', label: 'CGV' },
+                                { route: 'legal_confidentialite', label: 'Politique de confidentialité' },
+                                { route: 'legal_cookies', label: 'Cookies' },
+                            ] %}
+                            {% for link in links %}
+                                <li>
+                                    <a href="{{ path(link.route) }}"
+                                       class="block rounded-lg px-3 py-2 transition
+                                              {{ currentRoute == link.route
+                                                ? 'bg-ink-700 text-paper'
+                                                : 'text-ink-700 hover:bg-cream-200' }}">
+                                        {{ link.label }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </nav>
+                </div>
+            </aside>
+
+            {# Contenu principal #}
+            <article class="prose-legal">
+                <p class="eyebrow mb-3 rv">Légal</p>
+                <h1 class="serif mb-3 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+                    {{ title|raw }}
+                </h1>
+                <p class="mb-10 font-mono text-xs uppercase tracking-widest text-ink-300 rv d2">
+                    Dernière mise à jour : {{ lastUpdate }}
+                </p>
+
+                <div class="space-y-8 text-ink-300 leading-relaxed rv d3">
+                    {% block legal_content %}{% endblock %}
+                </div>
+            </article>
+
+        </div>
+    </div>
+</section>
+
+<style>
+    .prose-legal h2 {
+        font-family: var(--font-display);
+        font-size: var(--text-2xl);
+        line-height: var(--leading-snug);
+        color: var(--color-ink-900);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    .prose-legal h3 {
+        font-family: var(--font-sans);
+        font-weight: 600;
+        font-size: var(--text-lg);
+        color: var(--color-ink-900);
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    .prose-legal p { margin-bottom: 1rem; }
+    .prose-legal ul { margin-bottom: 1rem; padding-left: 1.5rem; list-style: disc; }
+    .prose-legal li { margin-bottom: 0.5rem; }
+    .prose-legal strong { color: var(--color-ink-900); }
+    .prose-legal a { color: var(--color-gold-500); text-decoration: underline; text-decoration-color: rgba(197, 160, 68, 0.3); text-underline-offset: 4px; }
+    .prose-legal a:hover { text-decoration-color: var(--color-gold-500); }
+    .prose-legal .placeholder {
+        display: inline-block;
+        background: var(--color-gold-100);
+        color: var(--color-ink-700);
+        font-family: var(--font-mono);
+        font-size: var(--text-xs);
+        padding: 2px 8px;
+        border-radius: 4px;
+    }
+</style>
+
+{% endblock %}

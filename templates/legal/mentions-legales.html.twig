@@ -1,0 +1,70 @@
+{% extends 'legal/_layout.html.twig' %}
+
+{% block title %}Mentions légales{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Mentions légales d'Instant IA — éditeur, hébergeur, contact.{% endblock %}
+
+{% set title = 'Mentions <em>légales</em>' %}
+{% set lastUpdate = '1er mai 2026' %}
+{% set currentRoute = 'legal_mentions' %}
+
+{% block legal_content %}
+
+<h2>Éditeur du site</h2>
+<p>
+    Le site <strong>instant-ia.com</strong> est édité par :
+</p>
+<ul>
+    <li><strong>Dénomination commerciale</strong> : <span class="placeholder">[PLACEHOLDER : nom commercial / Rama Soumaré]</span></li>
+    <li><strong>Statut juridique</strong> : Micro-entreprise (régime du micro-entrepreneur)</li>
+    <li><strong>Numéro SIRET</strong> : <span class="placeholder">[PLACEHOLDER : SIRET 14 chiffres]</span></li>
+    <li><strong>Adresse de domiciliation</strong> : <span class="placeholder">[PLACEHOLDER : adresse complète]</span></li>
+    <li><strong>Email</strong> : <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a></li>
+    <li><strong>Directrice de la publication</strong> : Rama Soumaré</li>
+</ul>
+
+<h2>Régime de TVA</h2>
+<p>
+    TVA non applicable, art. 293 B du Code général des impôts (franchise en base de TVA applicable
+    aux micro-entrepreneurs).
+</p>
+
+<h2>Hébergeur</h2>
+<ul>
+    <li><strong>Hébergeur</strong> : <span class="placeholder">[PLACEHOLDER : Platform.sh / Scalingo / autre — à confirmer au déploiement]</span></li>
+    <li><strong>Adresse</strong> : <span class="placeholder">[PLACEHOLDER : adresse hébergeur]</span></li>
+</ul>
+
+<h2>Propriété intellectuelle</h2>
+<p>
+    L'ensemble du contenu du site (textes, images, vidéos, programmes de formation, méthode P.R.O.M.P.T.,
+    code source des agents IA, design, charte graphique) est la propriété exclusive de Rama Soumaré
+    et est protégé par les lois en vigueur sur la propriété intellectuelle.
+</p>
+<p>
+    Toute reproduction, représentation, modification ou utilisation totale ou partielle du contenu
+    sans autorisation écrite préalable est strictement interdite et constitue une contrefaçon
+    sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle.
+</p>
+
+<h2>Marques</h2>
+<p>
+    Les marques <strong>Instant IA</strong> et <strong>L'ÉCHO IA</strong> ainsi que les logos
+    présents sur le site sont la propriété de Rama Soumaré.
+</p>
+
+<h2>Crédits</h2>
+<ul>
+    <li>Design system : conçu par Rama Soumaré sur Claude Design (claude.ai/design)</li>
+    <li>Polices : Instrument Serif, Inter, Space Grotesk (auto-hébergées sous licences open)</li>
+    <li>Développement : Symfony 7 + Twig + Tailwind CSS 4</li>
+</ul>
+
+<h2>Contact</h2>
+<p>
+    Pour toute question relative au site, écris à
+    <a href="mailto:hello@instant-ia.com">hello@instant-ia.com</a>
+    — réponse sous 48h en jours ouvrés.
+</p>
+
+{% endblock %}
