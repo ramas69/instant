@@ -1653,6 +1653,53 @@
     }
   }
 
+  /* ─── TRUST ROW (3 trust points honnêtes — remplace stats placeholder) ─ */
+  .trust-row {
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+    padding: 2.5rem 0;
+  }
+  .trust-item {
+    padding: 0 2rem;
+    border-right: 1px dashed var(--rule);
+  }
+  .trust-item:last-child { border-right: 0; }
+  .trust-eyebrow {
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    color: var(--color-gold-500);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  .trust-headline {
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    line-height: 1.1;
+    color: var(--color-ink-900);
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: 0.75rem;
+  }
+  .trust-headline em {
+    font-style: italic;
+    color: var(--color-gold-500);
+  }
+  .trust-helper {
+    font-size: var(--text-sm);
+    color: var(--fg-muted);
+    line-height: var(--leading-relaxed);
+    max-width: 32ch;
+  }
+  @media (max-width: 1024px) {
+    .trust-item {
+      border-right: 0;
+      border-bottom: 1px dashed var(--rule);
+      padding: 1.5rem 0;
+    }
+    .trust-item:last-child { border-bottom: 0; }
+    .trust-helper { max-width: none; }
+  }
+
   /* ─── PILLARS (scroll-pin accordion + sticky visual) ────────────── */
   .pillar {
     background: var(--color-paper);
