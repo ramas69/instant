@@ -1037,6 +1037,76 @@
     transform: rotate(-15deg);
   }
 
+  /* ═══════════════════════════════════════════════════════════════
+     MOTION HEAVY (Axe B) — micro-interactions
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* Cursor follower — petit cercle gold qui suit la souris avec lag */
+  .cursor-follower {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    margin-left: -9px;
+    margin-top: -9px;
+    border-radius: 50%;
+    background: var(--color-gold-400);
+    mix-blend-mode: multiply;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease-out), width 0.3s var(--ease-out), height 0.3s var(--ease-out);
+    will-change: transform;
+  }
+  .cursor-follower.is-visible { opacity: 0.8; }
+  /* Le curseur natif reste visible — le follower est un bonus, pas un remplacement */
+
+  /* Particles background — points gold qui flottent */
+  .particles-layer {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+  }
+  .particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--color-gold-300);
+    box-shadow: 0 0 12px var(--color-gold-300);
+    animation: particle-float linear infinite;
+    will-change: transform;
+  }
+  @keyframes particle-float {
+    0%   { transform: translate(0, 0) scale(1); }
+    25%  { transform: translate(20px, -30px) scale(1.2); }
+    50%  { transform: translate(-15px, 20px) scale(0.8); }
+    75%  { transform: translate(30px, 10px) scale(1); }
+    100% { transform: translate(0, 0) scale(1); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .particle { animation: none; }
+  }
+
+  /* Hover lift — élévation accentuée sur cards interactives */
+  .hover-lift {
+    transition:
+      transform 0.3s var(--ease-out),
+      box-shadow 0.3s var(--ease-out),
+      border-color 0.3s var(--ease-out);
+  }
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-4);
+    border-color: var(--color-gold-500);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hover-lift:hover { transform: none; }
+  }
+
   /* CTA numéroté éditorial : "01 → Je découvre" */
   .cta-numbered {
     display: inline-flex;

@@ -13,7 +13,7 @@
 {# ════════════════════════════════════════════════════════════════
    SECTION 1 — HERO scroll-driving (sticky 200vh)
    ════════════════════════════════════════════════════════════════ #}
-<section class="hero-sticky" data-controller="hero-scroll">
+<section class="hero-sticky" data-controller="hero-scroll particles" data-particles-count-value="14">
     <div class="hero-sticky-inner">
         <div class="hero-grid-bg"></div>
         <div class="hero-glow" data-hero-scroll-target="glow"></div>
@@ -31,7 +31,9 @@
             </p>
 
             <div class="flex flex-wrap items-center justify-center gap-3">
-                <a href="/formation-claude-consultant" class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-7 py-4 font-medium text-ink-700 shadow-glow-gold transition hover:bg-gold-300 hover:-translate-y-0.5">
+                <a href="/formation-claude-consultant"
+                   data-controller="magnetic-button"
+                   class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-7 py-4 font-medium text-ink-700 shadow-glow-gold hover:bg-gold-300">
                     <span>Je découvre la formation</span>
                     <span aria-hidden="true">→</span>
                 </a>
@@ -210,7 +212,7 @@
 
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem;" class="offers-grid">
         <article class="offer-card-ds reveal delay-1"
-                 data-controller="parallax-element"
+                 data-controller="parallax-element card-tilt"
                  data-parallax-element-strength-value="-30">
             <span class="badge-card">Best-seller</span>
             <div class="price-art">147€<small>· 30 places early-bird</small></div>
@@ -220,7 +222,7 @@
         </article>
 
         <article class="offer-card-ds featured reveal delay-2"
-                 data-controller="parallax-element"
+                 data-controller="parallax-element card-tilt"
                  data-parallax-element-strength-value="30">
             <span class="badge-card">Premium</span>
             <div class="price-art">497€<small>· 1h visio + suivi 30j</small></div>
@@ -230,7 +232,7 @@
         </article>
 
         <article class="offer-card-ds reveal delay-3"
-                 data-controller="parallax-element"
+                 data-controller="parallax-element card-tilt"
                  data-parallax-element-strength-value="-15">
             <div class="price-art">1 500€<small>· à partir de</small></div>
             <h3>Le <em>Consulting</em><br>done-with-you</h3>
