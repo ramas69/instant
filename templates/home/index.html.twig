@@ -25,7 +25,7 @@
 
                 <p class="hero-kinetic-sub">
                     La méthode <strong>pas-à-pas</strong> pour récupérer <strong>10h/semaine</strong>.
-                    <span class="dim">Sans coder, sans 200 prompts à apprendre.</span>
+                    Sans coder, sans 200 prompts à apprendre.
                 </p>
 
                 <div class="hero-kinetic-actions">
@@ -227,13 +227,14 @@
                     <div class="calendar-day{% if isFeatured %} featured{% elseif isWeekend %} weekend{% endif %}"
                          aria-label="Jour {{ day }}{% if isFeatured %} — étape clé{% endif %}">
                         <span class="calendar-day-num">{{ day }}</span>
-                        <span class="calendar-day-label">
-                            {% if day == 1 %}Start
-                            {% elseif day == 7 %}Mid
-                            {% elseif day == 14 %}Goal
-                            {% else %}J{{ day }}
-                            {% endif %}
-                        </span>
+                        {% if isFeatured %}
+                            <span class="calendar-day-label">
+                                {% if day == 1 %}Start
+                                {% elseif day == 7 %}Mid
+                                {% elseif day == 14 %}Goal
+                                {% endif %}
+                            </span>
+                        {% endif %}
                     </div>
                 {% endfor %}
             </div>
@@ -375,7 +376,7 @@
 
         {# Form inline capture email + checkbox consent #}
         <form method="POST" action="{{ path('lead_magnet_submit') }}"
-              class="lead-magnet-form" novalidate>
+              class="lead-magnet-form">
             <div class="lead-magnet-form-row">
                 <label for="home-lead-email" class="sr-only">Ton email</label>
                 <input type="email"
@@ -440,7 +441,9 @@
             "mainEntity": [
                 { "@type": "Question", "name": "J'y connais rien en tech, c'est pour moi ?", "acceptedAnswer": { "@type": "Answer", "text": "Absolument. Si tu sais utiliser un navigateur web, tu peux suivre la formation. Je vulgarise tout, j'explique chaque étape, et on avance ensemble. Pas besoin de coder." } },
                 { "@type": "Question", "name": "Combien de temps prend la formation ?", "acceptedAnswer": { "@type": "Answer", "text": "14 jours en mode sprint, à raison de 45 min/jour. Tu peux accélérer ou étaler — tu as accès à vie." } },
-                { "@type": "Question", "name": "La garantie 14 jours, c'est vraiment sans condition ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Tu m'écris à hello@instant-ia.com avant J+14, je te rembourse. Pas de questions, pas de petites lignes." } }
+                { "@type": "Question", "name": "Quelle version de Claude je dois utiliser ?", "acceptedAnswer": { "@type": "Answer", "text": "Claude Sonnet 4.5 (la version pro de Anthropic). On voit ensemble le compte gratuit vs. payant et ce que tu peux faire avec chacun." } },
+                { "@type": "Question", "name": "La garantie 14 jours, c'est vraiment sans condition ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Tu m'écris à hello@instant-ia.com avant J+14, je te rembourse. Pas de questions, pas de petites lignes." } },
+                { "@type": "Question", "name": "Y aura-t-il un Niveau 2 et 3 ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui — Niveau 2 (Productivité Pro : Excel, PowerPoint, Skills) et Niveau 3 (Cowork & Automatisation MCP) sont déjà en préparation. Les diplômés Niveau 1 ont un tarif préférentiel." } }
             ]
         }
     ]
