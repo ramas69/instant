@@ -52,7 +52,7 @@
 </section>
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 2 — INTRO RAMA (sans stats placeholder — 3 trust points honnêtes)
+   SECTION 2 — INTRO RAMA (intro seule, trust-row extrait en section 5)
    ════════════════════════════════════════════════════════════════ #}
 <section class="relative overflow-hidden" style="padding: 8rem 2.5rem;">
     <span class="editorial-number left" aria-hidden="true">01</span>
@@ -76,23 +76,6 @@
         </div>
     </div>
 
-    <div class="trust-row">
-        <div class="trust-item reveal">
-            <div class="trust-eyebrow">Tarif</div>
-            <div class="trust-headline serif">147€ <em>early-bird</em></div>
-            <p class="trust-helper">30 premières places. Puis 297€ catalogue.</p>
-        </div>
-        <div class="trust-item reveal delay-2">
-            <div class="trust-eyebrow">Garantie</div>
-            <div class="trust-headline serif">14 jours <em>sans condition</em></div>
-            <p class="trust-helper">Tu m'écris avant J+14, je te rembourse. Pas de petites lignes.</p>
-        </div>
-        <div class="trust-item reveal delay-3">
-            <div class="trust-eyebrow">Format</div>
-            <div class="trust-headline serif">45 min <em>par jour</em></div>
-            <p class="trust-helper">14 jours en mode sprint. Ou étalé — tu as accès à vie.</p>
-        </div>
-    </div>
 </section>
 
 {# ════════════════════════════════════════════════════════════════
@@ -261,7 +244,30 @@
 </section>
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 5 — OFFRES (3 cards : Système Claude, Audit, Consulting)
+   SECTION 5 — TRUST RIBBON (extrait de section intro — One-Thing-Per-Section)
+   ════════════════════════════════════════════════════════════════ #}
+<section class="relative" aria-label="Conditions de la formation" style="padding: 4rem 2.5rem;">
+    <div class="trust-row">
+        <div class="trust-item reveal">
+            <div class="trust-eyebrow">Tarif</div>
+            <div class="trust-headline serif">147€ <em>early-bird</em></div>
+            <p class="trust-helper">30 premières places. Puis 297€ catalogue.</p>
+        </div>
+        <div class="trust-item reveal delay-2">
+            <div class="trust-eyebrow">Garantie</div>
+            <div class="trust-headline serif">14 jours <em>sans condition</em></div>
+            <p class="trust-helper">Tu m'écris avant J+14, je te rembourse. Pas de petites lignes.</p>
+        </div>
+        <div class="trust-item reveal delay-3">
+            <div class="trust-eyebrow">Format</div>
+            <div class="trust-headline serif">45 min <em>par jour</em></div>
+            <p class="trust-helper">14 jours en mode sprint. Ou étalé — tu as accès à vie.</p>
+        </div>
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 6 — OFFRES (3 cards : Système Claude, Audit, Consulting)
    ════════════════════════════════════════════════════════════════ #}
 <section class="relative overflow-hidden" style="padding: 8rem 2.5rem;">
     <span class="editorial-number left" aria-hidden="true">03</span>
@@ -310,7 +316,7 @@
 </section>
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 6 — TÉMOIGNAGE (Sophie M)
+   SECTION 7 — TÉMOIGNAGE (Sophie M)
    ════════════════════════════════════════════════════════════════ #}
 <section class="quote-section">
     <div style="max-width: 1240px; margin: 0 auto;">
@@ -330,7 +336,7 @@
 </section>
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 7 — FAQ
+   SECTION 8 — FAQ
    ════════════════════════════════════════════════════════════════ #}
 {% include 'components/faq.html.twig' with {
     faq: {
@@ -347,7 +353,7 @@
 } only %}
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 8 — LEAD MAGNET (capture email inline) — anchor #lead-magnet
+   SECTION 9 — LEAD MAGNET (capture email inline) — anchor #lead-magnet
    ════════════════════════════════════════════════════════════════ #}
 <section class="cta-final" id="lead-magnet">
     <div class="reveal" style="max-width: 640px; margin: 0 auto;">
