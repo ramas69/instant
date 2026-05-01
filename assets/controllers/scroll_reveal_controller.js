@@ -3,28 +3,24 @@ import { Controller } from '@hotwired/stimulus';
 /*
  * Scroll-reveal Stimulus controller.
  *
- * Porte le ScrollReveal du legacy Next.js (IntersectionObserver) vers Stimulus.
- * Observe tous les enfants .rv / .rv-l / .rv-r dans le scope du controller
- * et leur ajoute la classe `.vis` quand ils entrent dans le viewport.
- *
- * Usage Twig :
- *   <main data-controller="scroll-reveal">
- *     <h1 class="rv">Titre qui apparaît en fade up</h1>
- *     <p class="rv-l d1">Paragraphe qui glisse depuis la gauche avec délai</p>
- *   </main>
+ * Supporte 2 conventions :
+ *   - Système legacy `.rv` / `.rv-l` / `.rv-r` + `.vis` + délais `.d1..d5`
+ *   - Système DS Editorial Atelier `.reveal` / `.reveal-left` / `.reveal-right`
+ *     + `.in` + délais `.delay-1..delay-5` + `.rule-draw` + `.split[data-split]`
  */
-export default class extends Controller {
+export default class ScrollRevealController extends Controller {
     static values = {
-        threshold: { type: Number, default: 0.08 },
-        rootMargin: { type: String, default: '0px 0px -40px 0px' },
+        threshold: { type: Number, default: 0.18 },
+        rootMargin: { type: String, default: '0px 0px -50px 0px' },
         once: { type: Boolean, default: true },
     };
 
     connect() {
-        // Respecte la préférence utilisateur de réduction de mouvement
-        if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            this.element.querySelectorAll('.rv, .rv-l, .rv-r').forEach((el) => {
-                el.classList.add('vis');
+        // Préférence accessibilité — révèle tout immédiatement
+        if (globalThis.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+            const all = '.rv, .rv-l, .rv-r, .reveal, .reveal-left, .reveal-right, .rule-draw, .split';
+            this.element.querySelectorAll(all).forEach((el) => {
+                el.classList.add('vis', 'in');
             });
             return;
         }
@@ -33,12 +29,12 @@ export default class extends Controller {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('vis');
+                        entry.target.classList.add('vis', 'in');
                         if (this.onceValue) {
                             this.observer.unobserve(entry.target);
                         }
                     } else if (!this.onceValue) {
-                        entry.target.classList.remove('vis');
+                        entry.target.classList.remove('vis', 'in');
                     }
                 });
             },
@@ -48,7 +44,8 @@ export default class extends Controller {
             },
         );
 
-        this.element.querySelectorAll('.rv, .rv-l, .rv-r').forEach((el) => {
+        const targets = '.rv, .rv-l, .rv-r, .reveal, .reveal-left, .reveal-right, .rule-draw, .split';
+        this.element.querySelectorAll(targets).forEach((el) => {
             this.observer.observe(el);
         });
     }
