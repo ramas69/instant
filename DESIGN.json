@@ -1,0 +1,374 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-01T18:20:00+02:00",
+  "title": "Design System: Instant IA",
+  "extensions": {
+    "colorMeta": {
+      "ink-900": {
+        "role": "primary",
+        "displayName": "Vert Encre",
+        "canonical": "#051F18",
+        "tonalRamp": ["#051F18", "#053B2C", "#064E3B", "#0A6B52", "#3D564B", "#6B877B", "#A8BFB6", "#D9E5DF"]
+      },
+      "ink-700": {
+        "role": "primary",
+        "displayName": "Vert Forêt Profond",
+        "canonical": "#064E3B",
+        "tonalRamp": ["#051F18", "#053B2C", "#064E3B", "#0A6B52", "#3D564B", "#6B877B", "#A8BFB6", "#D9E5DF"]
+      },
+      "ink-500": {
+        "role": "primary",
+        "displayName": "Vert Atelier",
+        "canonical": "#0A6B52",
+        "tonalRamp": ["#051F18", "#053B2C", "#064E3B", "#0A6B52", "#3D564B", "#6B877B", "#A8BFB6", "#D9E5DF"]
+      },
+      "ink-300": {
+        "role": "primary",
+        "displayName": "Vert Estompé",
+        "canonical": "#3D564B"
+      },
+      "ink-200": {
+        "role": "primary",
+        "displayName": "Vert Brouillard",
+        "canonical": "#6B877B"
+      },
+      "ink-100": {
+        "role": "primary",
+        "displayName": "Vert Givre",
+        "canonical": "#A8BFB6"
+      },
+      "gold-700": {
+        "role": "secondary",
+        "displayName": "Or Bronze",
+        "canonical": "#9C7E2F",
+        "tonalRamp": ["#5A481A", "#7A6324", "#9C7E2F", "#C5A044", "#D4AF37", "#E8C547", "#F4E5B3", "#FAF1D9"]
+      },
+      "gold-500": {
+        "role": "secondary",
+        "displayName": "Or Profond",
+        "canonical": "#C5A044",
+        "tonalRamp": ["#5A481A", "#7A6324", "#9C7E2F", "#C5A044", "#D4AF37", "#E8C547", "#F4E5B3", "#FAF1D9"]
+      },
+      "gold-400": {
+        "role": "secondary",
+        "displayName": "Or Signature",
+        "canonical": "#D4AF37",
+        "tonalRamp": ["#5A481A", "#7A6324", "#9C7E2F", "#C5A044", "#D4AF37", "#E8C547", "#F4E5B3", "#FAF1D9"]
+      },
+      "gold-300": {
+        "role": "secondary",
+        "displayName": "Or Vif",
+        "canonical": "#E8C547"
+      },
+      "gold-100": {
+        "role": "secondary",
+        "displayName": "Or Pâle",
+        "canonical": "#F4E5B3"
+      },
+      "cream-50": {
+        "role": "neutral",
+        "displayName": "Crème Frais",
+        "canonical": "#FDFBF6",
+        "tonalRamp": ["#4A3F26", "#8A7853", "#BFAE8E", "#D4C8AD", "#E5DCC9", "#F0EBE1", "#FAF8F4", "#FDFBF6"]
+      },
+      "cream-100": {
+        "role": "neutral",
+        "displayName": "Crème Ivoire",
+        "canonical": "#FAF8F4",
+        "tonalRamp": ["#4A3F26", "#8A7853", "#BFAE8E", "#D4C8AD", "#E5DCC9", "#F0EBE1", "#FAF8F4", "#FDFBF6"]
+      },
+      "cream-200": {
+        "role": "neutral",
+        "displayName": "Crème Chaude",
+        "canonical": "#F0EBE1"
+      },
+      "cream-300": {
+        "role": "neutral",
+        "displayName": "Crème Profonde",
+        "canonical": "#E5DCC9"
+      },
+      "carbon": {
+        "role": "neutral",
+        "displayName": "Carbone",
+        "canonical": "#0E0E0C"
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Papier",
+        "canonical": "#FFFFFF"
+      },
+      "success": {
+        "role": "semantic",
+        "displayName": "Success (Vert Atelier)",
+        "canonical": "#0A6B52"
+      },
+      "warning": {
+        "role": "semantic",
+        "displayName": "Warning (Or Profond)",
+        "canonical": "#C5A044"
+      },
+      "danger": {
+        "role": "semantic",
+        "displayName": "Danger",
+        "canonical": "#C0392B"
+      },
+      "info": {
+        "role": "semantic",
+        "displayName": "Info (Vert Estompé)",
+        "canonical": "#3D564B"
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "H1 hero uniquement, une fois par page. Italiques signature en or sur 1-3 mots émotionnels."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "H2 de section, marque chaque chapitre du scroll narratif."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "H3, titres de cartes et sous-sections."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphes courants. Plafond 65-75 caractères par ligne."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows, métadonnées, métriques, badges. Mono uppercase letter-spacing 0.20em."
+      }
+    },
+    "shadows": [
+      {
+        "name": "shadow-1",
+        "value": "0 1px 2px rgba(6, 78, 59, 0.04), 0 0 0 1px rgba(6, 78, 59, 0.04)",
+        "purpose": "Surfaces flat avec un soupçon de séparation. Inputs, boutons secondary."
+      },
+      {
+        "name": "shadow-2",
+        "value": "0 4px 12px rgba(6, 78, 59, 0.06), 0 1px 3px rgba(6, 78, 59, 0.04)",
+        "purpose": "Cards par défaut. Niveau d'élévation le plus utilisé."
+      },
+      {
+        "name": "shadow-3",
+        "value": "0 12px 32px rgba(6, 78, 59, 0.08), 0 2px 6px rgba(6, 78, 59, 0.04)",
+        "purpose": "Cards en hover, panneaux importants."
+      },
+      {
+        "name": "shadow-4",
+        "value": "0 24px 60px rgba(6, 78, 59, 0.12), 0 4px 12px rgba(6, 78, 59, 0.06)",
+        "purpose": "Modales, popovers, hero CTAs en scroll."
+      },
+      {
+        "name": "shadow-glow-gold",
+        "value": "0 12px 40px rgba(212, 175, 55, 0.25)",
+        "purpose": "Signature CTA primary uniquement. Une fois par écran maximum."
+      },
+      {
+        "name": "shadow-glow-ink",
+        "value": "0 12px 40px rgba(6, 78, 59, 0.20)",
+        "purpose": "Rare. Éléments dark importants sur fond clair."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.23, 1, 0.32, 1)",
+        "purpose": "Easing par défaut. Fade-out exponentiel pour scroll-reveal et transitions."
+      },
+      {
+        "name": "ease-in-out",
+        "value": "cubic-bezier(0.65, 0, 0.35, 1)",
+        "purpose": "Pour les transitions à mi-chemin (modal open/close, accordion)."
+      },
+      {
+        "name": "ease-spring",
+        "value": "cubic-bezier(0.34, 1.56, 0.64, 1)",
+        "purpose": "Réservé aux micro-interactions discrètes (badge pop). Pas pour scroll-reveal."
+      },
+      {
+        "name": "dur-fast",
+        "value": "200ms",
+        "purpose": "Hovers, focus, micro-feedback."
+      },
+      {
+        "name": "dur-base",
+        "value": "300ms",
+        "purpose": "Transitions UI standard."
+      },
+      {
+        "name": "dur-slow",
+        "value": "500ms",
+        "purpose": "Modal open/close, accordion expand."
+      },
+      {
+        "name": "dur-slower",
+        "value": "800ms",
+        "purpose": "Scroll-reveal fade, rule-draw, split-text. Lent et délibéré."
+      }
+    ],
+    "breakpoints": [
+      {"name": "sm", "value": "640px"},
+      {"name": "md", "value": "768px"},
+      {"name": "lg", "value": "1024px"},
+      {"name": "xl", "value": "1280px"},
+      {"name": "container-lg", "value": "1200px"}
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal. Pill or avec glow signature. Une fois par section maximum.",
+      "html": "<a href=\"#\" class=\"ds-btn-primary\"><span>Je rejoins (147€)</span><span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 28px; background: #D4AF37; color: #051F18; border-radius: 999px; font-family: Inter, system-ui, sans-serif; font-weight: 500; font-size: 16px; text-decoration: none; box-shadow: 0 12px 40px rgba(212, 175, 55, 0.25); transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1), transform 100ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-primary:hover { background: #C5A044; } .ds-btn-primary:active { transform: scale(0.98); } .ds-btn-primary:focus-visible { outline: 3px solid #E8C547; outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "CTA neutre. Outline ink, hover inverse en plein.",
+      "html": "<a href=\"#\" class=\"ds-btn-secondary\"><span>Découvrir</span><span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; background: transparent; color: #064E3B; border: 2px solid #064E3B; border-radius: 999px; font-family: Inter, system-ui, sans-serif; font-weight: 500; font-size: 16px; text-decoration: none; transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1), color 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-secondary:hover { background: #064E3B; color: #FFFFFF; } .ds-btn-secondary:focus-visible { outline: 3px solid #E8C547; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Action tertiaire. Texte seul, pas de fond, pas de bordure.",
+      "html": "<a href=\"#\" class=\"ds-btn-ghost\"><span>Me contacter</span></a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 6px; padding: 8px; background: transparent; color: #3D564B; font-family: Inter, system-ui, sans-serif; font-weight: 500; font-size: 16px; text-decoration: none; transition: color 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-btn-ghost:hover { color: #064E3B; } .ds-btn-ghost:focus-visible { outline: 3px solid #E8C547; outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Card Default",
+      "kind": "card",
+      "refersTo": "card-default",
+      "description": "Carte par défaut sur fond cream. Radius 2xl, padding 28px, ombre subtile.",
+      "html": "<article class=\"ds-card-default\"><div class=\"ds-card-icon-num\">01</div><h3 class=\"ds-card-title\">L'agent <em>devis-flash</em></h3><p class=\"ds-card-desc\">Rédige une proposition commerciale en 12 minutes. À partir de tes notes vocales du dimanche.</p><div class=\"ds-card-footer\"><div class=\"ds-card-price\">147€</div><a href=\"#\" class=\"ds-card-cta\"><span>Je rejoins</span><span aria-hidden=\"true\">→</span></a></div></article>",
+      "css": ".ds-card-default { display: flex; flex-direction: column; padding: 28px; background: #FFFFFF; color: #051F18; border-radius: 24px; box-shadow: 0 4px 12px rgba(6, 78, 59, 0.06), 0 1px 3px rgba(6, 78, 59, 0.04); font-family: Inter, system-ui, sans-serif; max-width: 360px; } .ds-card-default .ds-card-icon-num { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 64px; line-height: 1; color: #C5A044; margin-bottom: 16px; } .ds-card-default .ds-card-title { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 12px 0; } .ds-card-default .ds-card-title em { font-style: italic; color: #C5A044; } .ds-card-default .ds-card-desc { font-size: 16px; line-height: 1.6; color: #3D564B; margin: 0 0 20px 0; } .ds-card-default .ds-card-footer { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-top: auto; padding-top: 16px; border-top: 1px solid rgba(6, 78, 59, 0.10); } .ds-card-default .ds-card-price { font-family: 'Instrument Serif', Georgia, serif; font-size: 36px; line-height: 1; color: #051F18; } .ds-card-default .ds-card-cta { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; background: #D4AF37; color: #051F18; border-radius: 999px; font-weight: 500; font-size: 14px; text-decoration: none; transition: background 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-card-default .ds-card-cta:hover { background: #C5A044; }"
+    },
+    {
+      "name": "Card Dark",
+      "kind": "card",
+      "refersTo": "card-dark",
+      "description": "Carte sur fond ink-700. Pour sections sombres / sections offre premium.",
+      "html": "<article class=\"ds-card-dark\"><span class=\"ds-card-badge\">Best-seller</span><h3 class=\"ds-card-title\">Le Système <em>Claude</em> du Consultant</h3><p class=\"ds-card-desc\">14 jours pour transformer Claude en assistant n°1 — pas devenir une ninja, juste arrêter de perdre 4h sur une propal du vendredi.</p><div class=\"ds-card-metric\">→ 4-5h/semaine récupérées</div></article>",
+      "css": ".ds-card-dark { position: relative; display: flex; flex-direction: column; padding: 28px; background: #064E3B; color: #FFFFFF; border-radius: 24px; box-shadow: 0 4px 12px rgba(6, 78, 59, 0.06); font-family: Inter, system-ui, sans-serif; max-width: 360px; } .ds-card-dark .ds-card-badge { position: absolute; top: 20px; right: 20px; padding: 4px 12px; background: #E8C547; color: #051F18; border-radius: 999px; font-family: 'Space Grotesk', ui-monospace, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; } .ds-card-dark .ds-card-title { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 28px; line-height: 1.2; margin: 0 0 12px 0; padding-right: 80px; } .ds-card-dark .ds-card-title em { font-style: italic; color: #E8C547; } .ds-card-dark .ds-card-desc { font-size: 16px; line-height: 1.6; color: rgba(255, 255, 255, 0.80); margin: 0 0 20px 0; } .ds-card-dark .ds-card-metric { padding: 12px 16px; background: rgba(255, 255, 255, 0.10); color: #E8C547; border-radius: 12px; font-family: 'Space Grotesk', ui-monospace, monospace; font-size: 14px; letter-spacing: -0.01em; }"
+    },
+    {
+      "name": "Eyebrow DS",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Marqueur de section. Mono uppercase or avec ligne décorative. Marque chaque section comme un chapitre.",
+      "html": "<span class=\"ds-eyebrow\">Sprint 02 — Atelier</span>",
+      "css": ".ds-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'Space Grotesk', ui-monospace, monospace; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.20em; color: #C5A044; } .ds-eyebrow::before { content: ''; width: 24px; height: 1px; background: #C5A044; }"
+    },
+    {
+      "name": "Input",
+      "kind": "input",
+      "refersTo": null,
+      "description": "Champ texte par défaut. Bordure rule subtile, focus gold ring.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"ton@email.fr\" />",
+      "css": ".ds-input { display: block; width: 100%; padding: 12px 16px; background: #FFFFFF; color: #051F18; border: 1px solid rgba(6, 78, 59, 0.16); border-radius: 12px; font-family: Inter, system-ui, sans-serif; font-size: 16px; line-height: 1.5; transition: border-color 200ms cubic-bezier(0.23, 1, 0.32, 1), box-shadow 200ms cubic-bezier(0.23, 1, 0.32, 1); } .ds-input::placeholder { color: #6B877B; } .ds-input:focus { outline: none; border-color: #C5A044; box-shadow: 0 0 0 3px rgba(232, 197, 71, 0.40); } .ds-input:focus-visible { outline: 3px solid #E8C547; outline-offset: 3px; }"
+    },
+    {
+      "name": "Display Heading",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "H1 hero. Une fois par page. Italiques signature sur 1-3 mots émotionnels.",
+      "html": "<h1 class=\"ds-display\">Transforme Claude en assistant <em>de pro sérieux</em></h1>",
+      "css": ".ds-display { font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 1.05; letter-spacing: -0.02em; color: #051F18; margin: 0; max-width: 18ch; } .ds-display em { font-style: italic; color: #C5A044; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Apple en Atelier Français",
+    "overview": "Le système vit dans une tension productive : la rigueur du moins d'Apple croisée avec la chaleur d'un atelier d'artisan français. D'un côté, l'économie radicale (une promesse, un visuel, un CTA par section), des marges généreuses, une hiérarchie typographique qui porte toute l'émotion. De l'autre, le vert sapin profond, le crème ivoire, l'or signature en italique, les numérotations 01 02 03, les tirets éditoriaux. Pas le blanc/noir glacial de Cupertino : le vert profond et la chaleur d'un livre relié. Le système rejette explicitement trois familles : les pages Skool / Kajabi génériques, les tech bros ChatGPT, et les coachs bien-être pastel. La cible Sandra doit ressentir un soulagement dans les 3 premières secondes.",
+    "keyCharacteristics": [
+      "Économie radicale : une chose à regarder par section, marges généreuses",
+      "Hiérarchie typographique forte : un H1 immense porte l'émotion, basta",
+      "Italiques signature en or sur les mots-clés émotionnels — la patte qui distingue d'Apple",
+      "Palette vert sapin + or + crème, jamais le glacial blanc/gris/noir",
+      "Animations subtiles : fade exponentiel au scroll, jamais bounce ni elastic",
+      "Sémantique éditoriale : numérotations 01 02 03, tirets, eyebrows mono micro-uppercase"
+    ],
+    "rules": [
+      {
+        "name": "The One-Voice Rule",
+        "body": "L'or n'apparaît que sur ≤10% de la surface visible d'un écran à un instant donné. Sa rareté est le point. Un CTA primary, une italique signature dans un H1, peut-être un eyebrow — mais jamais trois zones d'or simultanées.",
+        "section": "colors"
+      },
+      {
+        "name": "The No-Pure-Black Rule",
+        "body": "Jamais #000. Toujours #0E0E0C (carbone teinté vert) ou #051F18 (vert encre). Le pur noir est glacial, américain, distant. Le carbone est chaleureux, français, atelier.",
+        "section": "colors"
+      },
+      {
+        "name": "The Italics-Earn-Their-Place Rule",
+        "body": "Les italiques (Instrument Serif italic + or-500 ou or-300 selon fond) sont la signature de la marque. Réservées aux mots-clés émotionnels. Maximum 1 à 3 mots italiques par bloc de texte. Pas de décoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Body-65ch Rule",
+        "body": "Les paragraphes de corps de texte sont plafonnés à 65-75 caractères par ligne. Au-delà, c'est un mur de texte.",
+        "section": "typography"
+      },
+      {
+        "name": "The Bold-Earns-Its-Weight Rule",
+        "body": "Le gras est rare et porte un message. Pas de gras décoratif sur des mots aléatoires. Quand il apparaît, il pèse.",
+        "section": "typography"
+      },
+      {
+        "name": "The Display-Once-Per-Page Rule",
+        "body": "Un seul Display par page (le H1 hero). Si tu sens le besoin d'un deuxième Display pour donner du poids à une section, c'est que la hiérarchie est cassée — utilise Headline.",
+        "section": "typography"
+      },
+      {
+        "name": "The Tonal-First Rule",
+        "body": "Avant d'ajouter une ombre, demande-toi si un changement de valeur (cream-100 → paper → cream-200) ne ferait pas le même travail. Réponse 9 fois sur 10 : oui. Les ombres sont l'exception, pas le default.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Glow-Is-A-Reward Rule",
+        "body": "shadow-glow-gold est réservé exclusivement au CTA primary. Pas de glow sur des cartes informatives, pas de glow sur des boutons secondaires, pas de glow décoratif. Le glow est une récompense.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One-Thing-Per-Section Rule",
+        "body": "Une promesse, un visuel, un CTA par section. Pas 4 colonnes saturées. La home cible 7-8 sections, pas 12.",
+        "section": "components"
+      }
+    ],
+    "dos": [
+      "Do réserver une promesse, un visuel, un CTA par section (Apple economy).",
+      "Do maintenir des marges 80-120px constants entre sections sur desktop.",
+      "Do dimensionner les H1 entre 64 et 104px (text-5xl à text-6xl) sur desktop.",
+      "Do réserver les italiques en or à 1-3 mots émotionnels par bloc.",
+      "Do utiliser le tutoiement systématique. Phrases courtes, verbes forts en début de ligne.",
+      "Do respecter prefers-reduced-motion partout.",
+      "Do utiliser une seule fois shadow-glow-gold par écran (le CTA primary).",
+      "Do valider la galère du métier dans la copy (propal du vendredi soir à 23h).",
+      "Do numérotations 01 02 03 italiques en serif (signature visuelle).",
+      "Do sémantique HTML5 stricte, skip-links, ARIA labels, focus visible gold. WCAG 2.2 AA."
+    ],
+    "donts": [
+      "Don't saturer les pages avec violet-orange-jaune (style Skool / Kajabi).",
+      "Don't utiliser des compteurs gigantesques, des avant/après en virement bancaire, des boutons orange clignotants.",
+      "Don't virer vers le bleu nuit + jaune fluo neon (style tech bros ChatGPT).",
+      "Don't utiliser le vocabulaire second brain / productivity stack / ROI 10x.",
+      "Don't utiliser des photos studio fond noir regard intense.",
+      "Don't virer vers le rose poudré, beige sable, typo manuscrite (Caveat / Dancing Script).",
+      "Don't utiliser des tarifs en 333€ / 777€ ou des promesses alignement / abondance.",
+      "Don't appliquer du background-clip text sur un gradient (gradient text).",
+      "Don't utiliser des border-left ou border-right > 1px comme stripe colorée.",
+      "Don't utiliser le glassmorphism comme default.",
+      "Don't utiliser des modales en premier réflexe.",
+      "Don't animer en bounce, elastic, ou spring excessif.",
+      "Don't utiliser des adjectifs vides (incroyable, innovant, puissant, révolutionnaire).",
+      "Don't utiliser des stock photos de femme souriante devant ordinateur.",
+      "Don't ajouter une ombre quand un changement de valeur tonale fait le même travail."
+    ]
+  }
+}
