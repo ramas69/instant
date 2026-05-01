@@ -52,17 +52,19 @@
                         Réponse personnelle sous 48h ouvrées.
                     </p>
 
-                    {# Flashes #}
-                    {% for message in app.flashes('success') %}
-                        <div class="mb-4 rounded-lg bg-success-bg px-4 py-3 text-sm" style="color: var(--color-success);">
-                            <span aria-hidden="true">✓</span> {{ message }}
-                        </div>
-                    {% endfor %}
-                    {% for message in app.flashes('error') %}
-                        <div class="mb-4 rounded-lg bg-danger-bg px-4 py-3 text-sm" style="color: var(--color-danger);">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
+                    {# Flashes — éléments sémantiques pour annonce screen readers #}
+                    <div aria-live="polite" aria-atomic="true">
+                        {% for message in app.flashes('success') %}
+                            <output class="mb-4 block rounded-lg bg-success-bg px-4 py-3 text-sm" style="color: var(--color-success);">
+                                <span aria-hidden="true">✓</span> {{ message }}
+                            </output>
+                        {% endfor %}
+                        {% for message in app.flashes('error') %}
+                            <div role="alert" class="mb-4 rounded-lg bg-danger-bg px-4 py-3 text-sm" style="color: var(--color-danger);">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    </div>
 
                     <form method="POST" action="{{ path('contact_submit') }}" class="space-y-4" novalidate>
 

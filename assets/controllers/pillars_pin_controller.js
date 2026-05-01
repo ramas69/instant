@@ -29,9 +29,15 @@ export default class PillarsPinController extends Controller {
         this.boundAnimate = () => this.animate();
         globalThis.addEventListener('scroll', this.boundAnimate, { passive: true });
 
-        // Click manuel pour activer
-        this.pillarTargets.forEach((p, i) => {
-            p.addEventListener('click', () => this.activate(i));
+        // Activation clavier + souris (role="button" → Enter/Space + click)
+        this.pillarTargets.forEach((pillar, i) => {
+            pillar.addEventListener('click', () => this.activate(i));
+            pillar.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    this.activate(i);
+                }
+            });
         });
 
         this.animate();
@@ -68,7 +74,11 @@ export default class PillarsPinController extends Controller {
     }
 
     activate(idx) {
-        this.pillarTargets.forEach((p, i) => p.classList.toggle('active', i === idx));
+        this.pillarTargets.forEach((p, i) => {
+            const isActive = i === idx;
+            p.classList.toggle('active', isActive);
+            p.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
         this.frameTargets.forEach((f, i) => f.classList.toggle('active', i === idx));
     }
 }

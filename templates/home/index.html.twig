@@ -41,7 +41,7 @@
             </div>
         </div>
 
-        <div class="scroll-cue" data-hero-scroll-target="cue">
+        <div class="scroll-cue" data-hero-scroll-target="cue" aria-hidden="true">
             <span>Scroll</span>
             <div class="cue-line"></div>
         </div>
@@ -51,7 +51,7 @@
 {# ════════════════════════════════════════════════════════════════
    SECTION 2 — MARQUEE STRIP (font-display + étoiles gold)
    ════════════════════════════════════════════════════════════════ #}
-<div class="marquee-strip" data-controller="marquee">
+<div class="marquee-strip" data-controller="marquee" aria-hidden="true">
     <div class="marquee-strip-track" data-marquee-target="track">
         <span class="marquee-strip-item">9-12h <em>récupérées par semaine</em></span>
         <span class="marquee-strip-star">★</span>
@@ -130,7 +130,7 @@
 
     <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; max-width: 1240px; margin: 0 auto; align-items: start;" class="pillars-grid">
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-            <div class="pillar active reveal" data-pillars-pin-target="pillar">
+            <div class="pillar active reveal" data-pillars-pin-target="pillar" role="button" tabindex="0" aria-pressed="true">
                 <div class="pillar-top">
                     <span class="pillar-num">01</span>
                     <h3 class="pillar-title">Le <em>Système Claude</em></h3>

@@ -61,14 +61,16 @@
                         Reçois les 3 agents par email en 30 secondes.
                     </p>
 
-                    {# Flash errors #}
-                    {% for label, messages in app.flashes(['error']) %}
-                        {% for message in messages %}
-                            <div class="mb-4 rounded-lg bg-danger-bg px-4 py-3 text-sm" style="color: var(--color-danger);">
-                                {{ message }}
-                            </div>
+                    {# Flash errors — aria-live pour annonce screen readers #}
+                    <div aria-live="polite" aria-atomic="true">
+                        {% for label, messages in app.flashes(['error']) %}
+                            {% for message in messages %}
+                                <div role="alert" class="mb-4 rounded-lg bg-danger-bg px-4 py-3 text-sm" style="color: var(--color-danger);">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
                         {% endfor %}
-                    {% endfor %}
+                    </div>
 
                     <form method="POST" action="{{ path('lead_magnet_submit') }}" class="space-y-4" novalidate>
                         <div>
