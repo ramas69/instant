@@ -667,7 +667,73 @@
     border-color: rgba(255, 255, 255, 0.4);
   }
 
-  /* Trust meta : avatars + nombre de places */
+  /* Lien secondaire (CTA texte simple sans bouton) */
+  .hero-kinetic-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    color: rgba(255, 255, 255, 0.85);
+    font-family: var(--font-sans);
+    font-size: var(--text-md);
+    font-weight: 500;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s var(--ease-out);
+  }
+  .hero-kinetic-link::after {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.6rem;
+    height: 1px;
+    background: var(--color-gold-300);
+    transform: scaleX(0.4);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out);
+  }
+  .hero-kinetic-link:hover {
+    color: var(--color-gold-300);
+  }
+  .hero-kinetic-link:hover::after {
+    transform: scaleX(1);
+  }
+  .hero-kinetic-link span[aria-hidden="true"] {
+    transition: transform 0.3s var(--ease-out);
+  }
+  .hero-kinetic-link:hover span[aria-hidden="true"] {
+    transform: translateY(3px);
+  }
+
+  /* Trust badges (4 items avec emojis) */
+  .hero-kinetic-badges {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.65);
+  }
+  .hero-kinetic-badges li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    white-space: nowrap;
+  }
+  .hero-kinetic-badges li:not(:last-child)::after {
+    content: '•';
+    margin-left: 1.5rem;
+    color: rgba(255, 255, 255, 0.2);
+  }
+  @media (max-width: 640px) {
+    .hero-kinetic-badges li:not(:last-child)::after { display: none; }
+  }
+
+  /* Trust meta : avatars + nombre de places (legacy, conservé au cas où) */
   .hero-kinetic-trust {
     display: flex;
     align-items: center;
