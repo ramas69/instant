@@ -1,0 +1,50 @@
+{#
+   ─── BUTTONS — macros Twig ───────────────────────────────────────────
+   3 variants : primary (pill gold), secondary (outline ink), ghost (texte seul).
+
+   Usage :
+     {% import 'components/_buttons.html.twig' as buttons %}
+     {{ buttons.primary('Je rejoins (147€)', '/achat/le-systeme-claude') }}
+     {{ buttons.secondary('Découvrir', '/formations') }}
+     {{ buttons.ghost('Me contacter', 'mailto:hello@instant-ia.com') }}
+
+   Options : { external: true, ariaLabel: '...', class: 'mt-4' }
+#}
+
+{% macro primary(label, href, options = {}) %}
+    <a href="{{ href }}"
+       class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-7 py-3.5 font-medium text-ink-900 shadow-glow-gold transition hover:bg-gold-500 active:scale-[0.98] {{ options.class|default('') }}"
+       {% if options.external|default(false) %}target="_blank" rel="noopener"{% endif %}
+       {% if options.ariaLabel is defined %}aria-label="{{ options.ariaLabel }}"{% endif %}>
+        <span>{{ label }}</span>
+        <span aria-hidden="true">→</span>
+    </a>
+{% endmacro %}
+
+{% macro secondary(label, href, options = {}) %}
+    <a href="{{ href }}"
+       class="inline-flex items-center gap-2 rounded-pill border-2 border-ink-700 px-7 py-3 font-medium text-ink-700 transition hover:bg-ink-700 hover:text-paper {{ options.class|default('') }}"
+       {% if options.external|default(false) %}target="_blank" rel="noopener"{% endif %}
+       {% if options.ariaLabel is defined %}aria-label="{{ options.ariaLabel }}"{% endif %}>
+        <span>{{ label }}</span>
+        {% if options.arrow|default(true) %}<span aria-hidden="true">→</span>{% endif %}
+    </a>
+{% endmacro %}
+
+{% macro ghost(label, href, options = {}) %}
+    <a href="{{ href }}"
+       class="inline-flex items-center gap-2 px-2 py-2 font-medium text-ink-300 transition hover:text-ink-700 {{ options.class|default('') }}"
+       {% if options.external|default(false) %}target="_blank" rel="noopener"{% endif %}>
+        <span>{{ label }}</span>
+        {% if options.arrow|default(false) %}<span aria-hidden="true">→</span>{% endif %}
+    </a>
+{% endmacro %}
+
+{% macro onInk(label, href, options = {}) %}
+    {# Variant pour les sections sur fond ink-700 (CTA secondaire en clair) #}
+    <a href="{{ href }}"
+       class="inline-flex items-center gap-2 rounded-pill border border-paper/30 px-6 py-3 font-medium text-paper transition hover:bg-paper hover:text-ink-700 {{ options.class|default('') }}">
+        <span>{{ label }}</span>
+        {% if options.arrow|default(true) %}<span aria-hidden="true">→</span>{% endif %}
+    </a>
+{% endmacro %}

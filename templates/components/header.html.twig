@@ -1,0 +1,134 @@
+{#
+   ─── HEADER / NAVIGATION ───────────────────────────────────────────
+   Nav principale avec dropdowns hover (desktop) + drawer mobile (Stimulus).
+   Sticky sur scroll. Inclus depuis base.html.twig.
+
+   Variable optionnelle :
+     - currentPath : string (chemin actuel pour la mise en évidence du lien actif)
+#}
+
+{% set current = currentPath|default(app.request is defined ? app.request.pathInfo : '') %}
+
+<header class="sticky top-0 z-50 border-b border-ink-700/8 bg-cream-100/85 backdrop-blur-md"
+        data-controller="mobile-menu">
+    <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 md:px-12">
+
+        {# Logo #}
+        <a href="{{ path('app_home') }}" class="serif text-2xl text-ink-900">
+            Instant <em class="text-gold-500">IA</em>
+        </a>
+
+        {# Desktop nav #}
+        <nav aria-label="Navigation principale" class="hidden items-center gap-8 md:flex">
+
+            {# Dropdown Formations #}
+            <div class="group relative">
+                <button type="button" class="flex items-center gap-1 py-2 text-sm font-medium text-ink-700 transition hover:text-ink-900"
+                        aria-haspopup="true">
+                    <span>Formations</span>
+                    <span class="text-xs transition group-hover:rotate-180" aria-hidden="true">▾</span>
+                </button>
+                <div class="invisible absolute left-0 top-full mt-1 w-72 rounded-2xl bg-paper p-2 opacity-0 shadow-3 transition
+                            group-hover:visible group-hover:opacity-100">
+                    <a href="/formation-claude-consultant" class="block rounded-lg px-4 py-3 text-sm transition hover:bg-cream-100">
+                        <span class="mr-2" aria-hidden="true">🟢</span>
+                        <span class="font-medium text-ink-900">Niveau 1</span>
+                        <span class="block text-xs text-ink-300">Le Système Claude du Consultant</span>
+                    </a>
+                    <a href="/claude-productivite-pro" class="block rounded-lg px-4 py-3 text-sm transition hover:bg-cream-100">
+                        <span class="mr-2" aria-hidden="true">🟡</span>
+                        <span class="font-medium text-ink-900">Niveau 2</span>
+                        <span class="block text-xs text-ink-300">Productivité Pro</span>
+                    </a>
+                    <a href="/claude-cowork-automatisation" class="block rounded-lg px-4 py-3 text-sm transition hover:bg-cream-100">
+                        <span class="mr-2" aria-hidden="true">🔴</span>
+                        <span class="font-medium text-ink-900">Niveau 3</span>
+                        <span class="block text-xs text-ink-300">Cowork & Automatisation</span>
+                    </a>
+                    <a href="/le-cercle" class="block rounded-lg px-4 py-3 text-sm transition hover:bg-cream-100">
+                        <span class="mr-2" aria-hidden="true">💎</span>
+                        <span class="font-medium text-ink-900">Le Cercle</span>
+                        <span class="block text-xs text-ink-300">Membership (bientôt)</span>
+                    </a>
+                </div>
+            </div>
+
+            {# Dropdown Services #}
+            <div class="group relative">
+                <button type="button" class="flex items-center gap-1 py-2 text-sm font-medium text-ink-700 transition hover:text-ink-900"
+                        aria-haspopup="true">
+                    <span>Services</span>
+                    <span class="text-xs transition group-hover:rotate-180" aria-hidden="true">▾</span>
+                </button>
+                <div class="invisible absolute left-0 top-full mt-1 w-64 rounded-2xl bg-paper p-2 opacity-0 shadow-3 transition
+                            group-hover:visible group-hover:opacity-100">
+                    <a href="/audit-ia" class="block rounded-lg px-4 py-3 text-sm transition hover:bg-cream-100">
+                        <span class="font-medium text-ink-900">Audit IA</span>
+                        <span class="block text-xs text-ink-300">Diagnostic personnalisé · 497€</span>
+                    </a>
+                    <a href="/consulting" class="block rounded-lg px-4 py-3 text-sm transition hover:bg-cream-100">
+                        <span class="font-medium text-ink-900">Consulting</span>
+                        <span class="block text-xs text-ink-300">Done-with-you · 1500€+</span>
+                    </a>
+                </div>
+            </div>
+
+            <a href="/blog" class="text-sm font-medium text-ink-700 transition hover:text-ink-900">Blog</a>
+            <a href="/a-propos" class="text-sm font-medium text-ink-700 transition hover:text-ink-900">À propos</a>
+            <a href="/app/connexion" class="text-sm font-medium text-ink-700 transition hover:text-ink-900">Connexion</a>
+
+            <a href="/3-agents-ia-gratuits" class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-5 py-2.5 text-sm font-medium text-ink-900 shadow-glow-gold transition hover:bg-gold-500">
+                <span>3 Agents gratuits</span>
+                <span aria-hidden="true">→</span>
+            </a>
+
+        </nav>
+
+        {# Mobile burger #}
+        <button type="button"
+                class="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-ink-700/15 text-ink-700 md:hidden"
+                data-mobile-menu-target="button"
+                data-action="click->mobile-menu#toggle"
+                aria-controls="mobile-drawer"
+                aria-expanded="false"
+                aria-label="Ouvrir le menu">
+            <svg width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true">
+                <path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </button>
+    </div>
+
+    {# Mobile drawer #}
+    <div id="mobile-drawer"
+         data-mobile-menu-target="drawer"
+         class="md:hidden"
+         hidden>
+        <nav aria-label="Menu mobile" class="border-t border-ink-700/10 bg-cream-50 px-6 py-6">
+            <div class="mb-5">
+                <p class="font-mono text-2xs uppercase tracking-widest text-gold-500 mb-2">Formations</p>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="/formation-claude-consultant" class="block rounded-lg px-3 py-2 hover:bg-cream-200">🟢 Niveau 1 — Le Système Claude</a></li>
+                    <li><a href="/claude-productivite-pro" class="block rounded-lg px-3 py-2 hover:bg-cream-200">🟡 Niveau 2 — Productivité Pro</a></li>
+                    <li><a href="/claude-cowork-automatisation" class="block rounded-lg px-3 py-2 hover:bg-cream-200">🔴 Niveau 3 — Cowork & Auto</a></li>
+                    <li><a href="/le-cercle" class="block rounded-lg px-3 py-2 hover:bg-cream-200">💎 Le Cercle</a></li>
+                </ul>
+            </div>
+            <div class="mb-5">
+                <p class="font-mono text-2xs uppercase tracking-widest text-gold-500 mb-2">Services</p>
+                <ul class="space-y-1 text-sm">
+                    <li><a href="/audit-ia" class="block rounded-lg px-3 py-2 hover:bg-cream-200">Audit IA · 497€</a></li>
+                    <li><a href="/consulting" class="block rounded-lg px-3 py-2 hover:bg-cream-200">Consulting · 1500€+</a></li>
+                </ul>
+            </div>
+            <ul class="mb-6 space-y-1 text-sm">
+                <li><a href="/blog" class="block rounded-lg px-3 py-2 hover:bg-cream-200">Blog</a></li>
+                <li><a href="/a-propos" class="block rounded-lg px-3 py-2 hover:bg-cream-200">À propos</a></li>
+                <li><a href="/app/connexion" class="block rounded-lg px-3 py-2 hover:bg-cream-200">Connexion</a></li>
+            </ul>
+            <a href="/3-agents-ia-gratuits" class="inline-flex w-full items-center justify-center gap-2 rounded-pill bg-gold-400 px-6 py-3 font-medium text-ink-900 shadow-glow-gold">
+                <span>3 Agents gratuits</span>
+                <span aria-hidden="true">→</span>
+            </a>
+        </nav>
+    </div>
+</header>

@@ -1,0 +1,88 @@
+{#
+   ─── FOOTER ────────────────────────────────────────────────────────
+   Footer 4 colonnes selon brief v2 + réseaux sociaux + newsletter signup.
+   Inclus depuis base.html.twig (pas de paramètres pour rester simple).
+#}
+
+<footer class="bg-ink-700 px-6 pb-10 pt-16 text-paper md:px-12 md:pt-20">
+    <div class="mx-auto max-w-6xl">
+
+        {# Logo + tagline + newsletter #}
+        <div class="mb-12 grid gap-12 md:grid-cols-[2fr_3fr]">
+            <div>
+                <a href="{{ path('app_home') }}" class="inline-flex items-baseline gap-2">
+                    <span class="serif text-3xl text-paper">Instant <em class="text-gold-300">IA</em></span>
+                </a>
+                <p class="mt-4 max-w-sm text-sm leading-relaxed text-paper/70">
+                    La méthode pas-à-pas pour transformer Claude en ton bras droit.
+                    Pour consultants, formateurs et coachs solo non-tech.
+                </p>
+            </div>
+
+            <div>
+                {% include 'components/newsletter-signup.html.twig' with {
+                    variant: 'dark',
+                    title: 'Reçois mes <em>prochains contenus</em> Claude IA',
+                    description: '1 email/semaine maximum. Pas de spam.',
+                    id: 'footer'
+                } only %}
+            </div>
+        </div>
+
+        {# 4 colonnes #}
+        <nav aria-label="Pied de page" class="mb-12 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
+            <div>
+                <h2 class="mb-4 font-mono text-xs uppercase tracking-widest text-gold-300">Formations</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/formation-claude-consultant" class="text-paper/80 transition hover:text-paper">Niveau 1 — Le Système Claude</a></li>
+                    <li><a href="/claude-productivite-pro" class="text-paper/80 transition hover:text-paper">Niveau 2 — Productivité Pro</a></li>
+                    <li><a href="/claude-cowork-automatisation" class="text-paper/80 transition hover:text-paper">Niveau 3 — Cowork & Auto</a></li>
+                    <li><a href="/formations" class="text-paper/80 transition hover:text-paper">Catalogue</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-4 font-mono text-xs uppercase tracking-widest text-gold-300">Services</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/audit-ia" class="text-paper/80 transition hover:text-paper">Audit IA</a></li>
+                    <li><a href="/consulting" class="text-paper/80 transition hover:text-paper">Consulting</a></li>
+                    <li><a href="/le-cercle" class="text-paper/80 transition hover:text-paper">Le Cercle</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-4 font-mono text-xs uppercase tracking-widest text-gold-300">Ressources</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/blog" class="text-paper/80 transition hover:text-paper">Blog</a></li>
+                    <li><a href="/3-agents-ia-gratuits" class="text-paper/80 transition hover:text-paper">3 Agents gratuits</a></li>
+                    <li><a href="/temoignages" class="text-paper/80 transition hover:text-paper">Témoignages</a></li>
+                    <li><a href="/a-propos" class="text-paper/80 transition hover:text-paper">À propos</a></li>
+                    <li><a href="/contact" class="text-paper/80 transition hover:text-paper">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h2 class="mb-4 font-mono text-xs uppercase tracking-widest text-gold-300">Légal</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="/mentions-legales" class="text-paper/80 transition hover:text-paper">Mentions légales</a></li>
+                    <li><a href="/cgv" class="text-paper/80 transition hover:text-paper">CGV</a></li>
+                    <li><a href="/confidentialite" class="text-paper/80 transition hover:text-paper">Confidentialité</a></li>
+                    <li><a href="/cookies" class="text-paper/80 transition hover:text-paper">Cookies</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        {# Bas du footer : réseaux + copyright #}
+        <div class="flex flex-col gap-4 border-t border-paper/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <ul class="flex gap-6 text-sm text-paper/70">
+                <li><a href="https://www.linkedin.com/in/rama-soumar%C3%A9-aa5131a0/" target="_blank" rel="noopener" class="transition hover:text-paper">LinkedIn</a></li>
+                <li><a href="https://www.instagram.com/rama__soumare/?hl=fr" target="_blank" rel="noopener" class="transition hover:text-paper">Instagram</a></li>
+                <li><a href="mailto:hello@instant-ia.com" class="transition hover:text-paper">hello@instant-ia.com</a></li>
+            </ul>
+            <p class="font-mono text-xs text-paper/50">
+                © {{ 'now'|date('Y') }} Instant IA · Rama Soumaré
+            </p>
+        </div>
+
+    </div>
+</footer>

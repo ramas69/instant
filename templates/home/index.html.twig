@@ -1,168 +1,238 @@
 {% extends 'base.html.twig' %}
+{% import 'components/_buttons.html.twig' as buttons %}
 
-{% block title %}Instant IA — Plateforme e-learning Claude pour solopreneurs{% endblock %}
+{% block title %}Sprint 2.2 · Démo composants Twig DS{% endblock %}
 
 {% block body %}
-<main data-controller="scroll-reveal">
 
-    {# ─── HERO TEST ─────────────────────────────────────────────────── #}
-    <section class="relative overflow-hidden bg-cream-100 px-6 py-20 md:px-12">
-        <div class="blob blob-1"></div>
-        <div class="blob blob-2"></div>
+{# ─── HERO via composant ────────────────────────────────────────── #}
+{% include 'components/hero.html.twig' with {
+    hero: {
+        eyebrow: 'Sprint 2.2 · Composants Twig DS',
+        title: 'Editorial Atelier <em>en composants</em> Twig réutilisables.',
+        subtitle: 'Header sticky avec dropdowns, footer 4 colonnes, hero, cards, FAQ, pricing, newsletter — tout est partial. Tu remplis avec ton copy, ça marche.',
+        ctaPrimary: { label: 'Voir la démo', href: '#demo' },
+        ctaSecondary: { label: 'Récupère 3 Agents gratuits', href: '/3-agents-ia-gratuits' },
+        trustMarks: ['Mobile-first', 'Scroll-reveal', 'Accessibilité WCAG 2.2'],
+    }
+} only %}
 
-        <div class="relative mx-auto max-w-3xl">
-            <p class="eyebrow mb-8 rv">Sprint 2.1 · Scroll-driving en place</p>
+{# ─── MARQUEE ───────────────────────────────────────────────────── #}
+<div class="marquee" data-controller="marquee">
+    <div class="marquee-track" data-marquee-target="track">
+        <span class="marquee-item">Claude Sonnet 4.5</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">Projects</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">Artifacts</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">Skills</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">Connecteurs</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">MCP</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">Cowork</span>
+        <span class="marquee-item">·</span>
+        <span class="marquee-item">Sub-agents</span>
+        <span class="marquee-item">·</span>
+    </div>
+</div>
 
-            <h1 class="serif text-5xl leading-tight text-ink-900 mb-8 md:text-6xl rv d1">
-                Le scroll <em>révèle</em>, les chiffres <em>montent</em>, le marquee <em>défile</em>.
-            </h1>
+{# ─── DÉMO 3 AGENTS (composant card) ────────────────────────────── #}
+<section class="bg-cream-100 px-6 py-20 md:px-12" id="demo">
+    <div class="mx-auto max-w-6xl">
+        <p class="eyebrow mb-4 rv">Cards — variant agent</p>
+        <h2 class="serif mb-12 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Les 3 Agents IA que tu vas <em>construire</em>.
+        </h2>
 
-            <p class="text-lg leading-relaxed text-ink-300 mb-12 max-w-2xl rv d2">
-                Quatre Stimulus controllers portent le pattern legacy vers la stack Symfony UX :
-                <span class="font-mono text-sm">scroll-reveal</span>,
-                <span class="font-mono text-sm">counter-animation</span>,
-                <span class="font-mono text-sm">marquee</span>,
-                <span class="font-mono text-sm">faq-accordion</span>.
-            </p>
+        <div class="grid gap-6 md:grid-cols-3">
+            {% include 'components/card.html.twig' with {
+                card: {
+                    icon: '📧',
+                    title: 'Agent Inbox',
+                    description: 'Trie tes emails, pré-rédige tes réponses, gère tes relances clients sans plus jamais ouvrir Gmail.',
+                    features: ['Tri automatique par priorité', 'Réponses pré-rédigées dans ton ton', 'Relances clients automatisées'],
+                    metric: '→ 4-5h/semaine récupérées',
+                },
+                rvClass: 'rv',
+                delayClass: ''
+            } only %}
 
-            <a href="#animations" class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-6 py-3 font-medium text-ink-900 shadow-glow-gold transition hover:bg-gold-500 rv d3">
-                <span>Scroll pour voir</span>
-                <span aria-hidden="true">↓</span>
-            </a>
-        </div>
-    </section>
+            {% include 'components/card.html.twig' with {
+                card: {
+                    icon: '🎙️',
+                    title: 'Agent Mission',
+                    description: 'Synthétise tes calls clients en compte-rendus pro. Tu sors d\'un call avec ton CR déjà prêt à envoyer.',
+                    features: ['Transcription audio Claude', 'Synthèse en CR structuré', 'Plan d\'action automatique'],
+                    metric: '→ 3-4h/semaine récupérées',
+                },
+                rvClass: 'rv',
+                delayClass: 'd1'
+            } only %}
 
-    {# ─── MARQUEE ───────────────────────────────────────────────────── #}
-    <div class="marquee" data-controller="marquee">
-        <div class="marquee-track" data-marquee-target="track">
-            <span class="marquee-item">Claude Sonnet 4.5</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">Projects</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">Artifacts</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">Skills</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">Connecteurs</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">MCP</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">Cowork</span>
-            <span class="marquee-item">·</span>
-            <span class="marquee-item">Sub-agents</span>
-            <span class="marquee-item">·</span>
+            {% include 'components/card.html.twig' with {
+                card: {
+                    icon: '📋',
+                    title: 'Agent Propal',
+                    description: 'Génère des propositions commerciales en 15 minutes. Tu cliques, Claude rédige, tu envoies.',
+                    features: ['Template adapté à ton offre', 'Personnalisation client auto', 'Pricing dynamique'],
+                    metric: '→ 2-3h/semaine récupérées',
+                },
+                rvClass: 'rv',
+                delayClass: 'd2'
+            } only %}
         </div>
     </div>
+</section>
 
-    {# ─── COMPTEURS ANIMÉS ──────────────────────────────────────────── #}
-    <section class="bg-ink-700 px-6 py-20 md:px-12 text-paper" id="animations">
-        <div class="mx-auto max-w-5xl">
-            <p class="eyebrow mb-8 rv" style="color: var(--color-gold-300);">Compteurs animés</p>
-            <h2 class="serif text-4xl leading-tight mb-12 rv d1 md:text-5xl">
-                Trois chiffres qui <em>montent</em> au scroll.
-            </h2>
+{# ─── COMPTEURS ANIMÉS ──────────────────────────────────────────── #}
+<section class="bg-ink-700 px-6 py-20 md:px-12 text-paper">
+    <div class="mx-auto max-w-5xl">
+        <p class="eyebrow mb-4 rv" style="color: var(--color-gold-300);">Counter animation</p>
+        <h2 class="serif mb-12 text-4xl leading-tight rv d1 md:text-5xl">
+            Trois chiffres qui <em>montent au scroll</em>.
+        </h2>
 
-            <div class="grid gap-8 sm:grid-cols-3">
-                <div class="rv d1">
-                    <div class="serif text-6xl text-gold-300 mb-2"
-                         data-controller="counter-animation"
-                         data-counter-animation-target-value="847"
-                         data-counter-animation-suffix-value="+">0</div>
-                    <p class="font-mono text-xs uppercase tracking-widest text-paper/60">Heures sauvées</p>
-                </div>
-                <div class="rv d2">
-                    <div class="serif text-6xl text-gold-300 mb-2"
-                         data-controller="counter-animation"
-                         data-counter-animation-target-value="98"
-                         data-counter-animation-suffix-value=" %">0</div>
-                    <p class="font-mono text-xs uppercase tracking-widest text-paper/60">Satisfaction</p>
-                </div>
-                <div class="rv d3">
-                    <div class="serif text-6xl text-gold-300 mb-2"
-                         data-controller="counter-animation"
-                         data-counter-animation-target-value="14">0</div>
-                    <p class="font-mono text-xs uppercase tracking-widest text-paper/60">Jours pour avoir tes 3 Agents</p>
-                </div>
+        <div class="grid gap-8 sm:grid-cols-3">
+            <div class="rv d1">
+                <div class="serif text-6xl text-gold-300 mb-2"
+                     data-controller="counter-animation"
+                     data-counter-animation-target-value="847"
+                     data-counter-animation-suffix-value="+">0</div>
+                <p class="font-mono text-xs uppercase tracking-widest text-paper/60">Heures sauvées</p>
+            </div>
+            <div class="rv d2">
+                <div class="serif text-6xl text-gold-300 mb-2"
+                     data-controller="counter-animation"
+                     data-counter-animation-target-value="98"
+                     data-counter-animation-suffix-value=" %">0</div>
+                <p class="font-mono text-xs uppercase tracking-widest text-paper/60">Satisfaction</p>
+            </div>
+            <div class="rv d3">
+                <div class="serif text-6xl text-gold-300 mb-2"
+                     data-controller="counter-animation"
+                     data-counter-animation-target-value="14">0</div>
+                <p class="font-mono text-xs uppercase tracking-widest text-paper/60">Jours pour avoir tes 3 Agents</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    {# ─── DÉMO RV-L / RV-R ──────────────────────────────────────────── #}
-    <section class="bg-cream-100 px-6 py-20 md:px-12">
-        <div class="mx-auto max-w-5xl grid gap-12 md:grid-cols-2">
-            <div class="rv-l">
-                <p class="eyebrow mb-4">Glissé depuis la gauche</p>
-                <h3 class="serif text-3xl leading-tight text-ink-900 mb-4">
-                    .rv-l — apparaît <em>en glissant</em>.
-                </h3>
-                <p class="text-ink-300 leading-relaxed">
-                    Idéal pour les blocs éditoriaux qui posent une affirmation à gauche
-                    avec sa preuve / illustration à droite.
-                </p>
-            </div>
-            <div class="rv-r d1">
-                <p class="eyebrow mb-4">Glissé depuis la droite</p>
-                <h3 class="serif text-3xl leading-tight text-ink-900 mb-4">
-                    .rv-r — légèrement <em>en retard</em>.
-                </h3>
-                <p class="text-ink-300 leading-relaxed">
-                    Combiné avec un délai (.d1, .d2…), ça crée une chorégraphie d'apparition
-                    qui guide l'œil naturellement.
-                </p>
-            </div>
+{# ─── TÉMOIGNAGES (composant testimonial-card) ──────────────────── #}
+<section class="bg-cream-100 px-6 py-20 md:px-12">
+    <div class="mx-auto max-w-6xl">
+        <p class="eyebrow mb-4 rv">Témoignages</p>
+        <h2 class="serif mb-12 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Elles ont arrêté de <em>tourner en rond</em>.
+        </h2>
+
+        <div class="grid gap-6 md:grid-cols-3">
+            {% include 'components/testimonial-card.html.twig' with {
+                testimonial: {
+                    quote: 'Grâce à Rama, j\'ai automatisé 80% de ma création de contenu. Je gagne 15h par semaine. Honnêtement, c\'est le meilleur investissement que j\'ai fait cette année.',
+                    author: 'Sophie M.',
+                    role: 'Coach business',
+                    initial: 'S',
+                },
+                delayClass: ''
+            } only %}
+            {% include 'components/testimonial-card.html.twig' with {
+                testimonial: {
+                    quote: 'L\'atelier prompt engineering m\'a ouvert les yeux. En 3h j\'ai pigé ce que des mois de bidouillage tout seul ne m\'avaient jamais appris. Rama explique les choses simplement.',
+                    author: 'Karim D.',
+                    role: 'Fondateur e-commerce',
+                    initial: 'K',
+                },
+                delayClass: 'd1'
+            } only %}
+            {% include 'components/testimonial-card.html.twig' with {
+                testimonial: {
+                    quote: 'On a bossé ensemble sur la stratégie IA de notre agence. ROI visible dès le premier mois. Rama ne fait pas que conseiller — elle met les mains dedans avec toi.',
+                    author: 'Laura P.',
+                    role: 'Directrice agence marketing',
+                    initial: 'L',
+                },
+                delayClass: 'd2'
+            } only %}
         </div>
-    </section>
+    </div>
+</section>
 
-    {# ─── FAQ ACCORDION ─────────────────────────────────────────────── #}
-    <section class="bg-cream-200 px-6 py-20 md:px-12">
-        <div class="mx-auto max-w-3xl">
-            <p class="eyebrow mb-4 rv">FAQ accordion</p>
-            <h2 class="serif text-4xl leading-tight text-ink-900 mb-12 rv d1 md:text-5xl">
-                Questions <em>fréquentes</em>.
-            </h2>
+{# ─── PRICING TABLE ─────────────────────────────────────────────── #}
+<section class="bg-cream-200 px-6 py-20 md:px-12">
+    <div class="mx-auto max-w-6xl">
+        <p class="eyebrow mb-4 rv">Pricing table</p>
+        <h2 class="serif mb-12 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+            Trois tarifs, <em>une seule formation</em>.
+        </h2>
 
-            <div class="faq-list rv d2" data-controller="faq-accordion">
-                <div class="faq-item" data-faq-accordion-target="item">
-                    <button class="faq-question" data-action="click->faq-accordion#toggle">
-                        J'y connais rien en tech, c'est pour moi ?
-                    </button>
-                    <div class="faq-answer">
-                        <p>Absolument. Si tu sais utiliser un navigateur web, tu peux suivre mes formations.
-                        Je vulgarise tout, j'explique chaque étape, et on avance ensemble. Pas besoin de coder.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-faq-accordion-target="item">
-                    <button class="faq-question" data-action="click->faq-accordion#toggle">
-                        C'est en ligne ou en présentiel ?
-                    </button>
-                    <div class="faq-answer">
-                        <p>Principalement en ligne (visio) pour que tu puisses participer où que tu sois.
-                        Pour les entreprises, le présentiel est possible sur demande — on en discute.</p>
-                    </div>
-                </div>
-                <div class="faq-item" data-faq-accordion-target="item">
-                    <button class="faq-question" data-action="click->faq-accordion#toggle">
-                        Comment je récupère mon accès après achat ?
-                    </button>
-                    <div class="faq-answer">
-                        <p>Tu reçois un accès immédiat après paiement. Tu es redirigée vers une page
-                        de bienvenue + tu reçois un email de confirmation. Tu peux te reconnecter à tout moment.</p>
-                    </div>
-                </div>
-            </div>
+        {% include 'components/pricing-table.html.twig' with {
+            tiers: [
+                {
+                    name: 'Early-bird',
+                    badge: '30 places fondateur',
+                    price: '147€',
+                    priceCrossed: '297€',
+                    description: 'Le tarif fondateur réservé aux 30 premières acheteuses.',
+                    features: ['27 vidéos courtes', 'Méthode P.R.O.M.P.T.', '3 Agents construits', 'Garantie 14 jours'],
+                    ctaLabel: 'Je rejoins',
+                    ctaHref: '/achat/le-systeme-claude-du-consultant',
+                    highlight: true,
+                },
+                {
+                    name: 'Lancement',
+                    price: '197€',
+                    description: 'Tarif de lancement (après les 30 premières places).',
+                    features: ['27 vidéos courtes', 'Méthode P.R.O.M.P.T.', '3 Agents construits', 'Garantie 14 jours'],
+                    ctaLabel: 'Bientôt',
+                    ctaHref: '#',
+                    highlight: false,
+                },
+                {
+                    name: 'Catalogue',
+                    price: '297€',
+                    description: 'Tarif catalogue régulier.',
+                    features: ['27 vidéos courtes', 'Méthode P.R.O.M.P.T.', '3 Agents construits', 'Garantie 14 jours'],
+                    ctaLabel: 'Bientôt',
+                    ctaHref: '#',
+                    highlight: false,
+                },
+            ]
+        } only %}
+    </div>
+</section>
+
+{# ─── FAQ via composant ─────────────────────────────────────────── #}
+{% include 'components/faq.html.twig' with {
+    faq: {
+        eyebrow: 'FAQ',
+        title: 'Questions <em>fréquentes</em>.',
+        items: [
+            { question: 'J\'y connais rien en tech, c\'est pour moi ?', answer: 'Absolument. Si tu sais utiliser un navigateur web, tu peux suivre mes formations. Je vulgarise tout, j\'explique chaque étape, et on avance ensemble. Pas besoin de coder.' },
+            { question: 'Combien de temps prend la formation ?', answer: '14 jours en mode sprint, à raison de 45 min/jour. Tu peux accélérer ou étaler — tu as accès à vie.' },
+            { question: 'Comment je récupère mon accès après achat ?', answer: 'Tu reçois un email de confirmation immédiatement. En attendant la plateforme membre (mi-juin), tu reçois les leçons par email tous les jours.' },
+            { question: 'Et si je débute totalement avec Claude ?', answer: 'C\'est exactement pour toi. Le Module 0 part de zéro et le Module 1 te fait comprendre Claude en profondeur avant d\'attaquer la méthode P.R.O.M.P.T.' },
+        ],
+    }
+} only %}
+
+{# ─── CTA FINAL avec macros buttons ─────────────────────────────── #}
+<section class="bg-ink-700 px-6 py-24 md:px-12 text-paper">
+    <div class="mx-auto max-w-3xl text-center">
+        <p class="eyebrow mb-4 rv" style="color: var(--color-gold-300);">Macros buttons</p>
+        <h2 class="serif mb-6 text-4xl leading-tight rv d1 md:text-5xl">
+            Prête à transformer ton business avec <em>Claude</em> ?
+        </h2>
+        <p class="mx-auto mb-10 max-w-2xl text-lg leading-relaxed text-paper/80 rv d2">
+            Démo des macros : primary (gold pill), onInk (border paper), ghost (texte clair).
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 rv d3">
+            {{ buttons.primary('Je rejoins (147€)', '/achat/le-systeme-claude-du-consultant') }}
+            {{ buttons.onInk('Récupère 3 Agents gratuits', '/3-agents-ia-gratuits') }}
         </div>
-    </section>
+    </div>
+</section>
 
-    {# ─── FOOTER ────────────────────────────────────────────────────── #}
-    <footer class="bg-ink-700 px-6 py-12 md:px-12 text-paper">
-        <div class="mx-auto max-w-5xl">
-            <p class="eyebrow mb-2" style="color: var(--color-gold-300);">Diagnostic technique</p>
-            <p class="serif text-xl">
-                Sprint 2.1 — Scroll-driving Stimulus
-                <em style="color: var(--color-gold-300);">opérationnel</em>.
-            </p>
-        </div>
-    </footer>
-
-</main>
 {% endblock %}

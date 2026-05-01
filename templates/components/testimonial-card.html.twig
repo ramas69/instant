@@ -1,0 +1,48 @@
+{#
+   ─── TESTIMONIAL CARD ──────────────────────────────────────────────
+   Carte témoignage avec étoiles + citation + auteur.
+
+   Variables attendues :
+     - testimonial.quote : string (texte de la citation, sans les guillemets)
+     - testimonial.author : string (prénom + initiale, ex : "Sophie M.")
+     - testimonial.role : string (métier, ex : "Coach business")
+     - testimonial.initial : string (1 lettre pour l'avatar fallback)
+     - testimonial.avatar : string|null (URL d'image, optionnel — sinon avatar avec initiale)
+     - testimonial.stars : int (default 5)
+     - rvClass : string (default 'rv') — pour scroll-reveal
+     - delayClass : string (default '') — '.d1', '.d2', etc.
+#}
+
+<article class="relative rounded-2xl bg-paper p-7 shadow-2 {{ rvClass|default('rv') }} {{ delayClass|default('') }}">
+    {# Étoiles #}
+    <div class="mb-4 flex gap-0.5 text-gold-400" aria-label="{{ testimonial.stars|default(5) }} étoiles sur 5">
+        {% for i in 1..(testimonial.stars|default(5)) %}
+            <span aria-hidden="true">★</span>
+        {% endfor %}
+    </div>
+
+    {# Citation #}
+    <blockquote class="serif mb-6 text-xl leading-snug text-ink-900">
+        <span aria-hidden="true">«</span> {{ testimonial.quote }} <span aria-hidden="true">»</span>
+    </blockquote>
+
+    {# Auteur #}
+    <div class="flex items-center gap-3">
+        {% if testimonial.avatar is defined and testimonial.avatar %}
+            <img src="{{ testimonial.avatar }}"
+                 alt="Photo de {{ testimonial.author }}"
+                 class="h-12 w-12 rounded-full object-cover"
+                 loading="lazy"
+                 decoding="async">
+        {% else %}
+            <div class="flex h-12 w-12 items-center justify-center rounded-full bg-ink-700 text-lg font-medium text-cream-100"
+                 aria-hidden="true">
+                {{ testimonial.initial|default(testimonial.author|first) }}
+            </div>
+        {% endif %}
+        <div>
+            <div class="font-medium text-ink-900">{{ testimonial.author }}</div>
+            <div class="font-mono text-xs uppercase tracking-wide text-ink-300">{{ testimonial.role }}</div>
+        </div>
+    </div>
+</article>

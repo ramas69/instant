@@ -1,0 +1,42 @@
+{#
+   ─── FAQ ACCORDION ─────────────────────────────────────────────────
+   Liste de Q/R cliquables avec un seul item ouvert à la fois (mode exclusive).
+
+   Variables attendues :
+     - faq.eyebrow : string|null (default 'Questions fréquentes')
+     - faq.title : string (H2 — supporte serif italic via <em>)
+     - faq.items : array<{ question: string, answer: string|html }>
+     - faq.exclusive : bool (default true)
+#}
+
+<section class="bg-cream-100 px-6 py-20 md:px-12">
+    <div class="mx-auto max-w-3xl">
+        {% if faq.eyebrow is defined and faq.eyebrow != false %}
+            <p class="eyebrow mb-4 rv">{{ faq.eyebrow|default('Questions fréquentes') }}</p>
+        {% endif %}
+
+        {% if faq.title is defined %}
+            <h2 class="serif mb-12 text-4xl leading-tight text-ink-900 rv d1 md:text-5xl">
+                {{ faq.title|raw }}
+            </h2>
+        {% endif %}
+
+        <div class="faq-list rv d2"
+             data-controller="faq-accordion"
+             data-faq-accordion-exclusive-value="{{ (faq.exclusive|default(true)) ? 'true' : 'false' }}">
+            {% for item in faq.items %}
+                <div class="faq-item" data-faq-accordion-target="item">
+                    <button type="button"
+                            class="faq-question"
+                            data-action="click->faq-accordion#toggle"
+                            aria-expanded="false">
+                        {{ item.question }}
+                    </button>
+                    <div class="faq-answer">
+                        <p>{{ item.answer|raw }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

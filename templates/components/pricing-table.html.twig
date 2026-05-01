@@ -1,0 +1,76 @@
+{#
+   ─── PRICING TABLE ─────────────────────────────────────────────────
+   Comparatif de plusieurs tiers de prix (early-bird / lancement / catalogue par exemple).
+
+   Variables attendues :
+     - tiers : array<{
+         name: string (ex: "Early-bird"),
+         badge: string|null (ex: "30 places"),
+         price: string (ex: "147€"),
+         priceCrossed: string|null (ex: "297€"),
+         description: string,
+         features: array<string>,
+         ctaLabel: string,
+         ctaHref: string,
+         highlight: bool|null (true = mise en avant or)
+       }>
+#}
+
+<div class="grid gap-6 md:grid-cols-3">
+    {% for tier in tiers %}
+        <div class="relative flex flex-col rounded-2xl p-7 shadow-2 rv {{ loop.index > 1 ? 'd' ~ (loop.index - 1) : '' }}
+                    {{ tier.highlight|default(false) ? 'bg-ink-700 text-paper ring-2 ring-gold-400' : 'bg-paper text-ink-900' }}">
+
+            {% if tier.highlight|default(false) %}
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 rounded-pill bg-gold-400 px-4 py-1 font-mono text-2xs uppercase tracking-widest text-ink-900">
+                    Recommandé
+                </div>
+            {% endif %}
+
+            {% if tier.badge is defined and tier.badge %}
+                <p class="font-mono text-2xs uppercase tracking-widest {{ tier.highlight|default(false) ? 'text-gold-300' : 'text-gold-500' }}">
+                    {{ tier.badge }}
+                </p>
+            {% endif %}
+
+            <h3 class="serif mt-2 text-2xl">
+                {{ tier.name }}
+            </h3>
+
+            <div class="my-5 flex items-baseline gap-3">
+                <span class="serif text-5xl leading-none">{{ tier.price }}</span>
+                {% if tier.priceCrossed is defined and tier.priceCrossed %}
+                    <span class="text-lg line-through {{ tier.highlight|default(false) ? 'text-paper/40' : 'text-ink-200' }}">
+                        {{ tier.priceCrossed }}
+                    </span>
+                {% endif %}
+            </div>
+
+            {% if tier.description is defined %}
+                <p class="mb-5 text-sm leading-relaxed {{ tier.highlight|default(false) ? 'text-paper/80' : 'text-ink-300' }}">
+                    {{ tier.description }}
+                </p>
+            {% endif %}
+
+            {% if tier.features is defined %}
+                <ul class="mb-6 space-y-2">
+                    {% for feature in tier.features %}
+                        <li class="flex gap-2 text-sm leading-snug {{ tier.highlight|default(false) ? 'text-paper/85' : 'text-ink-300' }}">
+                            <span class="text-gold-{{ tier.highlight|default(false) ? '300' : '500' }}" aria-hidden="true">✓</span>
+                            <span>{{ feature }}</span>
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+
+            <a href="{{ tier.ctaHref }}"
+               class="mt-auto inline-flex items-center justify-center gap-2 rounded-pill px-6 py-3 font-medium transition
+                      {{ tier.highlight|default(false)
+                        ? 'bg-gold-400 text-ink-900 hover:bg-gold-500'
+                        : 'border-2 border-ink-700 text-ink-700 hover:bg-ink-700 hover:text-paper' }}">
+                <span>{{ tier.ctaLabel }}</span>
+                <span aria-hidden="true">→</span>
+            </a>
+        </div>
+    {% endfor %}
+</div>

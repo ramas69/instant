@@ -1,0 +1,50 @@
+{#
+   ─── NEWSLETTER SIGNUP ─────────────────────────────────────────────
+   Formulaire capture email simple. Sprint 2 : POST vers /capture-email
+   (à implémenter Sprint 4 avec Brevo). En l'attendant, le form fait juste un
+   feedback visuel + console.log côté Stimulus.
+
+   Variables attendues :
+     - eyebrow : string|null (default 'Newsletter')
+     - title : string (default 'Reçois mes prochains contenus IA')
+     - description : string (default 'Pas de spam, désabonnement en 1 clic.')
+     - ctaLabel : string (default 'Je m\'inscris')
+     - placeholder : string (default 'Ton email')
+     - variant : 'light'|'dark' (default 'light')
+#}
+
+{% set v = variant|default('light') %}
+
+<div class="rv">
+    {% if eyebrow|default('Newsletter') != false %}
+        <p class="eyebrow mb-3 {{ v == 'dark' ? 'opacity-90' : '' }}">{{ eyebrow|default('Newsletter') }}</p>
+    {% endif %}
+
+    <h3 class="serif mb-3 text-2xl leading-snug {{ v == 'dark' ? 'text-paper' : 'text-ink-900' }}">
+        {{ title|default('Reçois mes prochains contenus IA')|raw }}
+    </h3>
+
+    <p class="mb-5 text-sm leading-relaxed {{ v == 'dark' ? 'text-paper/70' : 'text-ink-300' }}">
+        {{ description|default('Pas de spam, désabonnement en 1 clic.') }}
+    </p>
+
+    <form method="POST" action="/capture-email" class="flex flex-col gap-3 sm:flex-row">
+        <label for="newsletter-email-{{ id|default('main') }}" class="sr-only">Email</label>
+        <input type="email"
+               id="newsletter-email-{{ id|default('main') }}"
+               name="email"
+               required
+               autocomplete="email"
+               placeholder="{{ placeholder|default('Ton email') }}"
+               class="flex-1 rounded-pill border px-5 py-3 text-sm
+                      {{ v == 'dark'
+                        ? 'border-paper/20 bg-ink-700 text-paper placeholder:text-paper/50 focus:border-gold-300'
+                        : 'border-ink-700/15 bg-paper text-ink-900 placeholder:text-ink-200 focus:border-gold-400' }}
+                      focus:outline-none focus:ring-2 focus:ring-gold-300/40">
+        <button type="submit"
+                class="inline-flex items-center justify-center gap-2 rounded-pill bg-gold-400 px-6 py-3 font-medium text-ink-900 transition hover:bg-gold-500">
+            <span>{{ ctaLabel|default('Je m\'inscris') }}</span>
+            <span aria-hidden="true">→</span>
+        </button>
+    </form>
+</div>

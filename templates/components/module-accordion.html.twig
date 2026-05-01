@@ -1,0 +1,42 @@
+{#
+   ─── MODULE ACCORDION ──────────────────────────────────────────────
+   Liste des modules d'une formation, ouvrables un par un.
+   Réutilise le controller faq-accordion.
+
+   Variables attendues :
+     - modules : array<{
+         code: string (ex: 'M2'),
+         title: string,
+         description: string,
+         videoCount: int,
+         featured: bool|null (★ pour modules vedettes)
+       }>
+#}
+
+<div class="space-y-2 rv d2"
+     data-controller="faq-accordion"
+     data-faq-accordion-exclusive-value="false">
+    {% for module in modules %}
+        <div class="faq-item rounded-lg bg-paper px-5 shadow-1"
+             data-faq-accordion-target="item">
+            <button type="button"
+                    class="faq-question"
+                    data-action="click->faq-accordion#toggle"
+                    aria-expanded="false">
+                <span class="flex items-baseline gap-4">
+                    <span class="font-mono text-xs uppercase tracking-widest text-gold-500">{{ module.code }}</span>
+                    <span class="serif text-xl text-ink-900">
+                        {{ module.title }}
+                        {% if module.featured|default(false) %}
+                            <span class="text-gold-400" aria-label="Module vedette">★</span>
+                        {% endif %}
+                    </span>
+                </span>
+                <span class="ml-auto font-mono text-xs text-ink-300">{{ module.videoCount }} vidéos</span>
+            </button>
+            <div class="faq-answer">
+                <p class="leading-relaxed text-ink-300">{{ module.description }}</p>
+            </div>
+        </div>
+    {% endfor %}
+</div>

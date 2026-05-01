@@ -1,0 +1,101 @@
+{#
+   ─── CARD GÉNÉRIQUE ────────────────────────────────────────────────
+   Carte structurée avec icône + badge + titre + description + bénéfices + footer prix/CTA.
+   Variants : 'agent' (3 Agents Niveau 1), 'offer' (formation/audit/consulting), 'shop' (Kit IA, Guide).
+
+   Variables attendues :
+     - card.title : string
+     - card.description : string
+     - card.icon : string|null (emoji ou caractère unicode pour la version simple)
+     - card.iconNumber : string|null (alternative : numéro "01", "02", "03" en gros)
+     - card.badge : string|null (ex: "Best-seller", "Nouveau", "⭐ Bestseller")
+     - card.features : array<string> (liste des bénéfices, optionnel)
+     - card.metric : string|null (ex: "→ 4-5h/semaine récupérées")
+     - card.price : string|null (ex: "147€", "À partir de 1 500€")
+     - card.priceMeta : string|null (ex: "Early-bird (30 premières)")
+     - card.ctaLabel : string|null
+     - card.ctaHref : string|null
+     - rvClass + delayClass (default 'rv', '')
+     - variant : 'default'|'dark'|'gold' (couleur de fond)
+#}
+
+{% set variant = variant|default('default') %}
+{% set bgClass = {
+    'default': 'bg-paper text-ink-900',
+    'cream':   'bg-cream-50 text-ink-900',
+    'dark':    'bg-ink-700 text-paper',
+    'gold':    'bg-gold-100 text-ink-900',
+}[variant] ?? 'bg-paper text-ink-900' %}
+
+<article class="relative flex flex-col rounded-2xl p-7 shadow-2 {{ bgClass }} {{ rvClass|default('rv') }} {{ delayClass|default('') }}">
+
+    {% if card.badge is defined and card.badge %}
+        <span class="absolute right-5 top-5 rounded-pill bg-gold-300 px-3 py-1 font-mono text-2xs uppercase tracking-wider text-ink-900">
+            {{ card.badge }}
+        </span>
+    {% endif %}
+
+    {% if card.iconNumber is defined and card.iconNumber %}
+        <div class="serif mb-4 text-6xl leading-none {{ variant == 'dark' ? 'text-gold-300' : 'text-gold-500' }}">
+            {{ card.iconNumber }}
+        </div>
+    {% elseif card.icon is defined and card.icon %}
+        <div class="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-lg {{ variant == 'dark' ? 'bg-paper/10' : 'bg-gold-100' }} text-2xl">
+            <span aria-hidden="true">{{ card.icon }}</span>
+        </div>
+    {% endif %}
+
+    <h3 class="serif mb-3 text-2xl leading-snug">
+        {{ card.title }}
+    </h3>
+
+    <p class="mb-5 leading-relaxed {{ variant == 'dark' ? 'text-paper/80' : 'text-ink-300' }}">
+        {{ card.description }}
+    </p>
+
+    {% if card.features is defined and card.features|length > 0 %}
+        <ul class="mb-5 space-y-2">
+            {% for feature in card.features %}
+                <li class="flex gap-3 text-sm leading-snug {{ variant == 'dark' ? 'text-paper/85' : 'text-ink-300' }}">
+                    <span class="mt-1 text-gold-500" aria-hidden="true">✓</span>
+                    <span>{{ feature }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if card.metric is defined and card.metric %}
+        <div class="mb-5 rounded-lg {{ variant == 'dark' ? 'bg-paper/10' : 'bg-gold-100' }} px-4 py-3 font-mono text-sm tracking-tight {{ variant == 'dark' ? 'text-gold-300' : 'text-ink-700' }}">
+            {{ card.metric }}
+        </div>
+    {% endif %}
+
+    {% if card.price is defined and card.price %}
+        <div class="mt-auto flex items-end justify-between gap-4 pt-4 {{ variant == 'dark' ? 'border-t border-paper/10' : 'border-t border-ink-700/10' }}">
+            <div>
+                <div class="serif text-3xl leading-none {{ variant == 'dark' ? 'text-paper' : 'text-ink-900' }}">
+                    {{ card.price }}
+                </div>
+                {% if card.priceMeta is defined and card.priceMeta %}
+                    <div class="mt-1 font-mono text-xs {{ variant == 'dark' ? 'text-paper/60' : 'text-ink-300' }}">
+                        {{ card.priceMeta }}
+                    </div>
+                {% endif %}
+            </div>
+            {% if card.ctaLabel is defined and card.ctaLabel and card.ctaHref is defined %}
+                <a href="{{ card.ctaHref }}"
+                   class="inline-flex items-center gap-1.5 rounded-pill bg-gold-400 px-5 py-2.5 font-medium text-ink-900 transition hover:bg-gold-500">
+                    <span>{{ card.ctaLabel }}</span>
+                    <span aria-hidden="true">→</span>
+                </a>
+            {% endif %}
+        </div>
+    {% elseif card.ctaLabel is defined and card.ctaLabel and card.ctaHref is defined %}
+        <a href="{{ card.ctaHref }}"
+           class="mt-auto inline-flex w-fit items-center gap-1.5 rounded-pill bg-gold-400 px-5 py-2.5 font-medium text-ink-900 transition hover:bg-gold-500">
+            <span>{{ card.ctaLabel }}</span>
+            <span aria-hidden="true">→</span>
+        </a>
+    {% endif %}
+
+</article>

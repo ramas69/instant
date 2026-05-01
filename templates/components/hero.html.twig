@@ -1,0 +1,79 @@
+{#
+   ─── HERO ─────────────────────────────────────────────────────────
+   Block hero principal avec blobs animés, eyebrow, headline serif, sous-titre, CTAs.
+   3 variants visuels (couleur de fond) : 'cream' (default), 'ink' (sombre), 'paper' (blanc pur).
+
+   Variables attendues :
+     - hero.eyebrow : string|null
+     - hero.title : string (supporte <em> + <br> + raw HTML — sera affiché via |raw)
+     - hero.subtitle : string|null
+     - hero.ctaPrimary : { label: string, href: string }|null
+     - hero.ctaSecondary : { label: string, href: string }|null
+     - hero.trustMarks : array<string>|null (3 trust marks "✓ ...")
+     - hero.variant : 'cream'|'ink'|'paper' (default 'cream')
+     - hero.showBlobs : bool (default true)
+#}
+
+{% set v = hero.variant|default('cream') %}
+{% set bg = {
+    'cream': 'bg-cream-100 text-ink-900',
+    'ink':   'bg-ink-700 text-paper',
+    'paper': 'bg-paper text-ink-900',
+}[v] ?? 'bg-cream-100 text-ink-900' %}
+
+<section class="relative overflow-hidden px-6 py-24 md:px-12 md:py-32 {{ bg }}">
+
+    {% if hero.showBlobs|default(true) %}
+        <div class="blob blob-1" aria-hidden="true"></div>
+        <div class="blob blob-2" aria-hidden="true"></div>
+    {% endif %}
+
+    <div class="relative mx-auto max-w-5xl">
+
+        {% if hero.eyebrow is defined and hero.eyebrow %}
+            <p class="eyebrow mb-6 rv">{{ hero.eyebrow }}</p>
+        {% endif %}
+
+        <h1 class="serif text-4xl leading-tight rv d1 sm:text-5xl md:text-6xl">
+            {{ hero.title|raw }}
+        </h1>
+
+        {% if hero.subtitle is defined and hero.subtitle %}
+            <p class="mt-6 max-w-2xl text-lg leading-relaxed rv d2 {{ v == 'ink' ? 'text-paper/80' : 'text-ink-300' }} md:text-xl">
+                {{ hero.subtitle|raw }}
+            </p>
+        {% endif %}
+
+        {% if (hero.ctaPrimary is defined and hero.ctaPrimary) or (hero.ctaSecondary is defined and hero.ctaSecondary) %}
+            <div class="mt-10 flex flex-wrap items-center gap-4 rv d3">
+                {% if hero.ctaPrimary is defined and hero.ctaPrimary %}
+                    <a href="{{ hero.ctaPrimary.href }}"
+                       class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-7 py-3.5 font-medium text-ink-900 shadow-glow-gold transition hover:bg-gold-500">
+                        <span>{{ hero.ctaPrimary.label }}</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                {% endif %}
+                {% if hero.ctaSecondary is defined and hero.ctaSecondary %}
+                    <a href="{{ hero.ctaSecondary.href }}"
+                       class="inline-flex items-center gap-2 px-3 py-2 font-medium transition
+                              {{ v == 'ink' ? 'text-paper/80 hover:text-paper' : 'text-ink-300 hover:text-ink-700' }}">
+                        <span>{{ hero.ctaSecondary.label }}</span>
+                        <span aria-hidden="true">→</span>
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+
+        {% if hero.trustMarks is defined and hero.trustMarks|length > 0 %}
+            <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 rv d4">
+                {% for mark in hero.trustMarks %}
+                    <li class="flex items-center gap-2 text-sm {{ v == 'ink' ? 'text-paper/70' : 'text-ink-300' }}">
+                        <span class="text-gold-{{ v == 'ink' ? '300' : '500' }}" aria-hidden="true">✓</span>
+                        <span>{{ mark }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+    </div>
+</section>
