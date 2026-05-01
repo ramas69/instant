@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+{% import 'components/_buttons.html.twig' as buttons %}
+
+{% block title %}Merci — Tes 3 Agents arrivent{% endblock %}
+{% block titleSuffix %} | Instant IA{% endblock %}
+{% block description %}Ta demande est confirmée. Tes 3 agents IA arrivent dans ta boîte mail.{% endblock %}
+
+{% block body %}
+
+<section class="relative overflow-hidden bg-cream-100 px-6 py-24 md:px-12 md:py-32">
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+
+    <div class="relative mx-auto max-w-3xl text-center">
+        <div class="mb-8 inline-flex h-20 w-20 items-center justify-center rounded-full bg-gold-400 shadow-glow-gold rv">
+            <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 13l4 4L19 7" stroke="currentColor" class="text-ink-900" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
+
+        <h1 class="serif text-4xl leading-tight text-ink-900 rv d1 md:text-6xl">
+            Tes 3 Agents <em>arrivent</em>.
+        </h1>
+
+        <p class="mt-6 text-lg leading-relaxed text-ink-300 rv d2 md:text-xl">
+            {% if email %}
+                Vérifie ta boîte mail
+                <em class="not-italic font-medium text-ink-700">{{ email }}</em>
+                — l'email avec les 3 agents arrive dans 30 secondes.
+            {% else %}
+                Vérifie ta boîte mail — l'email avec les 3 agents arrive dans 30 secondes.
+            {% endif %}
+        </p>
+
+        <div class="mt-8 rounded-2xl border border-dashed border-ink-300/30 bg-paper p-5 text-left rv d3">
+            <p class="mb-2 font-mono text-2xs uppercase tracking-widest text-ink-200">
+                [PLACEHOLDER : Sprint 4]
+            </p>
+            <p class="text-sm leading-relaxed text-ink-300">
+                À la place de ce message, l'email transactionnel avec le PDF des 3 agents partira via Brevo
+                dès que l'intégration sera faite (Sprint 4 / Phase 1 fondations). Pour l'instant ton email
+                est juste loggué côté serveur.
+            </p>
+        </div>
+
+        <div class="mt-12 rv d4">
+            <p class="serif text-2xl italic leading-snug text-ink-900">
+                Pas envie d'attendre une semaine pour passer à <em class="text-gold-500">l'étape suivante</em> ?
+            </p>
+            <div class="mt-6">
+                {{ buttons.primary('Découvrir Le Système Claude (147€)', '/formation-claude-consultant') }}
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
