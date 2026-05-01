@@ -7,11 +7,23 @@
    Réponse à la cible Sandra : soulagement avant aspiration.
    ════════════════════════════════════════════════════════════════ #}
 
-{% block title %}Le Système Claude du Consultant — Formation IA en 14 jours{% endblock %}
+{% block title %}Le Système Claude du Consultant. Formation IA en 14 jours.{% endblock %}
 {% block titleSuffix %} | Instant IA{% endblock %}
 {% block description %}Formation Claude IA pour consultants et formateurs solo. 27 vidéos, 3 agents IA construits, méthode P.R.O.M.P.T. 147€ offre fondateur. Garantie 14 jours.{% endblock %}
 
 {% set checkout_url = '/achat/le-systeme-claude-du-consultant' %}
+
+{% block meta %}
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Le Système Claude du Consultant. Formation IA en 14 jours.">
+    <meta property="og:description" content="Formation Claude IA pour consultants et formateurs solo. 27 vidéos, 3 agents IA construits, méthode P.R.O.M.P.T. 147€ offre fondateur. Garantie 14 jours.">
+    <meta property="og:url" content="https://instant-ia.com/formation-claude-consultant">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="Instant IA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Le Système Claude du Consultant. Instant IA.">
+    <meta name="twitter:description" content="14 jours pour transformer Claude en bras droit. 147€ offre fondateur, 30 places.">
+{% endblock %}
 
 {% block body %}
 
@@ -285,7 +297,254 @@
 </section>
 
 {# ════════════════════════════════════════════════════════════════
-   SECTIONS 06 → 09 — livrées en Phase C
+   SECTION 06 — TÉMOIGNAGES (carrousel mono-slide, 70vh)
+   3 voix, une à la fois, navigation flèches/clavier/swipe.
    ════════════════════════════════════════════════════════════════ #}
+{% set testimonials = [
+    { quote: 'Grâce à Rama, j\'ai automatisé 80% de ma création de contenu. Je gagne 15 heures par semaine.', name: 'Sophie M.', role: 'Coach business', initial: 'S' },
+    { quote: 'L\'atelier prompt engineering m\'a ouvert les yeux. En 3h j\'ai pigé ce que des mois de bidouillage tout seul ne m\'avaient jamais appris.', name: 'Karim D.', role: 'Fondateur e-commerce', initial: 'K' },
+    { quote: 'On a bossé ensemble sur la stratégie IA. ROI visible dès le premier mois. Rama ne fait pas que conseiller, elle met les mains dedans avec toi.', name: 'Laura P.', role: 'Directrice agence marketing', initial: 'L' }
+] %}
+
+<section class="bg-cream-100 px-6 py-24 md:px-20 md:py-32"
+         aria-labelledby="testimonials-title">
+    <div class="mx-auto" style="max-width: 1200px;">
+
+        <p class="eyebrow-ds text-gold-500 text-center rv" data-centered>
+            Preuves · 03 voix
+        </p>
+
+        <h2 id="testimonials-title" class="sr-only">Témoignages</h2>
+
+        <div class="mt-16 relative rv d1"
+             data-controller="testimonial-carousel"
+             aria-roledescription="carrousel"
+             aria-label="3 témoignages d'élèves">
+
+            {# Pile de slides — 1 visible à la fois via .is-active #}
+            <div class="relative" style="min-height: 280px;">
+                {% for t in testimonials %}
+                    {% include 'components/_testimonial_slide.html.twig' with {
+                        slide: t|merge({ index: loop.index0 }),
+                        active: loop.first
+                    } %}
+                {% endfor %}
+            </div>
+
+            {# Navigation flèches — à 80px des bords desktop, centrées sous slide mobile #}
+            <div class="mt-12 flex items-center justify-center gap-4 md:absolute md:inset-y-0 md:mt-0 md:gap-0 md:justify-between md:px-2 md:pointer-events-none">
+                <button type="button"
+                        class="carousel-arrow md:pointer-events-auto"
+                        data-action="click->testimonial-carousel#prev"
+                        aria-label="Témoignage précédent">
+                    <span aria-hidden="true">←</span>
+                </button>
+                <button type="button"
+                        class="carousel-arrow md:pointer-events-auto"
+                        data-action="click->testimonial-carousel#next"
+                        aria-label="Témoignage suivant">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 07 — TARIF + GARANTIE (90vh)
+   147€ italique or géant, liste 8 inclusions, encadré garantie sobre.
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-cream-100 px-6 py-24 md:px-20 md:py-32"
+         aria-labelledby="tarif-title">
+    <div class="mx-auto text-center" style="max-width: 720px;">
+
+        <p class="eyebrow-ds text-gold-500 rv" data-centered>
+            Offre fondateur · 30 places
+        </p>
+
+        <h2 id="tarif-title"
+            class="serif text-ink-900 mt-10 rv d1"
+            style="font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.05; font-weight: 400;">
+            Le tarif.
+        </h2>
+
+        <div class="mt-16 rv d2">
+            <span class="serif italic text-gold-400"
+                  style="font-size: clamp(6rem, 14vw, 11.25rem); line-height: 1; letter-spacing: -0.03em;">
+                147€
+            </span>
+        </div>
+
+        <p class="mt-2 text-ink-300 italic rv d3" style="font-size: 1.125rem;">
+            au lieu de 297€
+        </p>
+
+        <p class="mt-6 font-mono uppercase text-ink-700 rv d3"
+           style="font-size: 0.875rem; letter-spacing: 0.10em;">
+            Pour les 30 premières.
+        </p>
+
+        <div class="mt-20 mb-12 flex justify-center rv">
+            {% include 'components/_section_divider.html.twig' with { width: 60, animate: true } %}
+        </div>
+
+        {# Liste 8 inclusions — tirets de tête, italique vert sapin #}
+        <ul class="mx-auto space-y-3 text-left rv d1" style="max-width: 480px;">
+            {% set inclusions = [
+                '27 vidéos courtes',
+                'Méthode P.R.O.M.P.T.',
+                '3 Agents construits avec toi',
+                'Communauté privée',
+                '3 lives Q&R mensuels',
+                'Mises à jour à vie',
+                'Le Kit IA Solopreneur (offert)',
+                'Le Guide Agents IA (offert)'
+            ] %}
+            {% for item in inclusions %}
+                <li class="serif italic text-ink-700 flex items-start gap-3" style="font-size: 1.25rem; line-height: 1.4;">
+                    <span class="text-gold-500 flex-shrink-0" aria-hidden="true">—</span>
+                    <span>{{ item }}</span>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <div class="mt-16 flex justify-center rv d2">
+            {{ buttons.primary('Je rejoins (147€)', checkout_url) }}
+        </div>
+
+        {# Encadré garantie — sobre, centré #}
+        <div class="garantie-card mt-20 rv d3">
+            <p class="serif italic text-ink-700" style="font-size: 1.375rem; line-height: 1.3;">
+                14 jours pour tester.
+            </p>
+            <p class="mt-3 text-ink-300" style="font-size: 1rem; line-height: 1.5;">
+                Si ça ne te convient pas, je te rembourse. Pas de question.
+            </p>
+        </div>
+
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 08 — FAQ (8 questions, accordéons exclusifs)
+   Réutilise components/faq.html.twig + Stimulus faq-accordion.
+   ════════════════════════════════════════════════════════════════ #}
+{% set faq = {
+    eyebrow: 'Questions',
+    title: 'Tout ce que tu veux savoir.',
+    exclusive: true,
+    items: [
+        {
+            question: 'Je suis nulle en tech, c\'est pour moi ?',
+            answer: 'Oui. C\'est même fait spécifiquement pour les profils non-tech. Si tu sais utiliser un navigateur web et envoyer un email, tu peux suivre cette formation. Je vulgarise tout, j\'explique chaque étape, on avance ensemble. Pas une ligne de code.'
+        },
+        {
+            question: 'Je peux la suivre à mon rythme ?',
+            answer: 'Oui. Le format Sprint 14 jours est un cadre engageant pour celles qui veulent des résultats vite. Mais tu as accès à vie aux vidéos. Tu peux étaler sur 4 semaines si ton agenda l\'exige.'
+        },
+        {
+            question: 'Et si Claude évolue dans 6 mois ?',
+            answer: 'Tu reçois les mises à jour à vie. Quand Claude sort une nouvelle fonctionnalité majeure, j\'ajoute des vidéos. Tu y as accès gratuitement.'
+        },
+        {
+            question: 'J\'ai déjà testé ChatGPT, je vais apprendre quoi de plus ?',
+            answer: 'La formation porte sur Claude, qui est différent et plus adapté aux consultants (meilleure mémoire, longs documents, ton plus naturel). Et surtout, tu vas découvrir une autre façon de travailler avec l\'IA : par SYSTÈME et par AGENTS, pas par prompts isolés.'
+        },
+        {
+            question: 'Combien de temps par jour ?',
+            answer: '45 à 60 min par jour pendant 14 jours. Soit environ 10h au total. Vidéos courtes (3 à 5 min), pratique guidée, et ton agenda en main.'
+        },
+        {
+            question: 'Pourquoi 147€ et pas plus ?',
+            answer: 'C\'est l\'offre Fondateur, réservée aux 30 premières inscrites. En échange du prix réduit, je te demande un retour honnête et un témoignage si la formation te transforme. Après les 30 places, le prix passe à 297€.'
+        },
+        {
+            question: 'Comment je récupère mes accès ?',
+            answer: 'Tu reçois un accès immédiat après paiement. Email avec lien de connexion à ton espace formation. Tu peux commencer dans les 5 minutes qui suivent ton inscription.'
+        },
+        {
+            question: 'Tu fais aussi de l\'audit ?',
+            answer: 'Oui. Si après la formation tu veux aller plus loin avec un audit personnalisé (497€) ou un consulting sur-mesure (1500€+), je te propose une réduction de 30% sur l\'audit pendant 90 jours après ton inscription.'
+        }
+    ]
+} %}
+{% include 'components/faq.html.twig' %}
+
+{# ════════════════════════════════════════════════════════════════
+   SECTION 09 — CTA FINAL (inversion ink-900, 80vh)
+   La sortie de scroll. Une dernière fois la promesse + bouton.
+   ════════════════════════════════════════════════════════════════ #}
+<section class="bg-ink-900 text-cream-100 px-6 py-24 md:px-20 md:py-32"
+         style="min-height: 80vh; display: flex; align-items: center;"
+         aria-labelledby="cta-final-title">
+    <div class="mx-auto text-center w-full" style="max-width: 720px;">
+
+        <h2 id="cta-final-title"
+            class="serif text-cream-100 rv"
+            style="font-size: clamp(3rem, 7vw, 5rem); line-height: 1.05; font-weight: 400; letter-spacing: -0.02em;">
+            14 jours.<br>
+            Pour <em class="text-gold-400">transformer</em> Claude<br>
+            en ton bras droit.
+        </h2>
+
+        <p class="serif italic text-gold-300 mt-12 rv d1"
+           style="font-size: clamp(1.5rem, 2.5vw, 1.75rem);">
+            C'est maintenant.
+        </p>
+
+        <div class="mt-12 flex justify-center rv d2">
+            {{ buttons.primary('Je rejoins (147€)', checkout_url) }}
+        </div>
+
+        <p class="mt-10 text-cream-100 italic rv d3" style="font-size: 0.875rem; opacity: 0.75;">
+            30 places fondateur. Après, c'est 297€.
+        </p>
+
+    </div>
+</section>
+
+{# ════════════════════════════════════════════════════════════════
+   JSON-LD Schema.org Course — référencement Google enrichi
+   Faceless : pas d'image instructor, pas d'attribut sameAs portrait.
+   ════════════════════════════════════════════════════════════════ #}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Course",
+    "name": "Le Système Claude du Consultant",
+    "description": "Formation Claude IA pour consultants et formateurs solo. 14 jours, 27 vidéos, 3 agents IA construits, méthode P.R.O.M.P.T.",
+    "provider": {
+        "@type": "Organization",
+        "name": "Instant IA",
+        "url": "https://instant-ia.com"
+    },
+    "instructor": {
+        "@type": "Person",
+        "name": "Rama Soumaré",
+        "jobTitle": "Formatrice IA, cofondatrice"
+    },
+    "inLanguage": "fr-FR",
+    "educationalLevel": "Beginner",
+    "teaches": "Claude, prompt engineering, agents IA, automatisation pour consultants solo",
+    "timeRequired": "PT14D",
+    "courseMode": "online",
+    "hasCourseInstance": {
+        "@type": "CourseInstance",
+        "courseMode": "online",
+        "courseWorkload": "PT10H"
+    },
+    "offers": {
+        "@type": "Offer",
+        "name": "Offre fondateur",
+        "price": "147",
+        "priceCurrency": "EUR",
+        "availability": "https://schema.org/LimitedAvailability",
+        "url": "https://instant-ia.com{{ checkout_url }}",
+        "validFrom": "2026-05-01"
+    }
+}
+</script>
 
 {% endblock %}
