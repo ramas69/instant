@@ -955,6 +955,124 @@
   }
   .section-title-ds em { font-style: italic; color: var(--color-gold-500); }
 
+  /* ═══════════════════════════════════════════════════════════════
+     EDITORIAL BOOST (Axe A) — DS Editorial Atelier signatures
+     ═══════════════════════════════════════════════════════════════ */
+
+  /* Numéro décoratif géant en arrière-plan de section */
+  .editorial-number {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(12rem, 20vw, 22rem);
+    line-height: 0.85;
+    color: var(--color-gold-500);
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+    letter-spacing: var(--tracking-tightest);
+    user-select: none;
+  }
+  .editorial-number.left { left: -3rem; }
+  .editorial-number.right { right: -3rem; }
+  .editorial-number.dark { color: var(--color-gold-300); opacity: 0.08; }
+
+  /* Drop cap — première lettre énorme italic gold sur le 1er paragraphe */
+  .has-dropcap::first-letter {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 5rem;
+    line-height: 0.9;
+    color: var(--color-gold-500);
+    float: left;
+    margin: 0.1em 0.5rem 0 0;
+    padding: 0;
+  }
+
+  /* Pull quote — citation stylée centrée entre rules dorées */
+  .pull-quote {
+    position: relative;
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: var(--leading-snug);
+    color: var(--color-ink-900);
+    font-weight: 400;
+    text-align: center;
+    max-width: 36ch;
+    margin: 4rem auto;
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--rule-strong);
+    border-bottom: 1px solid var(--rule-strong);
+  }
+  .pull-quote::before {
+    content: '"';
+    position: absolute;
+    top: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--bg-page);
+    color: var(--color-gold-500);
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+    padding: 0 1rem;
+    font-style: italic;
+  }
+  .pull-quote em { font-style: italic; color: var(--color-gold-500); }
+  .pull-quote.dark { color: var(--color-paper); border-color: rgba(255, 255, 255, 0.15); }
+  .pull-quote.dark::before { background: var(--color-ink-700); color: var(--color-gold-300); }
+  .pull-quote.dark em { color: var(--color-gold-300); }
+
+  /* Asterisk décoratif gold en début de section */
+  .deco-asterisk {
+    display: inline-block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-3xl);
+    color: var(--color-gold-500);
+    line-height: 1;
+    margin-bottom: 1rem;
+    transform: rotate(-15deg);
+  }
+
+  /* CTA numéroté éditorial : "01 → Je découvre" */
+  .cta-numbered {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 1rem;
+    font-family: var(--font-mono);
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-widest);
+    font-weight: 700;
+    color: var(--color-ink-900);
+    text-decoration: none;
+    border-bottom: 2px solid var(--color-gold-400);
+    padding-bottom: 0.5rem;
+    transition: gap 0.3s var(--ease-out), border-color 0.3s var(--ease-out);
+  }
+  .cta-numbered .num {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: var(--text-2xl);
+    color: var(--color-gold-500);
+    text-transform: none;
+    letter-spacing: var(--tracking-tightest);
+  }
+  .cta-numbered:hover {
+    gap: 1.5rem;
+    border-color: var(--color-gold-300);
+  }
+  .cta-numbered:hover .arrow {
+    transform: translateX(4px);
+  }
+  .cta-numbered .arrow {
+    transition: transform 0.3s var(--ease-out);
+    color: var(--color-gold-500);
+  }
+
   /* ─── FAQ ACCORDION ─────────────────────────────────────────────── */
   .faq-item {
     border-top: 1px solid var(--rule-strong);

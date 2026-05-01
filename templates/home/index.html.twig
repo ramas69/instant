@@ -69,17 +69,20 @@
 {# ════════════════════════════════════════════════════════════════
    SECTION 3 — INTRO + STATS BAR
    ════════════════════════════════════════════════════════════════ #}
-<section style="padding: 8rem 2.5rem;">
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; max-width: 1240px; margin: 0 auto;" class="intro-grid">
-        <div class="reveal-left">
+<section class="relative overflow-hidden" style="padding: 8rem 2.5rem;">
+    <span class="editorial-number left" aria-hidden="true">01</span>
+
+    <div class="relative z-10" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: end; max-width: 1240px; margin: 0 auto;">
+        <div class="reveal-left intro-grid-left">
+            <span class="deco-asterisk" aria-hidden="true">*</span>
             <div class="eyebrow-ds">À propos · Rama</div>
             <h2 class="section-title-ds split" data-controller="split-text">
                 Pour les solos qui veulent <em>scaler</em>.<br>Sans recruter.
             </h2>
             <span class="rule-draw" style="max-width: 280px; margin-top: 1.5rem;"></span>
         </div>
-        <div class="reveal-right delay-2">
-            <p style="font-size: var(--text-lg); color: var(--fg-muted); line-height: var(--leading-relaxed); max-width: 56ch;">
+        <div class="reveal-right delay-2 intro-grid-right">
+            <p class="has-dropcap" style="font-size: var(--text-lg); color: var(--fg-muted); line-height: var(--leading-relaxed); max-width: 56ch;">
                 Je suis Rama Soumaré, formatrice IA. Depuis 2 ans, j'aide les consultants, formateurs et coachs solo non-tech à intégrer Claude dans leur quotidien. Pas avec des promesses floues — avec des prompts, des agents, des workflows qui tournent.
             </p>
             <p style="font-size: var(--text-lg); color: var(--fg-muted); line-height: var(--leading-relaxed); margin-top: 1rem;">
@@ -119,8 +122,11 @@
 {# ════════════════════════════════════════════════════════════════
    SECTION 4 — PILLARS (scroll-pin avec 3 méthodes)
    ════════════════════════════════════════════════════════════════ #}
-<section style="background: var(--color-cream-200); padding: 8rem 2.5rem;" data-controller="pillars-pin">
-    <div class="reveal" style="max-width: 1240px; margin: 0 auto 2.5rem;">
+<section class="relative overflow-hidden" style="background: var(--color-cream-200); padding: 8rem 2.5rem;" data-controller="pillars-pin">
+    <span class="editorial-number right" aria-hidden="true">02</span>
+
+    <div class="relative z-10 reveal" style="max-width: 1240px; margin: 0 auto 2.5rem;">
+        <span class="deco-asterisk" aria-hidden="true">*</span>
         <div class="eyebrow-ds">Méthode · 3 piliers</div>
         <h2 class="section-title-ds split" data-controller="split-text">
             Trois façons de <em>bosser</em> ensemble.
@@ -138,7 +144,7 @@
                 </div>
                 <p class="pillar-desc">Formation Niveau 1 en 14 jours. Tu construis tes 3 Agents (Inbox, Mission, Propal), tu maîtrises la méthode P.R.O.M.P.T. À 147€ early-bird, garantie 14 jours.</p>
             </div>
-            <div class="pillar reveal delay-2" data-pillars-pin-target="pillar">
+            <div class="pillar reveal delay-2" data-pillars-pin-target="pillar" role="button" tabindex="0" aria-pressed="false">
                 <div class="pillar-top">
                     <span class="pillar-num">02</span>
                     <h3 class="pillar-title">L'audit <em>IA personnalisé</em></h3>
@@ -146,7 +152,7 @@
                 </div>
                 <p class="pillar-desc">1h en visio. On analyse tes process, tes outils, ton workflow — et je te montre où Claude peut te faire gagner du temps. Plan d'action 30/60/90 jours.</p>
             </div>
-            <div class="pillar reveal delay-3" data-pillars-pin-target="pillar">
+            <div class="pillar reveal delay-3" data-pillars-pin-target="pillar" role="button" tabindex="0" aria-pressed="false">
                 <div class="pillar-top">
                     <span class="pillar-num">03</span>
                     <h3 class="pillar-title">Le <em>Consulting</em></h3>
@@ -179,17 +185,28 @@
     </div>
 </section>
 
+{# ─── Pull quote intermédiaire ─── #}
+<section class="relative" style="padding: 4rem 2.5rem; max-width: 1240px; margin: 0 auto;">
+    <blockquote class="pull-quote reveal">
+        Pas de blabla. <em>Que de l'action.</em>
+    </blockquote>
+</section>
+
 {# ════════════════════════════════════════════════════════════════
    SECTION 5 — OFFERS (cards parallax)
    ════════════════════════════════════════════════════════════════ #}
-<section style="padding: 8rem 2.5rem; max-width: 1240px; margin: 0 auto;">
-    <div class="reveal">
-        <div class="eyebrow-ds">Offres · disponibles</div>
-        <h2 class="section-title-ds split" data-controller="split-text">
-            Au prix juste,<br><em>tout de suite.</em>
-        </h2>
-        <span class="rule-draw" style="max-width: 200px; margin-top: 1.5rem;"></span>
-    </div>
+<section class="relative overflow-hidden" style="padding: 8rem 2.5rem;">
+    <span class="editorial-number left" aria-hidden="true">03</span>
+
+    <div class="relative z-10" style="max-width: 1240px; margin: 0 auto;">
+        <div class="reveal">
+            <span class="deco-asterisk" aria-hidden="true">*</span>
+            <div class="eyebrow-ds">Offres · disponibles</div>
+            <h2 class="section-title-ds split" data-controller="split-text">
+                Au prix juste,<br><em>tout de suite.</em>
+            </h2>
+            <span class="rule-draw" style="max-width: 200px; margin-top: 1.5rem;"></span>
+        </div>
 
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-top: 2.5rem;" class="offers-grid">
         <article class="offer-card-ds reveal delay-1"
@@ -220,6 +237,7 @@
             <p>Je construis tes Agents avec toi, je te forme, je te branche sur tes outils. Sur-mesure, devis selon scope.</p>
             <a class="cta" href="/consulting">Discuter →</a>
         </article>
+        </div>
     </div>
 </section>
 
