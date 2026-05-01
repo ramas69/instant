@@ -469,6 +469,437 @@
   }
 
   /* ═══════════════════════════════════════════════════════════════
+     HERO KINETIC (style Relancya) — dark + grid + mot qui change + card mockup glass + bulles flottantes
+     ═══════════════════════════════════════════════════════════════ */
+  .hero-kinetic {
+    min-height: 100vh;
+    background: var(--color-ink-900);
+    position: relative;
+    overflow: hidden;
+    color: var(--color-paper);
+    padding: 7rem 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Grid pattern subtil + radial vignette */
+  .hero-kinetic::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 30%, transparent 90%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Halo gold radial subtle au centre-haut */
+  .hero-kinetic::after {
+    content: '';
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 80%;
+    background: radial-gradient(ellipse 50% 70% at 50% 50%, rgba(212, 175, 55, 0.10), transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .hero-kinetic-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1240px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-kinetic-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  @media (max-width: 1024px) {
+    .hero-kinetic-grid { grid-template-columns: 1fr; }
+    .hero-kinetic { padding: 5rem 1.5rem 2rem; }
+  }
+
+  /* Pill "NOUVEAU" en haut */
+  .hero-kinetic-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: 2rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+  }
+  .hero-kinetic-pill .badge {
+    background: var(--color-gold-400);
+    color: var(--color-ink-900);
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+
+  /* Headline kinetic */
+  .hero-kinetic-headline {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(2.4rem, 5.5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: var(--tracking-tightest);
+    margin: 0 0 1.5rem;
+    color: var(--color-paper);
+    max-width: 16ch;
+  }
+  .hero-kinetic-headline em {
+    font-style: italic;
+    color: var(--color-gold-300);
+    display: inline-block;
+  }
+
+  /* Kinetic word — slot où les mots glissent */
+  .kinetic-word-slot {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    height: 1.05em;
+    line-height: 1.05;
+    min-width: 6ch;
+    text-align: left;
+  }
+  .kinetic-word-item {
+    display: inline-block;
+    position: absolute;
+    inset: 0;
+    font-style: italic;
+    color: var(--color-gold-300);
+    transform: translateY(120%);
+    opacity: 0;
+    transition:
+      transform 0.7s cubic-bezier(0.65, 0, 0.35, 1),
+      opacity 0.5s var(--ease-out);
+    will-change: transform, opacity;
+  }
+  .kinetic-word-item.is-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  .kinetic-word-item.is-leaving {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .kinetic-word-item { transition: none; }
+  }
+
+  /* Sub avec parties estompées (style Relancya — phrase pâle puis pleine) */
+  .hero-kinetic-sub {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.85);
+    line-height: var(--leading-relaxed);
+    max-width: 56ch;
+    margin: 0 0 2.5rem;
+  }
+  .hero-kinetic-sub .dim {
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .hero-kinetic-sub strong {
+    color: var(--color-gold-300);
+    font-weight: 600;
+  }
+
+  /* CTAs */
+  .hero-kinetic-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+  }
+  .hero-kinetic-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 1.75rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-sans);
+    font-size: var(--text-md);
+    font-weight: 600;
+    transition: all 0.3s var(--ease-out);
+    text-decoration: none;
+  }
+  .hero-kinetic-btn--primary {
+    background: var(--color-gold-400);
+    color: var(--color-ink-900);
+    box-shadow: 0 8px 24px rgba(212, 175, 55, 0.30);
+  }
+  .hero-kinetic-btn--primary:hover {
+    background: var(--color-gold-300);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 36px rgba(212, 175, 55, 0.40);
+  }
+  .hero-kinetic-btn--ghost {
+    background: transparent;
+    color: var(--color-paper);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+  .hero-kinetic-btn--ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* Trust meta : avatars + nombre de places */
+  .hero-kinetic-trust {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.6);
+  }
+  .hero-kinetic-trust strong { color: var(--color-paper); }
+  .hero-kinetic-avatars {
+    display: flex;
+  }
+  .hero-kinetic-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--color-ink-900);
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--color-ink-900);
+    margin-left: -10px;
+  }
+  .hero-kinetic-avatar:first-child { margin-left: 0; }
+
+  /* ═══ MOCKUP CARD (Tableau de bord — Tes Agents Claude) ═══ */
+  .hero-mockup {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+      rgba(5, 31, 24, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    border-radius: 20px;
+    padding: 1.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.4),
+      0 0 0 1px rgba(255, 255, 255, 0.04) inset;
+    animation: hero-mockup-float 6s ease-in-out infinite;
+  }
+  @keyframes hero-mockup-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-10px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-mockup { animation: none; }
+  }
+
+  .hero-mockup-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: 1rem;
+  }
+  .hero-mockup-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--color-gold-300), var(--color-gold-500));
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: var(--color-ink-900);
+    font-size: 16px;
+  }
+  .hero-mockup-title {
+    flex: 1;
+  }
+  .hero-mockup-title h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    font-weight: 400;
+    color: var(--color-paper);
+  }
+  .hero-mockup-title p {
+    margin: 0.15rem 0 0;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    color: rgba(255, 255, 255, 0.4);
+  }
+  .hero-mockup-status {
+    background: rgba(10, 107, 82, 0.20);
+    border: 1px solid rgba(10, 107, 82, 0.40);
+    color: var(--color-gold-300);
+    padding: 0.35rem 0.7rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+    white-space: nowrap;
+  }
+
+  .hero-mockup-row {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 0.75rem;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    border-radius: 10px;
+    transition: background 0.2s;
+  }
+  .hero-mockup-row + .hero-mockup-row {
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+  }
+  .hero-mockup-row:hover { background: rgba(255, 255, 255, 0.03); }
+
+  .hero-mockup-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--color-ink-900);
+  }
+  .hero-mockup-row .name {
+    color: var(--color-paper);
+    font-size: var(--text-sm);
+    font-weight: 500;
+  }
+  .hero-mockup-row .meta {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: var(--text-2xs);
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 2px;
+  }
+  .hero-mockup-row .stat {
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    color: var(--color-paper);
+    font-style: italic;
+  }
+  .hero-mockup-tag {
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-pill);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+  .hero-mockup-tag--active { background: rgba(212, 175, 55, 0.18); color: var(--color-gold-300); }
+  .hero-mockup-tag--running { background: rgba(255, 255, 255, 0.06); color: rgba(255, 255, 255, 0.65); }
+  .hero-mockup-tag--done { background: rgba(10, 107, 82, 0.20); color: #6dd9b3; }
+
+  .hero-mockup-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    text-align: center;
+  }
+  .hero-mockup-stats .num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: var(--text-xl);
+    font-style: italic;
+    color: var(--color-gold-300);
+    line-height: 1;
+  }
+  .hero-mockup-stats .label {
+    display: block;
+    margin-top: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wider);
+  }
+
+  /* ═══ FLOATING BADGES (bulles flottantes "● Email rédigé") ═══ */
+  .floating-badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 1rem;
+    border-radius: var(--radius-pill);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    color: rgba(255, 255, 255, 0.75);
+    z-index: 3;
+    pointer-events: none;
+    animation: badge-float 8s ease-in-out infinite;
+  }
+  .floating-badge::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-gold-300);
+    box-shadow: 0 0 12px var(--color-gold-300);
+    animation: badge-pulse 2s ease-in-out infinite;
+  }
+  @keyframes badge-pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50%      { opacity: 0.5; transform: scale(0.85); }
+  }
+  @keyframes badge-float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .floating-badge { animation: none; }
+    .floating-badge::before { animation: none; }
+  }
+
+  .floating-badge--top-left    { top: 22%;  left: 4%;   animation-delay: 0s; }
+  .floating-badge--top-right   { top: 16%;  right: 2%;  animation-delay: 1.5s; }
+  .floating-badge--bottom-left { bottom: 18%; left: 38%; animation-delay: 3s; }
+  .floating-badge--bottom-right{ bottom: 12%; right: 4%; animation-delay: 4.5s; }
+  @media (max-width: 1024px) {
+    .floating-badge { display: none; }
+  }
+
+  /* ═══════════════════════════════════════════════════════════════
      HERO LEGACY — porté du Next.js (ink-700 + blobs + IA géant + grid 2 cols)
      ═══════════════════════════════════════════════════════════════ */
   .hero-legacy {

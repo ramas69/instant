@@ -11,118 +11,136 @@
 {% block body %}
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 1 — HERO LEGACY (porté du Next.js : ink + blobs + IA géant + grid 2 cols)
+   SECTION 1 — HERO KINETIC (style Relancya : dark + grid + mot qui change + card mockup glass)
    ════════════════════════════════════════════════════════════════ #}
-<section class="hero-legacy" id="top">
-    <div class="blob blob-1" aria-hidden="true"></div>
-    <div class="blob blob-2" aria-hidden="true"></div>
-    <div class="hero-legacy-number" aria-hidden="true">IA</div>
+<section class="hero-kinetic" id="top">
 
-    <div class="hero-legacy-content">
-        <div class="hero-legacy-grid">
+    {# Bulles flottantes décoratives autour du hero #}
+    <span class="floating-badge floating-badge--top-left" aria-hidden="true">Email rédigé auto</span>
+    <span class="floating-badge floating-badge--top-right" aria-hidden="true">CR généré · 1 min</span>
+    <span class="floating-badge floating-badge--bottom-left" aria-hidden="true">Propal envoyée</span>
+    <span class="floating-badge floating-badge--bottom-right" aria-hidden="true">Scénario activé auto</span>
 
-            <div class="hero-legacy-left">
-                <h1 class="hero-legacy-headline">
-                    Transforme Claude<br>
-                    en ton <em>bras droit</em><br>
-                    en 14 jours.
+    <div class="hero-kinetic-content">
+        <div class="hero-kinetic-grid">
+
+            {# Colonne gauche #}
+            <div class="hero-kinetic-left">
+                <div class="hero-kinetic-pill">
+                    <span class="badge">Nouveau</span>
+                    <span>Formation Claude IA · 14 jours</span>
+                </div>
+
+                <h1 class="hero-kinetic-headline">
+                    Tes journées s'évaporent.<br>
+                    Claude les
+                    <span class="kinetic-word-slot"
+                          data-controller="kinetic-words"
+                          data-kinetic-words-interval-value="2800">
+                        <span class="kinetic-word-item is-active" data-kinetic-words-target="word">rallonge.</span>
+                        <span class="kinetic-word-item" data-kinetic-words-target="word">reconstruit.</span>
+                        <span class="kinetic-word-item" data-kinetic-words-target="word">récupère.</span>
+                        <span class="kinetic-word-item" data-kinetic-words-target="word">automatise.</span>
+                    </span>
                 </h1>
-                <p class="hero-legacy-sub">
-                    Pour consultants, formateurs et coachs solo non-tech qui veulent récupérer 10h/semaine. Sans coder, sans devenir tech.
+
+                <p class="hero-kinetic-sub">
+                    Tu travailles 55h/sem, tu rédiges tes propals à 23h, <span class="dim">tu jongles avec 8 clients sans système.</span>
+                    En 14 jours, le Système Claude prend <strong>10h/sem en charge</strong> et tu récupères tes weekends sans coder.
                 </p>
-                <div class="hero-legacy-actions">
-                    <a href="/formation-claude-consultant" class="hero-legacy-btn hero-legacy-btn--primary">
-                        Je découvre la formation <span aria-hidden="true">→</span>
+
+                <div class="hero-kinetic-actions">
+                    <a href="/formation-claude-consultant"
+                       data-controller="magnetic-button"
+                       class="hero-kinetic-btn hero-kinetic-btn--primary">
+                        Démarrer la formation (147€) <span aria-hidden="true">→</span>
                     </a>
-                    <a href="/3-agents-ia-gratuits" class="hero-legacy-btn hero-legacy-btn--ghost">
-                        3 Agents IA gratuits
+                    <a href="/3-agents-ia-gratuits" class="hero-kinetic-btn hero-kinetic-btn--ghost">
+                        3 Agents gratuits
                     </a>
                 </div>
 
-                <div class="hero-legacy-bottom">
-                    <div>
-                        <div class="hero-legacy-stat-num"
-                             data-controller="counter-animation"
-                             data-counter-animation-target-value="150"
-                             data-counter-animation-suffix-value="+">+0</div>
-                        <div class="hero-legacy-stat-label">Élèves [PLACEHOLDER]</div>
+                <div class="hero-kinetic-trust">
+                    <div class="hero-kinetic-avatars" aria-hidden="true">
+                        <span class="hero-kinetic-avatar" style="background: #FCD34D;">SB</span>
+                        <span class="hero-kinetic-avatar" style="background: #E8C547;">MT</span>
+                        <span class="hero-kinetic-avatar" style="background: #C5A044;">IV</span>
+                        <span class="hero-kinetic-avatar" style="background: #F4E5B3;">LR</span>
+                        <span class="hero-kinetic-avatar" style="background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7);">+</span>
                     </div>
-                    <div>
-                        <div class="hero-legacy-stat-num"
-                             data-controller="counter-animation"
-                             data-counter-animation-target-value="98"
-                             data-counter-animation-suffix-value="%">0%</div>
-                        <div class="hero-legacy-stat-label">Recommandent</div>
-                    </div>
-                    <div>
-                        <div class="hero-legacy-stat-num"
-                             data-controller="counter-animation"
-                             data-counter-animation-target-value="14">0</div>
-                        <div class="hero-legacy-stat-label">Jours pour ton système</div>
-                    </div>
+                    <span><strong>27 places fondateur</strong> restantes <span style="color: rgba(255,255,255,0.4);">— sans CB jusqu'à validation</span></span>
                 </div>
             </div>
 
-            <div class="hero-legacy-right">
-                <div class="hero-legacy-card">
-                    <h2 class="hero-legacy-card-title">Ce que je propose</h2>
-                    <div class="hero-legacy-services">
+            {# Colonne droite — mockup glassmorphism #}
+            <div class="hero-kinetic-right">
+                <div class="hero-mockup">
 
-                        <a href="/formation-claude-consultant" class="hero-legacy-service">
-                            <span class="hero-legacy-service-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M13 2L4.5 13.5H11.5L10.5 22L19.5 10.5H12.5L13 2Z" fill="#E8C547"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>Niveau 1 · Le Système Claude</strong>
-                                <p>Formation 14 jours · 3 Agents construits · 147€</p>
-                            </div>
-                        </a>
-
-                        <a href="/claude-productivite-pro" class="hero-legacy-service">
-                            <span class="hero-legacy-service-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="#E8C547" stroke-width="1.5"/>
-                                    <circle cx="9" cy="10" r="1.5" fill="#E8C547"/>
-                                    <circle cx="15" cy="10" r="1.5" fill="#E8C547"/>
-                                    <path d="M9 15c0 0 1.5 2 3 2s3-2 3-2" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>Niveau 2 · Productivité Pro</strong>
-                                <p>Excel · PowerPoint · Skills · Connecteurs</p>
-                            </div>
-                        </a>
-
-                        <a href="/audit-ia" class="hero-legacy-service">
-                            <span class="hero-legacy-service-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <circle cx="11" cy="11" r="7" stroke="#E8C547" stroke-width="1.5"/>
-                                    <path d="M16.5 16.5L21 21" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
-                                    <path d="M8 11h6M11 8v6" stroke="#E8C547" stroke-width="1.2" stroke-linecap="round"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>Audit IA personnalisé</strong>
-                                <p>1h visio · plan d'action · 497€</p>
-                            </div>
-                        </a>
-
-                        <a href="/consulting" class="hero-legacy-service">
-                            <span class="hero-legacy-service-icon" aria-hidden="true">
-                                <svg viewBox="0 0 24 24" fill="none">
-                                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
-                                    <circle cx="12" cy="12" r="3" fill="#E8C547"/>
-                                </svg>
-                            </span>
-                            <div>
-                                <strong>Consulting done-with-you</strong>
-                                <p>Je construis tes Agents avec toi · 1500€+</p>
-                            </div>
-                        </a>
-
+                    <div class="hero-mockup-header">
+                        <span class="hero-mockup-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                                <path d="M13 2L4.5 13.5H11.5L10.5 22L19.5 10.5H12.5L13 2Z" fill="currentColor"/>
+                            </svg>
+                        </span>
+                        <div class="hero-mockup-title">
+                            <h3>Tableau de bord — Tes Agents Claude</h3>
+                            <p>Mis à jour il y a 2 min</p>
+                        </div>
+                        <span class="hero-mockup-status">3 actifs</span>
                     </div>
+
+                    <div class="hero-mockup-row">
+                        <span class="hero-mockup-avatar" style="background: linear-gradient(135deg, #E8C547, #C5A044);">📧</span>
+                        <span>
+                            <span class="name">Agent Inbox</span>
+                            <span class="meta">12 emails triés aujourd'hui</span>
+                        </span>
+                        <span class="stat">4h</span>
+                        <span class="hero-mockup-tag hero-mockup-tag--active">Actif</span>
+                    </div>
+
+                    <div class="hero-mockup-row">
+                        <span class="hero-mockup-avatar" style="background: linear-gradient(135deg, #6B877B, #3D564B); color: #FAF8F4;">🎙</span>
+                        <span>
+                            <span class="name">Agent Mission</span>
+                            <span class="meta">CR généré · il y a 5 min</span>
+                        </span>
+                        <span class="stat">3h</span>
+                        <span class="hero-mockup-tag hero-mockup-tag--running">En cours</span>
+                    </div>
+
+                    <div class="hero-mockup-row">
+                        <span class="hero-mockup-avatar" style="background: linear-gradient(135deg, #0A6B52, #064E3B); color: #FAF8F4;">📋</span>
+                        <span>
+                            <span class="name">Agent Propal</span>
+                            <span class="meta">Acme Corp · réglée ✓</span>
+                        </span>
+                        <span class="stat">3h</span>
+                        <span class="hero-mockup-tag hero-mockup-tag--done">Envoyée</span>
+                    </div>
+
+                    <div class="hero-mockup-stats">
+                        <div>
+                            <span class="num"
+                                  data-controller="counter-animation"
+                                  data-counter-animation-target-value="11"
+                                  data-counter-animation-suffix-value="h">0h</span>
+                            <span class="label">Gagnées / sem</span>
+                        </div>
+                        <div>
+                            <span class="num"
+                                  data-controller="counter-animation"
+                                  data-counter-animation-target-value="3">0</span>
+                            <span class="label">Agents actifs</span>
+                        </div>
+                        <div>
+                            <span class="num"
+                                  data-controller="counter-animation"
+                                  data-counter-animation-target-value="14">0</span>
+                            <span class="label">Jours sprint</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
