@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Instant IA — Plateforme e-learning Claude pour solopreneurs{% endblock %}
+
+{% block body %}
+<main class="min-h-screen bg-cream-100 px-6 py-20 md:px-12">
+    <div class="mx-auto max-w-3xl">
+
+        {# Eyebrow signature Editorial Atelier #}
+        <p class="eyebrow mb-8">Sprint 1 · Setup Design System</p>
+
+        {# Headline serif italique avec mot accentué en gold #}
+        <h1 class="serif text-5xl leading-tight text-ink-900 mb-8 md:text-6xl">
+            Editorial Atelier <em>en place</em>.
+        </h1>
+
+        {# Lead body Inter, ton "voix Instant IA" : tutoiement, direct #}
+        <p class="text-lg leading-relaxed text-ink-300 mb-12 max-w-2xl">
+            Le design system est câblé sur Tailwind v4. Tu vois cette page,
+            ça veut dire que les couleurs, les polices et les tokens
+            répondent. Cette page hello sera remplacée au Sprint 2 par la
+            vraie home avec ton copy.
+        </p>
+
+        {# Démo des couleurs principales du DS #}
+        <div class="grid grid-cols-2 gap-3 mb-12 sm:grid-cols-4">
+            <div class="rounded-lg bg-ink-700 p-6 shadow-2">
+                <div class="font-mono text-xs uppercase tracking-widest text-cream-100">ink-700</div>
+                <div class="font-mono text-xs text-cream-100/60 mt-1">#064E3B</div>
+            </div>
+            <div class="rounded-lg bg-gold-400 p-6 shadow-2">
+                <div class="font-mono text-xs uppercase tracking-widest text-ink-900">gold-400</div>
+                <div class="font-mono text-xs text-ink-900/60 mt-1">#D4AF37</div>
+            </div>
+            <div class="rounded-lg bg-cream-200 p-6 shadow-2">
+                <div class="font-mono text-xs uppercase tracking-widest text-ink-700">cream-200</div>
+                <div class="font-mono text-xs text-ink-700/60 mt-1">#F0EBE1</div>
+            </div>
+            <div class="rounded-lg bg-carbon p-6 shadow-2">
+                <div class="font-mono text-xs uppercase tracking-widest text-cream-100">carbon</div>
+                <div class="font-mono text-xs text-cream-100/60 mt-1">#0E0E0C</div>
+            </div>
+        </div>
+
+        {# Démo CTA gold (signature DS) #}
+        <a href="#" class="inline-flex items-center gap-2 rounded-pill bg-gold-400 px-6 py-3 font-medium text-ink-900 shadow-glow-gold transition hover:bg-gold-500">
+            <span>Découvrir la formation</span>
+            <span aria-hidden="true">→</span>
+        </a>
+
+        {# Démo eyebrow + serif italique en signature small #}
+        <footer class="mt-20 border-t border-ink-700/10 pt-8">
+            <p class="eyebrow mb-2">Diagnostic technique</p>
+            <p class="serif text-xl text-ink-700">
+                Symfony 7.4 · MySQL 8.0 · Tailwind 4 · Editorial Atelier <em>v2</em>.
+            </p>
+        </footer>
+
+    </div>
+</main>
+{% endblock %}
