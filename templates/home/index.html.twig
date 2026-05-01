@@ -11,56 +11,123 @@
 {% block body %}
 
 {# ════════════════════════════════════════════════════════════════
-   SECTION 1 — HERO BRUTALIST EDITORIAL (Style C — type heavy)
+   SECTION 1 — HERO LEGACY (porté du Next.js : ink + blobs + IA géant + grid 2 cols)
    ════════════════════════════════════════════════════════════════ #}
-<section class="hero-brutalist">
+<section class="hero-legacy" id="top">
+    <div class="blob blob-1" aria-hidden="true"></div>
+    <div class="blob blob-2" aria-hidden="true"></div>
+    <div class="hero-legacy-number" aria-hidden="true">IA</div>
 
-    {# Mots fantômes en background — profondeur magazine #}
-    <span class="hero-brutalist-ghost hero-brutalist-ghost--top" aria-hidden="true">Instant</span>
-    <span class="hero-brutalist-ghost hero-brutalist-ghost--bottom" aria-hidden="true">IA</span>
+    <div class="hero-legacy-content">
+        <div class="hero-legacy-grid">
 
-    <div class="hero-brutalist-top">
-        <p class="eyebrow-ds reveal">
-            <span aria-hidden="true">*</span>&nbsp;Atelier · Instant IA
-        </p>
-        <p class="hero-brutalist-vol reveal delay-1">
-            <em>Vol. 01</em><br>
-            Édition 2026<br>
-            Pour solos non-tech
-        </p>
-    </div>
+            <div class="hero-legacy-left">
+                <h1 class="hero-legacy-headline">
+                    Transforme Claude<br>
+                    en ton <em>bras droit</em><br>
+                    en 14 jours.
+                </h1>
+                <p class="hero-legacy-sub">
+                    Pour consultants, formateurs et coachs solo non-tech qui veulent récupérer 10h/semaine. Sans coder, sans devenir tech.
+                </p>
+                <div class="hero-legacy-actions">
+                    <a href="/formation-claude-consultant" class="hero-legacy-btn hero-legacy-btn--primary">
+                        Je découvre la formation <span aria-hidden="true">→</span>
+                    </a>
+                    <a href="/3-agents-ia-gratuits" class="hero-legacy-btn hero-legacy-btn--ghost">
+                        3 Agents IA gratuits
+                    </a>
+                </div>
 
-    <h1 class="hero-brutalist-headline split" data-controller="split-text">
-        <span class="hero-brutalist-word hero-brutalist-word--lg">Transforme</span>
-        <span class="hero-brutalist-word hero-brutalist-word--gold hero-brutalist-word--xl hero-brutalist-word--echo hero-brutalist-word--right hero-brutalist-word--shift-right" data-text="Claude">Claude</span>
-        <span class="hero-brutalist-word hero-brutalist-word--md hero-brutalist-word--shift">en ton</span>
-        <span class="hero-brutalist-word hero-brutalist-word--ink-italic hero-brutalist-word--lg hero-brutalist-word--center">bras droit.</span>
-        <span class="hero-brutalist-word hero-brutalist-word--sm hero-brutalist-word--right hero-brutalist-word--shift-right">en</span>
-        <span class="hero-brutalist-word hero-brutalist-word--gold-dim hero-brutalist-word--xl hero-brutalist-word--echo hero-brutalist-word--shift" data-text="14 jours.">14 jours.</span>
-    </h1>
-
-    <div class="hero-brutalist-foot">
-        <span class="rule-draw" style="max-width: 240px;"></span>
-
-        <div class="hero-brutalist-foot-meta">
-            <p class="lead reveal">
-                Pour <em>consultants</em> · formateurs · coachs solo<br>
-                non-tech qui veulent récupérer 10h/sem.
-            </p>
-            <div></div>
-            <div class="flex flex-wrap items-center gap-6 reveal delay-2">
-                <a href="/formation-claude-consultant" class="hero-brutalist-cta">
-                    <span class="font-display italic text-gold-500" style="font-style: italic;">01</span>
-                    <span>Je découvre</span>
-                    <span aria-hidden="true">→</span>
-                </a>
-                <a href="/3-agents-ia-gratuits" class="hero-brutalist-cta hero-brutalist-cta--ghost">
-                    <span>02 — 3 Agents gratuits</span>
-                </a>
+                <div class="hero-legacy-bottom">
+                    <div>
+                        <div class="hero-legacy-stat-num"
+                             data-controller="counter-animation"
+                             data-counter-animation-target-value="150"
+                             data-counter-animation-suffix-value="+">+0</div>
+                        <div class="hero-legacy-stat-label">Élèves [PLACEHOLDER]</div>
+                    </div>
+                    <div>
+                        <div class="hero-legacy-stat-num"
+                             data-controller="counter-animation"
+                             data-counter-animation-target-value="98"
+                             data-counter-animation-suffix-value="%">0%</div>
+                        <div class="hero-legacy-stat-label">Recommandent</div>
+                    </div>
+                    <div>
+                        <div class="hero-legacy-stat-num"
+                             data-controller="counter-animation"
+                             data-counter-animation-target-value="14">0</div>
+                        <div class="hero-legacy-stat-label">Jours pour ton système</div>
+                    </div>
+                </div>
             </div>
+
+            <div class="hero-legacy-right">
+                <div class="hero-legacy-card">
+                    <h2 class="hero-legacy-card-title">Ce que je propose</h2>
+                    <div class="hero-legacy-services">
+
+                        <a href="/formation-claude-consultant" class="hero-legacy-service">
+                            <span class="hero-legacy-service-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M13 2L4.5 13.5H11.5L10.5 22L19.5 10.5H12.5L13 2Z" fill="#E8C547"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Niveau 1 · Le Système Claude</strong>
+                                <p>Formation 14 jours · 3 Agents construits · 147€</p>
+                            </div>
+                        </a>
+
+                        <a href="/claude-productivite-pro" class="hero-legacy-service">
+                            <span class="hero-legacy-service-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="#E8C547" stroke-width="1.5"/>
+                                    <circle cx="9" cy="10" r="1.5" fill="#E8C547"/>
+                                    <circle cx="15" cy="10" r="1.5" fill="#E8C547"/>
+                                    <path d="M9 15c0 0 1.5 2 3 2s3-2 3-2" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Niveau 2 · Productivité Pro</strong>
+                                <p>Excel · PowerPoint · Skills · Connecteurs</p>
+                            </div>
+                        </a>
+
+                        <a href="/audit-ia" class="hero-legacy-service">
+                            <span class="hero-legacy-service-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <circle cx="11" cy="11" r="7" stroke="#E8C547" stroke-width="1.5"/>
+                                    <path d="M16.5 16.5L21 21" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+                                    <path d="M8 11h6M11 8v6" stroke="#E8C547" stroke-width="1.2" stroke-linecap="round"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Audit IA personnalisé</strong>
+                                <p>1h visio · plan d'action · 497€</p>
+                            </div>
+                        </a>
+
+                        <a href="/consulting" class="hero-legacy-service">
+                            <span class="hero-legacy-service-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.93 4.93l2.12 2.12M16.95 16.95l2.12 2.12M4.93 19.07l2.12-2.12M16.95 7.05l2.12-2.12" stroke="#E8C547" stroke-width="1.5" stroke-linecap="round"/>
+                                    <circle cx="12" cy="12" r="3" fill="#E8C547"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <strong>Consulting done-with-you</strong>
+                                <p>Je construis tes Agents avec toi · 1500€+</p>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
-
 </section>
 
 {# ════════════════════════════════════════════════════════════════
